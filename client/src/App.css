@@ -343,9 +343,10 @@ a {
 
 .project-overlay {
   background-color: rgba(1,1,1, 0.1);
+  
 }
 
-.gradient:hover {
+.project-overlay:hover {
   background-color: rgba(1,1,1, 0);
 }
 /* ================================= */
