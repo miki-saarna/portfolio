@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { debounce } from "lodash";
-
+import { retrieveProjects } from "../utils/api";
 
 // import ParallaxImg from "../utils/ParallaxImg";
 
@@ -16,6 +16,7 @@ const HomePage = () => {
     
     const [offset, setOffset] = useState(0);
     const [offset2, setOffset2] = useState(0);
+    const [projectsList, setProjectsList] = useState([]);
 
     
     const handleScroll = () => setOffset(window.pageYOffset);
@@ -45,8 +46,12 @@ const HomePage = () => {
     // }
     // window.requestAnimationFrame(satelliteOrbit);
     
-
-
+    useEffect(() => {
+        retrieveProjects()
+            .then((response) => {
+                setProjectsList(response.slice(0, 4));
+            })
+    }, [])
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -155,7 +160,7 @@ const HomePage = () => {
             reveal2.style.opacity = `1`
         } else if(revealTop2 < windowHeight2 - revealPoint2 && revealTop2 < 301) {
             reveal2.style.opacity = `${1 - offset * 0.003}`
-            console.log(offset)
+            // console.log(offset)
         }
         
         return () => window.removeEventListener("scroll", handleScroll);
@@ -235,20 +240,48 @@ const HomePage = () => {
 
     // },[]);
 
+
+
+    const projectsHTML = projectsList.map((project) => {
+        const {
+            _id,
+            image,
+            name,
+        } = project;
+        
+        return (
+            <div key={_id}>
+                <h3>{name}</h3>
+                <img src={image} />
+                <div className='gradient'></div>
+            </div>
+        )
+    })
+
     return (
         <>
-            <h3 className='homepage-title parallax reveal' data-speed-y="0.1" data-scale=".01">Discover</h3>
-            <h3 className='possibilities reveal2' data-speed-y="0.1" data-scale=".005"> The Possibilities</h3>
-            {/* earth is not centering on page reload */}
-            <img className='earth' data-speed="0.7" src={earth} alt="" />
-            <img className='moon parallax scale-moon' data-speed-x="0.3" data-speed-y="0.4" data-scale=".0007" src={moon} alt="" />
-            <img className='saturn parallax scale-saturn' data-speed-x="0.1" data-speed-y="0.2" data-scale=".0005" src={saturn} alt="" />
-            <img className='rocket parallax scale-rocket' data-speed-x="0.9" data-speed-y="0.6" data-scale=".003" src={rocket} alt="" />
-            <img className='satellite parallax scale-satellite' data-speed-x="0.1" data-speed-y="0.1" data-scale=".0013" src={satellite} alt="" />
+            <div className='parallax-coolness'>
+                <h3 className='homepage-title parallax reveal' data-speed-y="0.1" data-scale=".01">Discover</h3>
+                <h3 className='possibilities reveal2' data-speed-y="0.1" data-scale=".005"> The Possibilities</h3>
+                {/* earth is not centering on page reload */}
+                <img className='earth' data-speed="0.7" src={earth} alt="" />
+                <img className='moon parallax scale-moon' data-speed-x="0.3" data-speed-y="0.4" data-scale=".0007" src={moon} alt="" />
+                <img className='saturn parallax scale-saturn' data-speed-x="0.1" data-speed-y="0.2" data-scale=".0005" src={saturn} alt="" />
+                <img className='rocket parallax scale-rocket' data-speed-x="0.9" data-speed-y="0.6" data-scale=".003" src={rocket} alt="" />
+                <img className='satellite parallax scale-satellite' data-speed-x="0.1" data-speed-y="0.1" data-scale=".0013" src={satellite} alt="" />
+            </div>
+            <div className='portrait-container'>
+                <img className='portrait portrait-a' src={portrait} />
+                <div className='overlay'>
+                    <p className>I'm Miki</p>
+                    <p>Software Engineer</p>
+                </div>
+            </div>
             <div className='portfolio'>
                 <h2>Portfolio</h2>
                 <div>
-                    <div>
+                    {projectsHTML}
+                    {/* <div>
                         <h3>Yubiwa</h3>
                         <img src={portfolioYubiwa} />
                         <div className="gradient"></div>
@@ -258,7 +291,7 @@ const HomePage = () => {
                     </div>
                     <div>
                         <img src="" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
