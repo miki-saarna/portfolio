@@ -153,6 +153,46 @@ const HomePage = () => {
             reveal2.style.opacity = `${1 - offset * 0.003}`
             // console.log(offset)
         }
+
+        const reveal3 = document.querySelector(".bio");
+    
+        // console.log(offset)
+        const windowHeight3 = window.innerHeight;
+        const revealTop3 = reveal3.getBoundingClientRect().top;
+        
+        // console.log(revealTop3)
+
+        let revealPoint3 = 10;
+        if(window.innerWidth < 768) {
+          revealPoint3 = 300
+        } else if(window.innerWidth < 1024) {
+          revealPoint3 = 150
+        } else if(window.innerWidth < 1200) {
+          revealPoint3 = 150
+        } else {
+          revealPoint3 = 150
+        }
+    // console.log(3)
+        // console.log(revealTop3)
+        // console.log(windowHeight3 - revealPoint3)
+
+        const speedY3 = reveal3.dataset.speedY;
+        const scale3 = reveal3.dataset.scale;
+
+    if(revealTop3 < windowHeight3 - revealPoint3) {
+        reveal3.style.transition = `all .15s ease` 
+        // reveal2.style.opacity = `1`
+        reveal3.style.transform = `translateY(-${offset * speedY3 * 0.3}px) scale(${1 + (offset * .015 * scale3)}, ${1 + (offset * .015 * scale3)})`
+        }
+
+    if(revealTop3 < windowHeight3 - revealPoint3 && revealTop3 > 300) {
+        reveal3.style.opacity = `1`
+    } else if(revealTop3 < windowHeight3 - revealPoint3 && revealTop3 < 301) {
+        reveal3.style.opacity = `${1 - offset * 0.003}`
+        // console.log(offset)
+    } else {
+        reveal3.style.opacity = 0;
+    }
         
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
@@ -260,14 +300,11 @@ const HomePage = () => {
                 <img className='rocket parallax' data-speed-x="0.9" data-speed-y="0.6" data-scale=".003" src={rocket} alt="" />
                 <img className='satellite parallax' data-speed-x="0.1" data-speed-y="0.1" data-scale=".0013" src={satellite} alt="" />
             </div>
-            <section>
-                <div className='portrait-container'>
-                    <img className='portrait' alt='some text' src={portrait} />
-                    <p>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</p>
-                    <div className='overlay portrait-overlay'></div>
-                </div>
-                <p>Check out my work below:</p>
-            </section>
+            <div className='portrait-container'>
+                <img className='portrait' alt='some text' src={portrait} />
+                <h5 className='bio' data-speed-y="0.1" data-scale=".01">I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
+                <div className='overlay portrait-overlay'></div>
+            </div>
             <div className='portfolio'>
                 <h2>Portfolio</h2>
                 <div>

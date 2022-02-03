@@ -286,7 +286,7 @@ a {
   background-color: rgba(0, 0, 0, .8);
 }
 
-.portrait-container > p {
+.portrait-container > h5 {
   position: absolute;
   z-index: 1;
   bottom: 75px;
@@ -298,7 +298,7 @@ a {
 .portfolio {
   display: flex;
   flex-direction: column;
-  /* margin-top: 125px; */
+  margin-top: 225px;
 } 
 
 .portfolio h2 {
