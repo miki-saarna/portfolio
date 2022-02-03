@@ -24,7 +24,7 @@ const PortfolioPage = () => {
         return (
             <div key={_id}>
                 <h3>{name}</h3>
-                <a href={github_link}>
+                <a href={github_link} target='_blank'>
                     <img alt='some text' src={image} width='100%' />
                 </a>
                 <p>Description: {description}</p>
