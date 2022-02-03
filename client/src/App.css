@@ -7,84 +7,41 @@
   font-family: 'Product Sans';
   overflow-x: hidden;
 }
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
 
 body {
   background-color: rgba(0,0,0,.87);
-  /* height: 200vh; */
   color: #f1f1f1;
 }
 
-h2 {
-  /* text-align: center; */
-}
-
-h3 {
-  font-size: 22px;
-  text-align: center;
-}
-
+/* consider removing/replacing */
 .headerLabel {
   margin: 30px 0 10px;
 }
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 
 /* header */
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-bottom: 2px solid #e1e1e1; */
 }
 
-h1 {
-  margin-top: 10px;
-  padding: 8px 50px;
-  text-align: center;
-  color: #f1f1f1;
+header h1 {
+  margin-top: 19px;
   font-size: 40px;
-  border-bottom: 3px solid #e1e1e1;
-  border-top: 3px solid #e1e1e1;
-  border-radius: 13px;
-  /* width: 100vw; */
 }
 
-h1::after {
+header h1::after {
   content: '.';
   color:#d8e2dc;
 }
 
-nav {
-  /* delete? */
-  z-index: 1;
-}
-
-
-header h2 {
-  padding: 7px 0;
-  width: 100vw;
-  text-align: center;
-  background-color: #f1f1f1;
-  color: #333333;
+header > h2 {
+  font-size: 14px;
 }
 
 ul {
   list-style-type: none;
   padding-left: 0;
-  /* use vw??? */
   width: 100%;
   top: 68px;
   position: absolute;
@@ -95,9 +52,9 @@ ul {
 
 li {
   padding: 7px 10px;
-  width: fit-content;
-  border-radius: 25px;
-  text-align: center;
+  /* width: fit-content; */
+  /* border-radius: 25px; */
+  /* text-align: center; */
   margin: 0 80px 13px;
   transition: all 140ms cubic-bezier(0.42, 0, 0.08, 1.44);
 }
@@ -111,22 +68,10 @@ a {
   color: #f1f1f1;
   font-size: 24px;
   font-weight: 700;
-  /* z-index: 100; */
 
 }
 
 /* ================================= */
-
-/* unsure of function below - delete? */
-/* .name-menu { */
-  /* display: flex;
-  align-items: center;
-  padding: 30px 0;
-  background-color: #333333;
-  color: #f1f1f1;
-  width: 100vw;
-  position: relative; */
-/* } */
 
 
 /* slide-in-and-out menu button */
@@ -228,7 +173,7 @@ a {
   }
 }
 
-.noPageGradient {
+/* .noPageGradient { */
   /* position: absolute;
   top: 0;
   right: 0;
@@ -236,9 +181,9 @@ a {
   height: 100vh;
   background-color: transparent;
   animation: fadeOut 250ms; */
-}
+/* } */
 
-@keyframes fadeOut{
+/* @keyframes fadeOut{
   from {
     opacity: 1;
     background-color: rgba(0,0,0,0.7); 
@@ -247,15 +192,23 @@ a {
   to {
     opacity: 0;
   }
-}
+} */
 /* ================================= */
 
 /* HomePage */
+
+.parallax-content {
+  height: 120vh;
+}
+
 .homepage-title, .possibilities {
   text-align: center;
-  margin-top: 200px;
   font-size: 24px;
   z-index: 6;
+}
+
+.homepage-title {
+  margin-top: 200px;
 }
 
 .possibilities {
@@ -264,11 +217,9 @@ a {
 
 .earth, .moon, .saturn, .rocket, .satellite {
   position: absolute;
-  /* z-index: 1; */
 }
 
 .earth {
-  position: absolute;
   width: 45%;
   top: 50%;
   left: 50%;
@@ -277,7 +228,6 @@ a {
 }
 
 .moon {
-  position: absolute;
   width: 25%;
   top: 70%;
   right: 10%;
@@ -287,7 +237,6 @@ a {
 }
 
 .saturn {
-  position: absolute;
   width: 25%;
   top: 40%;
   right: 5%;
@@ -295,7 +244,6 @@ a {
 }
 
 .rocket {
-  position: absolute;
   width: 25%;
   top: 61%;
   left: -25%;
@@ -303,19 +251,59 @@ a {
 }
 
 .satellite {
-  position: absolute;
   width: 15%;
   top: 59%;
   left: 42%;
   z-index: 4;
 }
 
+.portrait {
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+  object-position: bottom center;
+}
+
+.portrait-container {
+  height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-container .portrait-overlay {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  
+  color: #f1f1f1;
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.portrait-container > p {
+  position: absolute;
+  z-index: 1;
+  bottom: 75px;
+  margin: 0 25px;
+  text-align: center;
+  font-size: 20px;
+}
+
 .portfolio {
-  margin-top: 125px;
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 125px; */
 } 
 
 .portfolio h2 {
   padding: 25px;
+  margin: auto;
 }
 
 .portfolio > div {
@@ -327,7 +315,7 @@ a {
 .portfolio > div > div {
   width: 90%;
   height: 200px;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   border-radius: 35px;
   margin-bottom: 25px;
   object-fit: cover;
@@ -340,10 +328,10 @@ a {
 
 .portfolio h3 {
   color: white;
-  position: absolute;
-  z-index: 200;
+  z-index: 1;
 }
 .portfolio img{
+  /* play around with these settings to adjust image location */
   width: 120%;
   top: -10px;
   left: -20px;
@@ -351,15 +339,10 @@ a {
   object-position: center center;
   object-fit: contain;
   overflow-y: hidden;
-  z-index: 98;
 }
 
-.gradient {
+.project-overlay {
   background-color: rgba(1,1,1, 0.1);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 100;
 }
 
 .gradient:hover {
@@ -474,34 +457,6 @@ button {
   /* border: 3px solid red; */
 }
 
-.portrait {
-  width: 100%;
-  height: 200px;
-  display: block;
-  object-fit: cover;
-  object-position: bottom center;
-}
-
-.portrait-a {
-  height: 400px;
-}
-
-.portrait-container {
-  height: 400px;
-  width: 100%;
-  position: relative;
-}
-
-.portrait-container .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #f3f3f3;
-  background-color: rgba(0, 0, 0, .8);
-}
-
 /* .pageGradient {
   position: absolute;
   top: 0;
@@ -526,7 +481,3 @@ button {
 
 
 /* ================================= */
-
-.parallax-coolness {
-  height: 120vh;
-}

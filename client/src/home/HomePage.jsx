@@ -2,25 +2,28 @@ import React, { useState, useEffect } from "react";
 import { debounce } from "lodash";
 import { retrieveProjects } from "../utils/api";
 
-// import ParallaxImg from "../utils/ParallaxImg";
-
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
 import moon from "../images/moon.png";
 import saturn from "../images/saturn.png";
 import rocket from "../images/rocket.png";
 import satellite from "../images/satellite.png";
-import portfolioYubiwa from "../images/portfolio-yubiwa.png";
 
 const HomePage = () => {
     
-    const [offset, setOffset] = useState(0);
-    const [offset2, setOffset2] = useState(0);
-    const [projectsList, setProjectsList] = useState([]);
-
     
+    const [projectsList, setProjectsList] = useState([]);
+    // retreive projects
+    useEffect(() => {
+        retrieveProjects()
+            .then((response) => {
+                // only display up to 4 projects on the home page
+                setProjectsList(response.slice(0, 4));
+            })
+    }, [])
+
+    const [offset, setOffset] = useState(0);
     const handleScroll = () => setOffset(window.pageYOffset);
-    const handleScroll2 = () => setOffset2(window.pageYOffset);
     
 
     // AnimatedEllipse();
@@ -33,7 +36,7 @@ const HomePage = () => {
         
     //     satelliteMovement += velocity
 
-    //     const satellite = document.querySelector('.scale-satellite')
+    //     const satellite = document.querySelector('satellite')
     //     // setRadians(offset * velocity);
     //     satellite.style.transform = `translate(${Math.cos(satelliteMovement) * radiusX}px, ${Math.sin(satelliteMovement) * radiusY + Math.cos(satelliteMovement) * radiusX}px) scale(${Math.sin(satelliteMovement) + 1.3}) rotate(0deg) `
             
@@ -46,12 +49,7 @@ const HomePage = () => {
     // }
     // window.requestAnimationFrame(satelliteOrbit);
     
-    useEffect(() => {
-        retrieveProjects()
-            .then((response) => {
-                setProjectsList(response.slice(0, 4));
-            })
-    }, [])
+
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -62,28 +60,27 @@ const HomePage = () => {
             const speedY = element.dataset.speedY;
             const scale = element.dataset.scale;
 
-            if(element.className.includes('scale-rocket')) {
+            if(element.className.includes('rocket')) {
                 element.style.transform = `matrix(${1 + (offset * scale)}, 0, 0, ${1 + (offset * scale)}, ${offset * speedX}, -${offset * speedY})`
             }
-            if(element.className.includes('scale-moon')) {
+            if(element.className.includes('moon')) {
                 element.style.transform = `matrix(${1 - (offset * scale)}, 0, 0, ${1 - (offset * scale)}, -${offset * speedX}, -${offset * speedY})`
             }
-            if(element.className.includes('scale-saturn')) {
+            if(element.className.includes('saturn')) {
                 element.style.transform = `matrix(${1 - (offset * scale)}, 0, 0, ${1 - (offset * scale)}, -${offset * speedX}, ${offset * speedY})`
             }
-            if(element.className.includes('scale-satellite')) {
+            if(element.className.includes('satellite')) {
 
-                // formula for a parabola
-                // element.style.transform = `translate(${offset * speed * 17}px, -${((offset - 100) * speed) ** 2}px)`;
-                
-                // adjust radius x-value
+                // adjust radius x and y values
                 const radiusX = 95;
-                // adjust radius y-value
                 const radiusY = 50;
                 // adjust speed of motion
                 const velocity = 0.02;
-                // calculates position relative to offset as well as velocity
+                // calculates position relative to offset and velocity
                 const movement = offset * velocity;
+
+                // formula for a parabola
+                // element.style.transform = `translate(${offset * speed * 17}px, -${((offset - 100) * speed) ** 2}px)`;
                 
                 // creates a circular motion
                 // element.style.transform = `translate(${Math.cos(movement) * radiusX}px, ${Math.sin(movement) * radiusX}px) scale(${Math.sin(movement) + 1.3}) rotate(0deg) `
@@ -97,14 +94,9 @@ const HomePage = () => {
                     : element.style.zIndex = 4
                     
             }
-            // if(element.className.includes('homepage-title')) {
-                // element.style.transition = `all .1s ease`;
-                // element.style.transform = `translateY(-${offset * speedY}px)`
-                // element.style.transform = `translateY(-${offset * speedY}px) scale(${1 + (offset * scale)}, ${1 + (offset * scale)})`
-                
-            // }
         })
-    const reveal = document.querySelector(".reveal");
+
+    const reveal = document.querySelector(".homepage-title");
 
     const windowHeight = window.innerHeight;
     const revealTop = reveal.getBoundingClientRect().top;
@@ -120,7 +112,6 @@ const HomePage = () => {
       revealPoint = 150
     }
 
-    
     const speedY = reveal.dataset.speedY;
     const scale = reveal.dataset.scale;
     
@@ -131,7 +122,7 @@ const HomePage = () => {
             reveal.style.transform = `translateY(-${offset * speedY}px) scale(${1 + (offset * scale)}, ${1 + (offset * scale)})`
     } 
 
-    const reveal2 = document.querySelector(".reveal2");
+    const reveal2 = document.querySelector(".possibilities");
     
         
             const windowHeight2 = window.innerHeight;
@@ -253,45 +244,34 @@ const HomePage = () => {
             <div key={_id}>
                 <h3>{name}</h3>
                 <img src={image} />
-                <div className='gradient'></div>
+                <div className='overlay project-overlay'></div>
             </div>
         )
     })
 
     return (
         <>
-            <div className='parallax-coolness'>
-                <h3 className='homepage-title parallax reveal' data-speed-y="0.1" data-scale=".01">Discover</h3>
-                <h3 className='possibilities reveal2' data-speed-y="0.1" data-scale=".005"> The Possibilities</h3>
-                {/* earth is not centering on page reload */}
+            <div className='parallax-content'>
+                <h3 className='homepage-title' data-speed-y="0.1" data-scale=".01">Discover</h3>
+                <h3 className='possibilities' data-speed-y="0.1" data-scale=".005"> The Possibilities</h3>
                 <img className='earth' data-speed="0.7" src={earth} alt="" />
-                <img className='moon parallax scale-moon' data-speed-x="0.3" data-speed-y="0.4" data-scale=".0007" src={moon} alt="" />
-                <img className='saturn parallax scale-saturn' data-speed-x="0.1" data-speed-y="0.2" data-scale=".0005" src={saturn} alt="" />
-                <img className='rocket parallax scale-rocket' data-speed-x="0.9" data-speed-y="0.6" data-scale=".003" src={rocket} alt="" />
-                <img className='satellite parallax scale-satellite' data-speed-x="0.1" data-speed-y="0.1" data-scale=".0013" src={satellite} alt="" />
+                <img className='moon parallax' data-speed-x="0.3" data-speed-y="0.4" data-scale=".0007" src={moon} alt="" />
+                <img className='saturn parallax' data-speed-x="0.1" data-speed-y="0.2" data-scale=".0005" src={saturn} alt="" />
+                <img className='rocket parallax' data-speed-x="0.9" data-speed-y="0.6" data-scale=".003" src={rocket} alt="" />
+                <img className='satellite parallax' data-speed-x="0.1" data-speed-y="0.1" data-scale=".0013" src={satellite} alt="" />
             </div>
-            <div className='portrait-container'>
-                <img className='portrait portrait-a' src={portrait} />
-                <div className='overlay'>
-                    <p className>I'm Miki</p>
-                    <p>Software Engineer</p>
+            <section>
+                <div className='portrait-container'>
+                    <img className='portrait' alt='some text' src={portrait} />
+                    <p>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</p>
+                    <div className='overlay portrait-overlay'></div>
                 </div>
-            </div>
+                <p>Check out my work below:</p>
+            </section>
             <div className='portfolio'>
                 <h2>Portfolio</h2>
                 <div>
                     {projectsHTML}
-                    {/* <div>
-                        <h3>Yubiwa</h3>
-                        <img src={portfolioYubiwa} />
-                        <div className="gradient"></div>
-                    </div>
-                    <div>
-                        <img src="" />
-                    </div>
-                    <div>
-                        <img src="" />
-                    </div> */}
                 </div>
             </div>
         </>
