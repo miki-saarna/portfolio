@@ -159,6 +159,7 @@ const HomePage = () => {
 
         // possible to replace querySelector with the elements? like h5
         const reveal3 = document.querySelector(".bio");
+        
 
         const revealTop3 = reveal3.getBoundingClientRect().top;
 
@@ -176,11 +177,14 @@ const HomePage = () => {
         const speedY3 = reveal3.dataset.speedY;
         const scale3 = reveal3.dataset.scale;
 
-    if(revealTop3 < windowHeight - revealPoint3) {
+    if(revealTop3 < windowHeight - revealPoint3) { // if x < 544
         reveal3.style.transition = `all .20s ease` 
         reveal3.style.transform = `translateY(-${offset * speedY3 * 0.3}px) scale(${1 + (offset * .015 * scale3)}, ${1 + (offset * .015 * scale3)})`
     }
 
+    // if (revealTop3 >= 544) {
+    //     reveal3.style.opacity = '0';
+    // }
     if(revealTop3 < windowHeight - revealPoint3 && revealTop3 >= 100) { // if 100 <= x < 544
         reveal3.style.opacity = `1`
     } else if(revealTop3 < windowHeight - revealPoint3 && revealTop3 < 100) { // if x < 100
@@ -188,6 +192,7 @@ const HomePage = () => {
     } else { // else...
         reveal3.style.opacity = 0;
     }
+
         
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
@@ -222,7 +227,7 @@ const HomePage = () => {
             <div className='portrait-container'>
                 <img className='portrait' alt='some text' src={portrait} />
                 <h5 className='bio' data-speed-y="0.1" data-scale=".01">I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
-                <div className='overlay portrait-overlay'></div>
+                <div className='overlay portrait-overlay' data-speed-y='0.1'></div>
             </div>
             <div className='portfolio'>
                 <h2>Portfolio</h2>
