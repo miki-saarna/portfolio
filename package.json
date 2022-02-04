@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx concurrently 'npm run start:server' 'npm run start:client'",
+    "start:server": "npm --prefix ./server run start:dev",
+    "start:client": "npm --prefix ./client start"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
 }

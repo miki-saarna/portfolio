@@ -96,11 +96,12 @@ const HomePage = () => {
             }
         })
 
+    const windowHeight = window.innerHeight;
+
     const reveal = document.querySelector(".homepage-title");
 
-    const windowHeight = window.innerHeight;
     const revealTop = reveal.getBoundingClientRect().top;
-    
+
     let revealPoint = 10;
     if(window.innerWidth < 768) {
       revealPoint = 400
@@ -115,7 +116,7 @@ const HomePage = () => {
     const speedY = reveal.dataset.speedY;
     const scale = reveal.dataset.scale;
     
-    if(revealTop < windowHeight - revealPoint) {
+    if(revealTop < windowHeight - revealPoint) { // x < 444
         reveal.classList.add('active');
             reveal.style.opacity = `${offset * speedY * .3}`
             reveal.style.transition = `all .15s ease`
@@ -124,14 +125,12 @@ const HomePage = () => {
 
     const reveal2 = document.querySelector(".possibilities");
     
-        
-            const windowHeight2 = window.innerHeight;
             const revealTop2 = reveal2.getBoundingClientRect().top;
             
             
             let revealPoint2 = 10;
             if(window.innerWidth < 768) {
-              revealPoint2 = 300
+              revealPoint2 = 350
             } else if(window.innerWidth < 1024) {
               revealPoint2 = 150
             } else if(window.innerWidth < 1200) {
@@ -139,28 +138,29 @@ const HomePage = () => {
             } else {
               revealPoint2 = 150
             }
-        // console.log(revealTop2)
-            
-        if(revealTop2 < windowHeight2 - revealPoint2) {
-            reveal2.style.transition = `all .15s ease` 
-            // reveal2.style.opacity = `1`
-            reveal2.style.transform = `translateY(-${offset * speedY}px) scale(${1 + (offset * .15 * scale)}, ${1 + (offset * .15 * scale)})`
-            }
 
-        if(revealTop2 < windowHeight2 - revealPoint2 && revealTop2 > 300) {
-            reveal2.style.opacity = `1`
-        } else if(revealTop2 < windowHeight2 - revealPoint2 && revealTop2 < 301) {
-            reveal2.style.opacity = `${1 - offset * 0.003}`
-            // console.log(offset)
+        const speedY2 = reveal2.dataset.speedY;
+        const scale2 = reveal2.dataset.scale;
+
+        if(revealTop2 >= windowHeight - revealPoint2) {
+            reveal2.style.opacity = '0';
         }
 
+        if(revealTop2 < windowHeight - revealPoint2) { // x < 544
+            reveal2.style.transition = `all .15s ease` 
+            reveal2.style.transform = `translateY(-${offset * speedY2}px) scale(${1 + (offset * .35 * scale2)}, ${1 + (offset * .35 * scale2)})`
+        }
+
+        if(revealTop2 < windowHeight - revealPoint2 && revealTop2 >= 100) { // 100 < x < 544
+            reveal2.style.opacity = `${(offset - 129)* speedY2 * .1}`
+        } else if(revealTop2 < 100) { // x < 100
+            reveal2.style.opacity = `${1 - (offset - 480) * 0.006}`
+        }
+
+        // possible to replace querySelector with the elements? like h5
         const reveal3 = document.querySelector(".bio");
-    
-        // console.log(offset)
-        const windowHeight3 = window.innerHeight;
+
         const revealTop3 = reveal3.getBoundingClientRect().top;
-        
-        // console.log(revealTop3)
 
         let revealPoint3 = 10;
         if(window.innerWidth < 768) {
@@ -172,106 +172,25 @@ const HomePage = () => {
         } else {
           revealPoint3 = 150
         }
-    // console.log(3)
-        // console.log(revealTop3)
-        // console.log(windowHeight3 - revealPoint3)
 
         const speedY3 = reveal3.dataset.speedY;
         const scale3 = reveal3.dataset.scale;
 
-    if(revealTop3 < windowHeight3 - revealPoint3) {
-        reveal3.style.transition = `all .15s ease` 
-        // reveal2.style.opacity = `1`
+    if(revealTop3 < windowHeight - revealPoint3) {
+        reveal3.style.transition = `all .20s ease` 
         reveal3.style.transform = `translateY(-${offset * speedY3 * 0.3}px) scale(${1 + (offset * .015 * scale3)}, ${1 + (offset * .015 * scale3)})`
-        }
+    }
 
-    if(revealTop3 < windowHeight3 - revealPoint3 && revealTop3 > 300) {
+    if(revealTop3 < windowHeight - revealPoint3 && revealTop3 >= 100) { // if 100 <= x < 544
         reveal3.style.opacity = `1`
-    } else if(revealTop3 < windowHeight3 - revealPoint3 && revealTop3 < 301) {
-        reveal3.style.opacity = `${1 - offset * 0.003}`
-        // console.log(offset)
-    } else {
+    } else if(revealTop3 < windowHeight - revealPoint3 && revealTop3 < 100) { // if x < 100
+        reveal3.style.opacity = `${1 - (offset - 1208) * 0.006}`
+    } else { // else...
         reveal3.style.opacity = 0;
     }
         
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
-
-
-    // section fade in
-// useEffect(() => {
-//     const reveal = document.querySelector(".reveal");
-
-//     window.addEventListener("scroll", () => {
-//         const windowHeight = window.innerHeight;
-//         const revealTop = reveal.getBoundingClientRect().top;
-        
-//         let revealPoint = 10;
-//         if(window.innerWidth < 768) {
-//           revealPoint = 400
-//         } else if(window.innerWidth < 1024) {
-//           revealPoint = 150
-//         } else if(window.innerWidth < 1200) {
-//           revealPoint = 150
-//         } else {
-//           revealPoint = 150
-//         }
-    
-        
-//         const speedY = reveal.dataset.speedY;
-//         const scale = reveal.dataset.scale;
-        
-//         if(revealTop < windowHeight - revealPoint) {
-//             reveal.classList.add('active');
-//             setInterval(() => { 
-//                 const offsetAfterTwoSeconds = window.pageYOffset;
-                
-                
-//                 reveal.style.transition = `all .05s ease`
-//                 reveal.style.transform = `translateY(-${(offset - offsetAfterTwoSeconds) * speedY}px) scale(${1 + ((offset - offsetAfterTwoSeconds) * scale)}, ${1 + ((offset - offsetAfterTwoSeconds) * scale)})`
-                
-
-//             }, 2000)
-//         } else {
-//             reveal.classList.remove('active');
-//         }
-//     });
-//     // return () => window.removeEventListener("scroll", handleScroll);
-// },[]);
-
-    // section fade in
-    // useEffect(() => {
-    //     const reveal2 = document.querySelector(".reveal2");
-    
-    //     window.addEventListener("scroll", () => {
-    //         const windowHeight = window.innerHeight;
-    //         const revealTop = reveal2.getBoundingClientRect().top;
-            
-            
-    //         let revealPoint = 10;
-    //         if(window.innerWidth < 768) {
-    //           revealPoint = 300
-    //         } else if(window.innerWidth < 1024) {
-    //           revealPoint = 150
-    //         } else if(window.innerWidth < 1200) {
-    //           revealPoint = 150
-    //         } else {
-    //           revealPoint = 150
-    //         }
-        
-            
-    //         if(revealTop < windowHeight - revealPoint) {
-    //             reveal.classList.add('active');
-    //             setInterval(() => { reveal.style.transition = `all .05s ease` }, 2000)
-    //         } else {
-    //             reveal.classList.remove('active');
-    //         }
-    //     });
-    // // return () => window.removeEventListener("scroll", handleScroll);
-
-    // },[]);
-
-
 
     const projectsHTML = projectsList.map((project) => {
         const {
