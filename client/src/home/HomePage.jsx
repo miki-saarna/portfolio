@@ -3,6 +3,7 @@ import { debounce } from "lodash";
 import { retrieveProjects } from "../utils/api";
 import TextAnimation from "../utils/TextAnimation";
 import ParallaxLinear from "../utils/ParallaxLinear";
+import ParallaxEllipse from "../utils/ParallaxEllipse";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -27,73 +28,20 @@ const HomePage = () => {
     const [offset, setOffset] = useState(0);
     const handleScroll = () => setOffset(window.pageYOffset);
     
-
-    // AnimatedEllipse();
-    // let satelliteMovement = 0;
-    
-    // function satelliteOrbit() {
-    //     const radiusX = 95;
-    //     const radiusY = 50;
-    //     const velocity = 0.02;
-        
-    //     satelliteMovement += velocity
-
-    //     const satellite = document.querySelector('satellite')
-    //     // setRadians(offset * velocity);
-    //     satellite.style.transform = `translate(${Math.cos(satelliteMovement) * radiusX}px, ${Math.sin(satelliteMovement) * radiusY + Math.cos(satelliteMovement) * radiusX}px) scale(${Math.sin(satelliteMovement) + 1.3}) rotate(0deg) `
-            
-    //     // adjust z-index based on if element is 'in-front' or 'behind' the earth
-    //     Math.sin(satelliteMovement) < 0 
-    //         ? satellite.style.zIndex = 2
-    //         : satellite.style.zIndex = 4
-
-    //     requestAnimationFrame(satelliteOrbit);
-    // }
-    // window.requestAnimationFrame(satelliteOrbit);
-    
-
-
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
         const parallaxLinear = document.querySelectorAll(".parallaxLinear");
         ParallaxLinear(parallaxLinear, offset);
 
-
-        const parallax = document.querySelectorAll(".parallax");
-
-        parallax.forEach((element) => {
-            const speedX = element.dataset.translateXSpeed;
-            const speedY = element.dataset.translateYSpeed;
-            const scale = element.dataset.scaleSpeed;
-
-            if(element.className.includes('satellite')) {
-
-                // adjust radius x and y values
-                const radiusX = 95;
-                const radiusY = 50;
-                // adjust speed of motion
-                const velocity = 0.02;
-                // calculates position relative to offset and velocity
-                const movement = offset * velocity;
-
-                // formula for a parabola
-                // element.style.transform = `translate(${offset * speed * 17}px, -${((offset - 100) * speed) ** 2}px)`;
-                
-                // creates a circular motion
-                // element.style.transform = `translate(${Math.cos(movement) * radiusX}px, ${Math.sin(movement) * radiusX}px) scale(${Math.sin(movement) + 1.3}) rotate(0deg) `
-
-                // creates an ellipse motion
-                element.style.transform = `translate(${Math.cos(movement) * radiusX}px, ${Math.sin(movement) * radiusY + Math.cos(movement) * radiusX}px) scale(${Math.sin(movement) + (scale * 1000)}) rotate(0deg) `
-                    
-                // adjust z-index based on if element is 'in-front' or 'behind' the earth
-                Math.sin(movement) < 0 
-                    ? element.style.zIndex = 2
-                    : element.style.zIndex = 4
-                    
-            }
-        })
-
+        const parallaxEllipse = document.querySelector(".parallaxEllipse");
+        // adjust radius x and y values and speed of motion
+        const variables = {
+            radiusX: 95,
+            radiusY: 50,
+            velocity: 0.02
+        }
+        ParallaxEllipse(parallaxEllipse, variables, offset);
 
         // let revealPoint = 10;
         // if(window.innerWidth < 768) {
@@ -154,7 +102,7 @@ const HomePage = () => {
                 <img className='moon parallaxLinear' data-translate-x-speed="-0.3" data-translate-y-speed="-0.4" data-scale-speed="-.0007" src={moon} alt="" />
                 <img className='saturn parallaxLinear' data-translate-x-speed="-0.1" data-translate-y-speed="0.2" data-scale-speed="-.0005" src={saturn} alt="" />
                 <img className='rocket parallaxLinear' data-translate-x-speed="0.9" data-translate-y-speed="-0.6" data-scale-speed=".003" src={rocket} alt="" />
-                <img className='satellite parallax' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
+                <img className='satellite parallaxEllipse' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
             </div>
             <div className='portrait-container'>
                 <img className='portrait' alt='some text' src={portrait} />

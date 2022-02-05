@@ -1,5 +1,4 @@
-
-
+// designed to accept multiple elements
 export default function ParallaxLinear(elements, offset) {
     elements.forEach((element) => {
         const {
