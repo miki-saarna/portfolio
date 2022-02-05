@@ -27,22 +27,23 @@ const AboutPage = () => {
             myEle.style.padding = `0 8px`
             myEle.style.borderRight = `2px solid #f1f1f1`
             myEle.style.borderLeft = `2px solid #f1f1f1`
-            console.log(myEle.style)
         }, 150)
     },[])
     
 
     return (
-        <>    
+        <div>    
+            <img className='portrait about-portrait' src={portrait} />
             <div className='aboutPage'>
-                <h2 className='headerLabel'>about me</h2>
-                <p id="slidingOut">My name is Miki and I am a Shopify Expert specializing in store setup, migrations, theme customization, development and more.</p>
+                {/* <h2 className='headerLabel'>about me</h2> */}
+                
+            <p id="slidingOut">My name is Miki and I'm a Full Stack Developer.</p>
             </div>
-            <img className='portrait' src={portrait} />
             {/* <h3>storeA</h3> */}
             {/* <p>Modern premium theme with customization for dynamic menu, advanced filtering capabilities, and lifestyle design.</p> */}
             {/* <button>See Demo</button> */}
-        </>
+            <p>Checkout my Projects Here!</p>
+        </div>
     )
 }
 

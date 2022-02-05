@@ -421,17 +421,23 @@ button {
 /* ================================= */
 
 /* about page */
+
 .aboutPage {
   margin-right: 20px;
   margin-left: 20px;
   /* width: 0; */
+  /* height: 3vh; */
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
 
 .aboutPage h2 {
   text-align: center;
+}
+
+.about-portrait {
+  height: 200px;
 }
 
 #slidingOut {
