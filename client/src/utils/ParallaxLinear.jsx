@@ -1,0 +1,14 @@
+
+
+export default function ParallaxLinear(elements, offset) {
+    elements.forEach((element) => {
+        const {
+            dataset: {
+                translateXSpeed,
+                translateYSpeed,
+                scaleSpeed
+            }
+        } = element
+        element.style.transform = `matrix(${1 + (offset * scaleSpeed)}, 0, 0, ${1 + (offset * scaleSpeed)}, ${offset * translateXSpeed}, ${offset * translateYSpeed})`
+    })
+}

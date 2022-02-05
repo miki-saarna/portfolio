@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { debounce } from "lodash";
 import { retrieveProjects } from "../utils/api";
 import TextAnimation from "../utils/TextAnimation";
+import ParallaxLinear from "../utils/ParallaxLinear";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -54,22 +55,18 @@ const HomePage = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
+
+        const parallaxLinear = document.querySelectorAll(".parallaxLinear");
+        ParallaxLinear(parallaxLinear, offset);
+
+
         const parallax = document.querySelectorAll(".parallax");
 
         parallax.forEach((element) => {
-            const speedX = element.dataset.speedX;
-            const speedY = element.dataset.speedY;
-            const scale = element.dataset.scale;
+            const speedX = element.dataset.translateXSpeed;
+            const speedY = element.dataset.translateYSpeed;
+            const scale = element.dataset.scaleSpeed;
 
-            if(element.className.includes('rocket')) {
-                element.style.transform = `matrix(${1 + (offset * scale)}, 0, 0, ${1 + (offset * scale)}, ${offset * speedX}, -${offset * speedY})`
-            }
-            if(element.className.includes('moon')) {
-                element.style.transform = `matrix(${1 - (offset * scale)}, 0, 0, ${1 - (offset * scale)}, -${offset * speedX}, -${offset * speedY})`
-            }
-            if(element.className.includes('saturn')) {
-                element.style.transform = `matrix(${1 - (offset * scale)}, 0, 0, ${1 - (offset * scale)}, -${offset * speedX}, ${offset * speedY})`
-            }
             if(element.className.includes('satellite')) {
 
                 // adjust radius x and y values
@@ -154,10 +151,10 @@ const HomePage = () => {
                 <h3 className='homepage-title' data-translate-y-speed="0.1" data-reveal-opacity-speed='0.03' data-scale-speed=".01">Discover</h3>
                 <h3 className='possibilities' data-translate-y-speed="0.1" data-scale-speed=".00175" data-reveal-opacity-speed='0.01' data-hide-opacity-speed='0.007' data-hide-opacity-point='100'> The Possibilities</h3>
                 <img className='earth' data-speed="0.7" src={earth} alt="" />
-                <img className='moon parallax' data-speed-x="0.3" data-speed-y="0.4" data-scale=".0007" src={moon} alt="" />
-                <img className='saturn parallax' data-speed-x="0.1" data-speed-y="0.2" data-scale=".0005" src={saturn} alt="" />
-                <img className='rocket parallax' data-speed-x="0.9" data-speed-y="0.6" data-scale=".003" src={rocket} alt="" />
-                <img className='satellite parallax' data-speed-x="0.1" data-speed-y="0.1" data-scale=".0013" src={satellite} alt="" />
+                <img className='moon parallaxLinear' data-translate-x-speed="-0.3" data-translate-y-speed="-0.4" data-scale-speed="-.0007" src={moon} alt="" />
+                <img className='saturn parallaxLinear' data-translate-x-speed="-0.1" data-translate-y-speed="0.2" data-scale-speed="-.0005" src={saturn} alt="" />
+                <img className='rocket parallaxLinear' data-translate-x-speed="0.9" data-translate-y-speed="-0.6" data-scale-speed=".003" src={rocket} alt="" />
+                <img className='satellite parallax' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
             </div>
             <div className='portrait-container'>
                 <img className='portrait' alt='some text' src={portrait} />
