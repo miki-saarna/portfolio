@@ -1,10 +1,9 @@
 export default function FadeInEffect(elements) {
-  // does not appear to be functioning properly
   const appearOptions = {
-      // if threshold is 1, the entire element needs to be within the screen 
-      threshold: 0,
-      // sets how far from the edges the element needs to be
-      rootMargin: "0px 0px -50px 0px"
+      // if threshold is 1, the entire element needs to be within the screen to appear
+      threshold: 0.25,
+      // sets how far from the edges the element needs to be to appear
+      rootMargin: "0px 0px -15px 0px"
     };
   const appearOnScroll = new IntersectionObserver(function(
       elements,
@@ -18,9 +17,8 @@ export default function FadeInEffect(elements) {
             element.target.classList.add("appear");
             appearOnScroll.unobserve(element.target);
           }
-        },
-        appearOptions);
-  })
+        });
+  },appearOptions)
   elements.forEach(element => {
       appearOnScroll.observe(element);
     });
