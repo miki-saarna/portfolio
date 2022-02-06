@@ -1,13 +1,24 @@
 export default function FadeInEffect(elements) {
-        elements.forEach((element) => {
-            const windowHeight = window.innerHeight;
-            const revealTop = element.getBoundingClientRect().top;
-            if (revealTop < windowHeight - 125) {
-                element.style.opacity = `1`
-                element.style.transition = `625ms`;
-            } else {
-                element.style.opacity = `0`
-                element.style.transition = `625ms`;
-            }
-        })
+            const appearOptions = {
+                threshold: 0,
+                rootMargin: "0px 0px -250px 0px"
+              };
+            const appearOnScroll = new IntersectionObserver(function(
+                entries,
+                appearOnScroll
+            ){
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                      return;
+                    } else {
+                      entry.target.classList.add("appear");
+                      appearOnScroll.unobserve(entry.target);
+                    }
+                  },
+                  appearOptions);
+            })
+            elements.forEach(fader => {
+                appearOnScroll.observe(fader);
+              });
+        // })
 }

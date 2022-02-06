@@ -5,6 +5,7 @@ import TextAnimation from "../utils/TextAnimation";
 import ParallaxLinear from "../utils/ParallaxLinear";
 import ParallaxEllipse from "../utils/ParallaxEllipse";
 import FadeInEffect from "../utils/FadeInEffect";
+import ParallaxLinearRocket from "../utils/ParallaxLinearRocket";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -28,12 +29,15 @@ const HomePage = () => {
 
     const [offset, setOffset] = useState(0);
     const handleScroll = () => setOffset(window.pageYOffset);
-    
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
         const parallaxLinear = document.querySelectorAll(".parallaxLinear");
         ParallaxLinear(parallaxLinear, offset);
+
+        const parallaxLinearRocket = document.querySelector(".parallaxLinearRocket");
+        // tremendous difficulty getting the rocket to not affect other elements
+        // ParallaxLinearRocket(parallaxLinearRocket, offset);
 
         const parallaxEllipse = document.querySelector(".parallaxEllipse");
         // adjust radius x and y values and speed of motion
@@ -43,7 +47,7 @@ const HomePage = () => {
             velocity: 0.02
         }
         ParallaxEllipse(parallaxEllipse, variables, offset);
-
+    
         // let revealPoint = 10;
         // if(window.innerWidth < 768) {
         //   revealPoint = 400
@@ -74,6 +78,7 @@ const HomePage = () => {
             element: bioReveal, 
             revealPoint: 300
         })
+        // possibilitiesReveal.style.letterSpacing = `${offset * 0.03}px`;
 
         // move this parallax effect into a separate helper file!!!
         const portrait = document.querySelector('.portrait');
@@ -83,9 +88,15 @@ const HomePage = () => {
 
         const projectCards = document.querySelectorAll('.project-card');
         FadeInEffect(projectCards)
+        
     
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
+
+    // useEffect(() => {
+        // const projectCards = document.querySelectorAll('.project-card');
+        // FadeInEffect(projectCards)
+    // }, [])
 
     
 
@@ -109,11 +120,11 @@ const HomePage = () => {
         <>
             <div className='parallax-content'>
                 <h3 className='homepage-title' data-translate-y-speed="0.1" data-reveal-opacity-speed='0.03' data-scale-speed=".01">Imagine</h3>
-                <h3 className='possibilities' data-translate-y-speed="0.1" data-scale-speed=".00175" data-reveal-opacity-speed='0.01' data-hide-opacity-speed='0.007' data-hide-opacity-point='100'> The Possibilities</h3>
+                <h3 className='possibilities' data-translate-y-speed="0.1" data-scale-speed=".00235" data-reveal-opacity-speed='0.01' data-hide-opacity-speed='0.007' data-hide-opacity-point='100'> The Possibilities</h3>
                 <img className='earth' data-speed="0.7" src={earth} alt="" />
                 <img className='moon parallaxLinear' data-translate-x-speed="-0.3" data-translate-y-speed="-0.4" data-scale-speed="-.0007" src={moon} alt="" />
                 <img className='saturn parallaxLinear' data-translate-x-speed="-0.1" data-translate-y-speed="0.2" data-scale-speed="-.0005" src={saturn} alt="" />
-                <img className='rocket parallaxLinear' data-translate-x-speed="0.9" data-translate-y-speed="-0.6" data-scale-speed=".003" src={rocket} alt="" />
+                <img className='rocket parallaxLinearRocket' data-translate-x-speed="0.3" data-translate-y-speed="-0.6" data-scale-speed=".003" src={rocket} alt="" />
                 <img className='satellite parallaxEllipse' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
             </div>
             <div className='portrait-container'>

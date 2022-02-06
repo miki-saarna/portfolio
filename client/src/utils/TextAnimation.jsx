@@ -15,9 +15,8 @@ export default function TextAnimation(variables) {
         hideOpacitySpeed,
         hideOpacityPoint,
     } = element.dataset
-
     if(revealTop < windowHeight - revealPoint) {
-        element.style.transition = `all .15s ease` 
+        // element.style.transition = `all .15s ease` 
         element.style.transform = `translateY(-${((windowHeight - revealPoint) - revealTop) * translateYSpeed}px) scale(${1 + (((windowHeight - revealPoint) - revealTop) * scaleSpeed)}, ${1 + (((windowHeight - revealPoint) - revealTop) * scaleSpeed)})`
     }
     

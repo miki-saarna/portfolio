@@ -1,6 +1,6 @@
 // designed to accept multiple elements
-export default function ParallaxLinear(elements, offset) {
-    elements.forEach((element) => {
+export default function ParallaxLinearRocket(element, offset) {
+    // elements.forEach((element) => {
         const {
             dataset: {
                 translateXSpeed,
@@ -8,7 +8,7 @@ export default function ParallaxLinear(elements, offset) {
                 scaleSpeed
             }
         } = element
-        console.log(element.style)
         element.style.transform = `matrix(${1 + (offset * scaleSpeed)}, 0, 0, ${1 + (offset * scaleSpeed)}, ${offset * translateXSpeed}, ${offset * translateYSpeed})`
-    })
+        // element.style.transform = `translateX(${offset * translateXSpeed}px)`
+    // })
 }
