@@ -147,10 +147,10 @@ a {
   z-index: 7;
 }
 
-.active {
+/* .active {
   left: 0;
   transition: 325ms;
-}
+} */
 
 .pageGradient {
   position: absolute;

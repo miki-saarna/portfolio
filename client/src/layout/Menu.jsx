@@ -15,7 +15,8 @@ export const Menu = () => {
             <button className={menuBar ? "exitMenuBtn" : "menuBtn"} onClick={showMenuBarHandler}></button>
             {/* <button className={menuBar ? "exitMenuBtn" : "menuBtn"} onClick={showMenuBarHandler}>{menuBar ? <MdIcons.MdClose /> : <GiIcons.GiHamburgerMenu />}</button> */}
                  <>
-                    <nav className={menuBar ? "openMenu active" : "closeMenu"}>
+                    <nav className={menuBar ? "openMenu" : "closeMenu"}>
+                    {/* <nav className={menuBar ? "openMenu active" : "closeMenu"}> */}
                         <ul>
                             {MenuData.map((item, index) => {
                                 return (
