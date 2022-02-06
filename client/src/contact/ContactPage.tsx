@@ -11,6 +11,22 @@ function ContactPage() {
     }
 
     const [formData, setFormData] = useState(initialFormState)
+    const [displayForm, setDisplayForm] = useState(false);
+
+    const displayFormHandler = (event) => {
+        event.preventDefault();
+        const formElement:any = document.querySelector('form');
+        if (displayForm) {
+            formElement.classList.remove('displayForm')
+            formElement.classList.add('hideForm')
+            formElement.style.transform = `translateX(-50%)`;
+        } else {
+            formElement.classList.remove('hideForm')
+            formElement.classList.add('displayForm')
+            formElement.style.transform = `translate(-50%, 110%)`;
+        }
+        setDisplayForm(!displayForm);
+    }
 
     const changeHandler = ({ target }) => {
         const value = target.value;
@@ -30,9 +46,11 @@ function ContactPage() {
 
 
     return (
-        <div>
+        <div className="contact">
+            <div className='contact-gradient'></div>
+            <button className="headerLabel" onClick={displayFormHandler}>Contact me</button>
             <form className='form' onSubmit={handleSubmit}>
-            <h2 className="headerLabel">Contact me</h2>
+            {/* <h2 className="headerLabel">Contact me</h2> */}
             
                 <label htmlFor='name'>
                     Name:

@@ -14,9 +14,77 @@ body {
 }
 
 /* consider removing/replacing */
-.headerLabel {
-  margin: 30px 0 10px;
+.contact {
+  padding: 50vh 0 50vh;
+  position: relative;
+  overflow-y: hidden;
 }
+
+form {
+  margin: 0 auto;
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  z-index: 1;
+  /* transform: translateX(-50%); */
+  /* transition: 500ms ease-in; */
+}
+
+.displayForm {
+  display: table;
+  /* transform: translate(-50%, 110%); */
+  animation: slideOutForm 500ms ease-in-out
+}
+
+@keyframes slideOutForm {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translate(-50%, 110%)
+  }
+}
+
+.hideForm {
+  display: table;
+  /* transform: translate(-50%, 110%); */
+  animation: hideForm 500ms ease-in-out
+}
+
+@keyframes hideForm {
+  from {
+    transform: translate(-50%, 110%)
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+button.headerLabel {
+  margin: 0px auto 10px;
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #f1f1f1;
+  background-color: transparent;
+  /* border: 1px solid #f1f1f1; */
+  border-radius: 15px;
+  z-index: 3;
+  position: relative;
+}
+
+.contact-gradient {
+  height: 50vh;
+  width: 100%;
+  z-index:2;
+  position: absolute;
+  top: 50px;
+  /* change to be same as background... */
+  background-color: rgba(0,0,0,.87);
+}
+
+
 
 /* header */
 header {
@@ -445,10 +513,16 @@ a {
 
 
 /* form */
-form {
+/* form {
   margin: 0 auto;
-  display: table;
-}
+  display: none;
+  border: 1px solid blue;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 500ms ease-in;
+} */
 
 label {
   /* display: block; */
@@ -584,4 +658,5 @@ footer > a:nth-of-type(2) {
   left: 40%;
   z-index: 4;
 }
+
 
