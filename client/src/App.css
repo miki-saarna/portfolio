@@ -39,7 +39,7 @@ header > h2 {
   font-size: 14px;
 }
 
-ul {
+ul:first-of-type {
   list-style-type: none;
   padding-left: 0;
   width: 100%;
@@ -50,7 +50,19 @@ ul {
   align-items: center;
 }
 
-li {
+ul:last-of-type {
+  top: 250px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+ul:last-of-type > li {
+  padding: 0 15px;
+}
+
+
+ul:first-of-type > li {
   padding: 7px 10px;
   /* width: fit-content; */
   /* border-radius: 25px; */
@@ -59,7 +71,7 @@ li {
   transition: all 140ms cubic-bezier(0.42, 0, 0.08, 1.44);
 }
 
-li:active {
+ul:first-of-type > li:active {
   transform: scale(1.06);
 }
 
@@ -157,7 +169,8 @@ a {
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100vh;
+  /* adjust this number to be accurate */
+  height: 300vh;
   background-color: rgba(0,0,0,0.8); 
   animation: fadeIn 250ms;
   z-index: 6;
@@ -348,6 +361,11 @@ a {
 .project-overlay:hover {
   background-color: rgba(1,1,1, 0);
 }
+
+.portfolio > p {
+  font-size: 19px;
+  text-align: center;
+}
 /* ================================= */
 
 /* section fade in */
@@ -534,6 +552,14 @@ button {
 
 
 /* ================================= */
-.space {
-  margin-bottom: 100vh;
+
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 50px;
+}
+
+footer > a:nth-of-type(2) {
+  margin: 0 30px;
 }

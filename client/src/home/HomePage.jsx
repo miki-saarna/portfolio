@@ -137,6 +137,7 @@ const HomePage = () => {
                 <div>
                     {projectsHTML}
                 </div>
+                <p>Check out my other projects at GitHub!</p>
             </div>
         </>
     )
