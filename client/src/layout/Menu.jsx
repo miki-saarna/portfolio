@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MenuData from "./MenuData";
-// import * as GiIcons from "react-icons/gi";
-// import * as MdIcons from "react-icons/md";
+import githubLogo from "../images/github_logo.png"
+import linkedInLogo from "../images/linkedin_logo.png"
+import twitterLogo from "../images/twitter_logo.png";
 
 export const Menu = () => {
 
@@ -27,6 +28,11 @@ export const Menu = () => {
                                     </li>
                                     )})
                             }
+                        </ul>
+                        <ul>
+                            <li><a href="https://github.com/miki-saarna" target="_blank" onClick={showMenuBarHandler}><img alt="" src={githubLogo} width={26} /></a></li>
+                            <li><a href="https://www.linkedin.com/in/mikito-saarna" target="_blank" onClick={showMenuBarHandler}><img alt="" src={linkedInLogo} width={26} /></a></li>
+                            <li><a href="https://twitter.com/MikitoSaarna" target="_blank" onClick={showMenuBarHandler}><img alt="" src={twitterLogo} width={26} /></a></li>
                         </ul>
                     </nav>
                     <div className={menuBar ? "pageGradient" : null} onClick={menuBar ? showMenuBarHandler : null}></div>
