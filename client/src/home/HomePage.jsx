@@ -4,6 +4,7 @@ import { retrieveProjects } from "../utils/api";
 import TextAnimation from "../utils/TextAnimation";
 import ParallaxLinear from "../utils/ParallaxLinear";
 import ParallaxEllipse from "../utils/ParallaxEllipse";
+import FadeInEffect from "../utils/FadeInEffect";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -74,13 +75,19 @@ const HomePage = () => {
             revealPoint: 300
         })
 
+        // move this parallax effect into a separate helper file!!!
         const portrait = document.querySelector('.portrait');
         if (offset >= 251){
             portrait.style.transform = `translateY(-${(offset - 251) / 24}px)`;
         }
+
+        const projectCards = document.querySelectorAll('.project-card');
+        FadeInEffect(projectCards)
     
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
+
+    
 
     const projectsHTML = projectsList.map((project) => {
         const {
@@ -90,7 +97,7 @@ const HomePage = () => {
         } = project;
         
         return (
-            <div key={_id}>
+            <div key={_id} className='project-card'>
                 <h3>{name}</h3>
                 <img src={image} />
                 <div className='overlay project-overlay'></div>
