@@ -1,6 +1,6 @@
 let satelliteMovement = 0;
     
-    function satelliteOrbit() {
+    export default function AnimatedEllipse() {
         const radiusX = 95;
         const radiusY = 50;
         const velocity = 0.02;
@@ -9,15 +9,13 @@ let satelliteMovement = 0;
 
         const satellite = document.querySelector('.scale-satellite');
         
-        satellite.style.transform = `translate(${Math.cos(satelliteMovement) * radiusX}px, ${Math.sin(satelliteMovement) * radiusY + Math.cos(satelliteMovement) * radiusX}px) scale(${Math.sin(satelliteMovement) + 1.3}) rotate(0deg) `
+        satellite.style.transform = `translate(${-Math.cos(satelliteMovement) * radiusX}px, ${Math.sin(satelliteMovement) * radiusY + Math.cos(satelliteMovement) * radiusX}px) scale(${Math.sin(satelliteMovement) + 1.3}) rotate(0deg) `
             
         // adjust z-index based on if element is 'in-front' or 'behind' the earth
         Math.sin(satelliteMovement) < 0 
             ? satellite.style.zIndex = 2
             : satellite.style.zIndex = 4
 
-        requestAnimationFrame(satelliteOrbit);
+        requestAnimationFrame(AnimatedEllipse);
     }
-    window.requestAnimationFrame(satelliteOrbit);
-
-    export default satelliteOrbit;
+    window.requestAnimationFrame(AnimatedEllipse);
