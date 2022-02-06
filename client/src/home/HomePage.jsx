@@ -108,7 +108,7 @@ const HomePage = () => {
     return (
         <>
             <div className='parallax-content'>
-                <h3 className='homepage-title' data-translate-y-speed="0.1" data-reveal-opacity-speed='0.03' data-scale-speed=".01">Discover</h3>
+                <h3 className='homepage-title' data-translate-y-speed="0.1" data-reveal-opacity-speed='0.03' data-scale-speed=".01">Imagine</h3>
                 <h3 className='possibilities' data-translate-y-speed="0.1" data-scale-speed=".00175" data-reveal-opacity-speed='0.01' data-hide-opacity-speed='0.007' data-hide-opacity-point='100'> The Possibilities</h3>
                 <img className='earth' data-speed="0.7" src={earth} alt="" />
                 <img className='moon parallaxLinear' data-translate-x-speed="-0.3" data-translate-y-speed="-0.4" data-scale-speed="-.0007" src={moon} alt="" />
