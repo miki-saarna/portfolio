@@ -1,24 +1,27 @@
 export default function FadeInEffect(elements) {
-            const appearOptions = {
-                threshold: 0,
-                rootMargin: "0px 0px -250px 0px"
-              };
-            const appearOnScroll = new IntersectionObserver(function(
-                entries,
-                appearOnScroll
-            ){
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                      return;
-                    } else {
-                      entry.target.classList.add("appear");
-                      appearOnScroll.unobserve(entry.target);
-                    }
-                  },
-                  appearOptions);
-            })
-            elements.forEach(fader => {
-                appearOnScroll.observe(fader);
-              });
-        // })
+  // does not appear to be functioning properly
+  const appearOptions = {
+      // if threshold is 1, the entire element needs to be within the screen 
+      threshold: 0,
+      // sets how far from the edges the element needs to be
+      rootMargin: "0px 0px -50px 0px"
+    };
+  const appearOnScroll = new IntersectionObserver(function(
+      elements,
+      appearOnScroll
+  ){
+      elements.forEach(element => {
+          // will tell you if element is or is not intersecting with the page
+          if (!element.isIntersecting) {
+            element.target.classList.remove("appear");
+          } else {
+            element.target.classList.add("appear");
+            appearOnScroll.unobserve(element.target);
+          }
+        },
+        appearOptions);
+  })
+  elements.forEach(element => {
+      appearOnScroll.observe(element);
+    });
 }

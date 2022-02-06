@@ -312,7 +312,8 @@ a {
 
 .portfolio > div > div {
   width: 90%;
-  height: 200px;
+  /* changed from 200px */
+  height: 150px;
   /* border: 2px solid white; */
   border-radius: 35px;
   margin-bottom: 25px;
@@ -399,6 +400,16 @@ a {
 
 .project-card.appear {
   opacity: 1;
+  animation: shorten 1250ms
+}
+
+@keyframes shorten {
+  from {
+    height: 200px
+  }
+  to {
+    height: 150px
+  }
 }
 
 /* .fade-in {

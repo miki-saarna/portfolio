@@ -78,7 +78,6 @@ const HomePage = () => {
             element: bioReveal, 
             revealPoint: 300
         })
-        // possibilitiesReveal.style.letterSpacing = `${offset * 0.03}px`;
 
         // move this parallax effect into a separate helper file!!!
         const portrait = document.querySelector('.portrait');
@@ -86,8 +85,8 @@ const HomePage = () => {
             portrait.style.transform = `translateY(-${(offset - 251) / 24}px)`;
         }
 
-        const projectCards = document.querySelectorAll('.project-card');
-        FadeInEffect(projectCards)
+        // const projectCards = document.querySelectorAll('.project-card');
+        // FadeInEffect(projectCards)
         
     
         return () => window.removeEventListener("scroll", handleScroll);
@@ -98,7 +97,8 @@ const HomePage = () => {
         // FadeInEffect(projectCards)
     // }, [])
 
-    
+    const projectCards = document.querySelectorAll('.project-card');
+    FadeInEffect(projectCards)
 
     const projectsHTML = projectsList.map((project) => {
         const {
@@ -129,7 +129,7 @@ const HomePage = () => {
             </div>
             <div className='portrait-container'>
                 <img className='portrait' alt='some text' src={portrait} />
-                <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".00015" data-reveal-opacity-speed='0.1' data-hide-opacity-speed='0.006' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
+                <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".0002" data-reveal-opacity-speed='0.1' data-hide-opacity-speed='0.006' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
                 <div className='overlay portrait-overlay' data-speed-y='0.1'></div>
             </div>
             <div className='portfolio'>
