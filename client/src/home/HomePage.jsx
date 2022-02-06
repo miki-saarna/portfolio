@@ -6,6 +6,7 @@ import ParallaxLinear from "../utils/ParallaxLinear";
 import ParallaxEllipse from "../utils/ParallaxEllipse";
 import FadeInEffect from "../utils/FadeInEffect";
 import ParallaxLinearRocket from "../utils/ParallaxLinearRocket";
+import ContactPage from "../contact/ContactPage";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -127,11 +128,18 @@ const HomePage = () => {
                 <img className='rocket parallaxLinearRocket' data-translate-x-speed="0.3" data-translate-y-speed="-0.6" data-scale-speed=".003" src={rocket} alt="" />
                 <img className='satellite parallaxEllipse' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
             </div>
+
             <div className='portrait-container'>
                 <img className='portrait' alt='some text' src={portrait} />
                 <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".0002" data-reveal-opacity-speed='0.1' data-hide-opacity-speed='0.006' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
                 <div className='overlay portrait-overlay' data-speed-y='0.1'></div>
             </div>
+
+            <div className="contact">
+                <h3>Contact Me</h3>
+                <ContactPage />
+            </div>
+
             <div className='portfolio'>
                 <h2>Portfolio</h2>
                 <div>
