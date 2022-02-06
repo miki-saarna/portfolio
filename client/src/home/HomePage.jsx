@@ -73,6 +73,11 @@ const HomePage = () => {
             element: bioReveal, 
             revealPoint: 300
         })
+
+        const portrait = document.querySelector('.portrait');
+        if (offset >= 251){
+            portrait.style.transform = `translateY(-${(offset - 251) / 24}px)`;
+        }
     
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
