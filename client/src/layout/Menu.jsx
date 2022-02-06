@@ -42,7 +42,7 @@ export const Menu = () => {
                             <li><a href="https://www.linkedin.com/in/mikito-saarna" target="_blank" onClick={showMenuBarHandler}><img alt="" src={linkedInLogoWhite} width={26} /></a></li>
                             <li><a href="https://twitter.com/MikitoSaarna" target="_blank" onClick={showMenuBarHandler}><img alt="" src={twitterLogoWhite} width={26} /></a></li> */}
                         </ul>
-                        <img className='scale-satellite parallaxEllipse' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
+                        <img className='scale-satellite' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
                     </nav>
                     <div className={menuBar ? "pageGradient" : null} onClick={menuBar ? showMenuBarHandler : null}></div>
                   </>

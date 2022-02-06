@@ -7,6 +7,7 @@ export default function ParallaxEllipse(element, variables, offset) {
             scaleSpeed
         } 
     } = element
+
     const {
         radiusX,
         radiusY,
@@ -20,8 +21,9 @@ export default function ParallaxEllipse(element, variables, offset) {
 
     // adjust z-index based on if element is 'in-front' or 'behind' the earth
     Math.sin(movement) < 0 
+    // place zIndex values in quotations?
     ? element.style.zIndex = 2
-    : element.style.zIndex = 4
+    : element.style.zIndex = 4;
 }
 
 // // // // // // // // // // // 

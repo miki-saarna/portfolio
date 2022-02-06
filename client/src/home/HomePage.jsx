@@ -38,7 +38,7 @@ const HomePage = () => {
         const parallaxLinearRocket = document.querySelector(".parallaxLinearRocket");
         // tremendous difficulty getting the rocket to not affect other elements
         // ParallaxLinearRocket(parallaxLinearRocket, offset);
-
+        // console.log(ParallaxEllipse)
         const parallaxEllipse = document.querySelector(".parallaxEllipse");
         // adjust radius x and y values and speed of motion
         const variables = {

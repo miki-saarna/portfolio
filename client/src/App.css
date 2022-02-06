@@ -580,7 +580,7 @@ footer > a:nth-of-type(2) {
 .scale-satellite {
   position: absolute;
   width: 15%;
-  top: 23%;
+  top: 50%;
   left: 40%;
   z-index: 4;
 }
