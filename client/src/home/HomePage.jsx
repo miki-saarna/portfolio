@@ -4,9 +4,10 @@ import { retrieveProjects } from "../utils/api";
 import TextAnimation from "../utils/TextAnimation";
 import ParallaxLinear from "../utils/ParallaxLinear";
 import ParallaxEllipse from "../utils/ParallaxEllipse";
-import FadeInEffect from "../utils/FadeInEffect";
 import ParallaxLinearRocket from "../utils/ParallaxLinearRocket";
 import ContactPage from "../contact/ContactPage";
+import ProjectCards from "../portfolio/ProjectCards";
+import FocusedOnProject from "../portfolio/FocusedOnProject";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -17,8 +18,6 @@ import satellite from "../images/satellite.png";
 
 const HomePage = () => {
     
-    
-    const [projectsList, setProjectsList] = useState([]);
     // retreive projects
     useEffect(() => {
         retrieveProjects()
@@ -28,8 +27,11 @@ const HomePage = () => {
             })
     }, [])
 
+    const [projectsList, setProjectsList] = useState([]);
+    const [cardSelected, setCardSelected] = useState(null);
     const [offset, setOffset] = useState(0);
     const handleScroll = () => setOffset(window.pageYOffset);
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
@@ -92,68 +94,6 @@ const HomePage = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
 
-    // useEffect(() => {
-        // const projectCards = document.querySelectorAll('.project-card');
-        // FadeInEffect(projectCards)
-    // }, [])
-
-    const projectCards = document.querySelectorAll('.project-card');
-    FadeInEffect(projectCards)
-    // move to helper file
-    const projectsHTML = projectsList.map((project) => {
-        const {
-            _id,
-            github_link,
-            image,
-            name,
-            description,
-            languages
-        } = project;
-
-        const projectCardClickHandler = (event) => {
-            event.preventDefault();
-            
-            // this is an alternative option that can help you expand the current card
-            // const projectCard = event.target.parentNode;
-
-            const projectCardContent = `
-                <img alt='' src=${image} />
-                <div>
-                    <h4>${name}</h4>
-                    <p>${description}</p>
-                    <p><b>Primary Languages</b>: ${languages.join(', ')}</p>
-                    <a href='${github_link}' target='_blank'>Project Link</a>
-                </div>
-            `
-
-            const displayedProject = document.createElement('div');
-            // add class to new element
-            displayedProject.setAttribute('class', 'clicked-project');
-            // add text to new element
-            // displayedProject.textContent = 'hello world'
-            displayedProject.innerHTML = projectCardContent
-            document.body.appendChild(displayedProject)
-
-            // rename to background-overlay?
-            const backgroundDim = document.createElement('div');
-            backgroundDim.setAttribute('class', 'background-dim');
-            document.body.appendChild(backgroundDim);
-            
-            // find current position
-            const scrollY = window.scrollY // unsure of the difference with `window.pageYOffset`
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollY}px`
-        }
-        
-        return (
-            <div key={_id} className='project-card' onClick={projectCardClickHandler}>
-                <h3>{name}</h3>
-                <img src={image} />
-                <div className='overlay project-overlay'></div>
-            </div>
-        )
-    })
-
     return (
         <>
             <div className='parallax-content'>
@@ -177,10 +117,11 @@ const HomePage = () => {
             <div className='portfolio'>
                 <h2>Portfolio</h2>
                 <div>
-                    {projectsHTML}
+                    <ProjectCards projectsList={projectsList} setCardSelected={setCardSelected} />
                 </div>
                 <p>Check out my other projects at GitHub!</p>
             </div>
+            {cardSelected ? <FocusedOnProject project={projectsList.find(project => project._id === cardSelected)} setCardSelected={setCardSelected} offset={offset} /> : null}
         </>
     )
 }
