@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { isCompositeComponent } from "react-dom/test-utils";
+import { sumbitContactForm } from "../utils/api";
 
 function ContactPage() {
     const initialFormState = {
@@ -45,6 +46,7 @@ function ContactPage() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        sumbitContactForm(formData);
         setFormData(initialFormState);
     }
 

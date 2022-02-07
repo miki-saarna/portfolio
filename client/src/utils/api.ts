@@ -14,3 +14,13 @@ export const retrieveProjects = async () => {
     return response.json();
 }
 
+export const sumbitContactForm = async (form) => {
+    const url:any = new URL(`${API_BASE_URL}/submitForm`)
+    const config = {
+        method: 'POST',
+        headers,
+        body: form
+    }
+    const response = await fetch(url, config);
+    return response.json();
+}
