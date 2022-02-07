@@ -88,7 +88,6 @@ const HomePage = () => {
 
         // const projectCards = document.querySelectorAll('.project-card');
         // FadeInEffect(projectCards)
-        
     
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
@@ -100,16 +99,46 @@ const HomePage = () => {
 
     const projectCards = document.querySelectorAll('.project-card');
     FadeInEffect(projectCards)
-
+    // move to helper file
     const projectsHTML = projectsList.map((project) => {
         const {
             _id,
             image,
             name,
         } = project;
+
+        const projectCardClickHandler = (event) => {
+            event.preventDefault();
+            
+            // this is an alternative option that can help you expand the current card
+            // const projectCard = event.target.parentNode;
+
+            const projectCardContent = `
+                <img alt='' src=${image} >
+                <h4>${name}</h4>
+            `
+
+            const displayedProject = document.createElement('div');
+            // add class to new element
+            displayedProject.setAttribute('class', 'clicked-project');
+            // add text to new element
+            // displayedProject.textContent = 'hello world'
+            displayedProject.innerHTML = projectCardContent
+            document.body.appendChild(displayedProject)
+
+            // rename to background-overlay?
+            const backgroundDim = document.createElement('div');
+            backgroundDim.setAttribute('class', 'background-dim');
+            document.body.appendChild(backgroundDim);
+            
+            // find current position
+            const scrollY = window.scrollY // unsure of the difference with `window.pageYOffset`
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`
+        }
         
         return (
-            <div key={_id} className='project-card'>
+            <div key={_id} className='project-card' onClick={projectCardClickHandler}>
                 <h3>{name}</h3>
                 <img src={image} />
                 <div className='overlay project-overlay'></div>
