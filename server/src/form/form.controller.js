@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+require('dotenv').config();
 
 // export default async function submit(req, res) {
 async function submit(req, res) {
@@ -8,41 +9,33 @@ async function submit(req, res) {
         url,
         message
     } } = req.body;
-    console.log(data)
 
+    // this variable defines the `from` email address
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
+      },
+    });
 
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
-    },
-  });
+    const mailOptions = {
+      from: `"MikiSaarna.com" <${process.env.EMAIL}>`,
+      to: process.env.EMAIL, // can be a comma-separated list of receivers
+      subject: "Inquiry from MikiSaarna.com",
+      text: `Name: ${name}\nMessage: ${message}\nURL: ${url}\nEmail: ${email}`,
+      // html:, // will likely replace the text value above
+    }
 
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: `"Nodemailer Contact" <${email}>`, // sender address
-    to: `mikitosaarna@gmail.com`, // list of receivers
-    subject: "Inquiry from MikiSaarna.com", // Subject line
-    text: `Name: ${name}. Message: ${message}. URL: ${url}`, // plain text body
-    html: "<b>Hello world!</b>", // html body
-  });
-
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-
-
-main().catch(console.error);
-
-
-    res.status(201).json({ data })
+    transporter.sendMail(mailOptions, function(err, data) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(`Email successfully sent!`);
+        }
+    })
+    // unsure if status code 200 or 201
+    res.status(201).json({ response: 'Email Sent!' })
 }
 
 module.exports = {

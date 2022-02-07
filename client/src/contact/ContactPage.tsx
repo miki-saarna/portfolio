@@ -13,6 +13,7 @@ function ContactPage() {
 
     const [formData, setFormData] = useState(initialFormState)
     const [displayForm, setDisplayForm] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState('');
 
     const displayFormHandler = (event) => {
         event.preventDefault();
@@ -30,7 +31,7 @@ function ContactPage() {
             contactGradientBorder.classList.add('slideAcrossBorder')
             contactGradientBorder.classList.remove('slideBackBorder')
             contactGradientBorder.style.bottomBorder = `2px solid #f1f1f1`
-
+            setSubmitStatus('');
         }
         setDisplayForm(!displayForm);
     }
@@ -46,11 +47,22 @@ function ContactPage() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        sumbitContactForm(formData);
+        sumbitContactForm(formData)
+            .then(({ response }) => {
+                displayFormHandler(event)
+                setTimeout(() => {
+                    setSubmitStatus(response);
+                }, 1250)
+            });
         setFormData(initialFormState);
     }
 
-    
+    // const displaySubmitStatus = () => {
+    //     setTimeout(() => {
+    //         return (<p className='submissionStatement'>{submitStatus}</p>)
+    //     }, 1250)
+    // }
+    // console.log(displaySubmitStatus)
 
 
     return (
@@ -115,8 +127,8 @@ function ContactPage() {
 
                 <br />
           <button type='submit'>Submit</button>
-          
             </form>
+          {submitStatus ? <p>{submitStatus}</p> : ''}
         </div>
     )
 }
