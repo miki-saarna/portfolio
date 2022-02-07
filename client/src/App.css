@@ -33,7 +33,7 @@ form {
 
 .displayForm {
   display: table;
-  /* transform: translate(-50%, 110%); */
+  transform: translate(-50%, 110%);
   animation: slideOutForm 500ms ease-in-out
 }
 
@@ -48,7 +48,7 @@ form {
 
 .hideForm {
   display: table;
-  /* transform: translate(-50%, 110%); */
+  transform: translateX(-50%);
   animation: hideForm 500ms ease-in-out
 }
 

@@ -19,11 +19,9 @@ function ContactPage() {
         if (displayForm) {
             formElement.classList.remove('displayForm')
             formElement.classList.add('hideForm')
-            formElement.style.transform = `translateX(-50%)`;
         } else {
             formElement.classList.remove('hideForm')
             formElement.classList.add('displayForm')
-            formElement.style.transform = `translate(-50%, 110%)`;
         }
         setDisplayForm(!displayForm);
     }
