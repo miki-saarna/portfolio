@@ -1,7 +1,7 @@
 let satelliteMovement = 0;
     
     export default function AnimatedEllipse() {
-        const radiusX = 95;
+        const radiusX = 85;
         const radiusY = 50;
         const velocity = 0.02;
         

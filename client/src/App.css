@@ -10,13 +10,127 @@
 
 body {
   background-color: rgba(0,0,0,.87);
+  background-color: rgb(31, 28, 28);
   color: #f1f1f1;
 }
 
 /* consider removing/replacing */
-.headerLabel {
-  margin: 30px 0 10px;
+.contact {
+  padding: 50vh 0 55vh;
+  position: relative;
+  overflow-y: hidden;
+  width: 80%;
+  margin: auto;
 }
+
+.contact > p {
+  color: rgb(56, 211, 146);
+  width: fit-content;
+  margin: 20px auto 0;
+  font-size: 17px;
+  /* border-bottom: 1px solid rgb(56, 211, 146); */
+}
+
+form {
+  /* edges of form appear at edges of hidden container if width is set to 100% */
+  width: 99%;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+.displayForm {
+  /* display: table; */
+  transform: translate(-50%, 110%);
+  animation: slideOutForm 700ms cubic-bezier(0.42, 0, 0.15, 0.85);
+}
+
+@keyframes slideOutForm {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translate(-50%, 110%)
+  }
+}
+
+.hideForm {
+  /* display: table; */
+  transform: translateX(-50%);
+  animation: hideForm 700ms cubic-bezier(0.42, 0, 0.15, 0.85);
+}
+
+@keyframes hideForm {
+  from {
+    transform: translate(-50%, 110%)
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+button.headerLabel {
+  margin: 0px auto 10px;
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #f1f1f1;
+  background-color: transparent;
+  z-index: 3;
+  position: relative;
+  /* border-right: 3px solid #4d1616; */
+  /* border-left: 3px solid #4d1616; */
+  /* border: 3px solid #2c2a2a */
+  /* border-radius: 10px; */
+  /* padding: 5px 7px; */
+}
+
+.contact-gradient {
+  height: 50vh;
+  width: 100%;
+  z-index:2;
+  position: absolute;
+  top: 50px;
+  background-color: rgb(31,28,28);
+}
+
+.contact-gradient-border {
+  border-bottom: 3px solid #f1f1f1;
+  width: 0;
+  /* makes border spread across from the center point */
+  /* margin: auto; */
+}
+
+.slideAcrossBorder {
+  width: 100%;
+  animation: slideAcross 700ms ease-in-out;
+}
+
+.slideBackBorder {
+  animation: slideBack 680ms ease-in-out;
+}
+
+@keyframes slideAcross {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slideBack {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+
 
 /* header */
 header {
@@ -445,14 +559,22 @@ a {
 
 
 /* form */
-form {
+/* form {
   margin: 0 auto;
-  display: table;
-}
+  display: none;
+  border: 1px solid blue;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 500ms ease-in;
+} */
 
 label {
   /* display: block; */
   font-family: monospace;
+  font-size: 16px;
+  font-weight: bold;
   
 
 
@@ -465,7 +587,7 @@ input, textarea {
   margin: 10px 0;
   display: block;
   padding: 5px;
-  width: 300px;
+  width: 100%;
 }
 
 textarea {
@@ -479,7 +601,9 @@ input:focus, textarea:focus {
 }
 
 button {
-  padding: 5px 11px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 15px;
   border: none;
   border-radius: 4px;
 }
@@ -581,7 +705,8 @@ footer > a:nth-of-type(2) {
   position: absolute;
   width: 15%;
   top: 50%;
-  left: 40%;
+  left: 43%;
   z-index: 4;
 }
+
 
