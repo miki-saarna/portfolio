@@ -556,6 +556,45 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.clicked-project img {
+  flex: 5;
+  object-fit: cover;
+  display: block;
+}
+
+.clicked-project div {
+  flex: 3;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .clicked-project div > * {
+  margin-bottom: 5px;
+} */
+
+.clicked-project h4 {
+  flex: 1;
+}
+
+.clicked-project p:first-of-type {
+  flex: 3;
+}
+.clicked-project p:last-of-type {
+  flex: 2;
+}
+
+/* color affected by other a styling */
+.clicked-project a {
+  flex: 1;
+  color: rgb(31, 28, 28);
+  font-size: 17px;
 }
 
 .background-dim {

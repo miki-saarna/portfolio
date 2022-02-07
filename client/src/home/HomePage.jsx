@@ -103,8 +103,11 @@ const HomePage = () => {
     const projectsHTML = projectsList.map((project) => {
         const {
             _id,
+            github_link,
             image,
             name,
+            description,
+            languages
         } = project;
 
         const projectCardClickHandler = (event) => {
@@ -114,8 +117,13 @@ const HomePage = () => {
             // const projectCard = event.target.parentNode;
 
             const projectCardContent = `
-                <img alt='' src=${image} >
-                <h4>${name}</h4>
+                <img alt='' src=${image} />
+                <div>
+                    <h4>${name}</h4>
+                    <p>${description}</p>
+                    <p><b>Primary Languages</b>: ${languages.join(', ')}</p>
+                    <a href='${github_link}' target='_blank'>Project Link</a>
+                </div>
             `
 
             const displayedProject = document.createElement('div');
