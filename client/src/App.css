@@ -416,7 +416,8 @@ a {
 }
 
 .possibilities {
-  margin-top: 325px;
+  margin-top: 275px;
+  /* margin-top: 325px; */
 }
 
 .parallax-position {
@@ -951,7 +952,7 @@ footer h2::after {
 .scale-satellite {
   position: absolute;
   width: 15%;
-  top: 50%;
+  top: 53%;
   left: 43%;
   z-index: 4;
 }
