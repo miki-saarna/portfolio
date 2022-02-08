@@ -14,6 +14,7 @@ function ContactPage() {
     const [formData, setFormData] = useState(initialFormState)
     const [displayForm, setDisplayForm] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
+    const [submitStatusCode, setSubmitStatusCode] = useState('');
 
     const displayFormHandler = (event) => {
         event.preventDefault();
@@ -51,19 +52,12 @@ function ContactPage() {
             .then(({ response }) => {
                 displayFormHandler(event)
                 setTimeout(() => {
+                    setSubmitStatusCode(`201`)
                     setSubmitStatus(response);
                 }, 1250)
             });
         setFormData(initialFormState);
     }
-
-    // const displaySubmitStatus = () => {
-    //     setTimeout(() => {
-    //         return (<p className='submissionStatement'>{submitStatus}</p>)
-    //     }, 1250)
-    // }
-    // console.log(displaySubmitStatus)
-
 
     return (
         <div className="contact" id="contact">
@@ -82,6 +76,7 @@ function ContactPage() {
                         type='text'
                         onChange={changeHandler}
                         value={formData.name}
+                        required
                         />
                 </label>
 
@@ -95,6 +90,7 @@ function ContactPage() {
                         type='email'
                         onChange={changeHandler}
                         value={formData.email}
+                        required
                         />
                 </label>
 
@@ -122,13 +118,14 @@ function ContactPage() {
                         rows={3}
                         onChange={changeHandler}
                         value={formData.message}
+                        required
                     ></textarea>
                 </label>
 
                 <br />
           <button type='submit'>Submit</button>
             </form>
-          {submitStatus ? <p>{submitStatus}</p> : ''}
+          {submitStatus ? <p>{submitStatus}</p> : null }
         </div>
     )
 }

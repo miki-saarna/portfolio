@@ -10,6 +10,11 @@ async function submit(req, res) {
         message
     } } = req.body;
 
+    // this validation should be replaced with more detailed ones in the near future
+    if (!name || !email || !message) {
+      return res.status(400).json({ status: 400, response: `Message not sent` })
+    }
+
     // this variable defines the `from` email address
     const transporter = nodemailer.createTransport({
       service: 'gmail',

@@ -25,6 +25,10 @@ export default function FocusedOnProject ({project, setCardSelected, offset}) {
         document.body.style.position = 'static';
         window.scrollTo(0, pageYOffset)
         document.body.style.top = '';
+        // attempt to transition the overlay out
+        // const removeBackgroundDim = document.createElement('div');
+        // removeBackgroundDim.setAttribute('class', 'remove-background-dim');
+        // document.body.appendChild(removeBackgroundDim);
     }
 
     return (
