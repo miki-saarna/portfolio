@@ -558,7 +558,20 @@ a {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 225ms ease-in-out;
+  animation: projectFadeIn 150ms ease-in-out;
+}
+
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    height: 0;
+    width:0%;
+  }
+  to {
+    opacity: 1;
+    height: 400px;
+    width: 85%;
+  }
 }
 
 .clicked-project > button {
