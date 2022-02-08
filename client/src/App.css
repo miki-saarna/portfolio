@@ -16,42 +16,45 @@ body {
 
 /* consider removing/replacing */
 .contact {
-  padding: 50vh 0 15vh;
-  position: relative;
-  overflow-y: hidden;
+  /* padding: 50vh 0 15vh; */
+  /* position: relative; */
+  /* overflow-y: hidden; */
   width: 80%;
-  margin: auto;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.contact-container-enlarge {
-  padding-bottom: 55vh;
-  animation: contactContainerEnlarge 500ms ease-in-out
-}
 
-@keyframes contactContainerEnlarge {
+/* .contact-container-enlarge { */
+  /* padding-bottom: 55vh; */
+  /* animation: contactContainerEnlarge 500ms ease-in-out */
+/* } */
+
+/* @keyframes contactContainerEnlarge {
   from {
     padding-bottom: 15vh;
   }
   to {
     padding-bottom: 55vh;
   }
-}
+} */
 
-.contact-container-shorten {
-  padding-bottom: 15vh;
-  animation: contactContainerShorten 500ms ease-in-out;
+/* .contact-container-shorten { */
+  /* padding-bottom: 15vh; */
+  /* animation: contactContainerShorten 500ms ease-in-out; */
   /* unsure how to get reverse direction to apply */
   /* animation-direction: reverse; */
-}
+/* } */
 
-@keyframes contactContainerShorten {
+/* @keyframes contactContainerShorten {
   from {
     padding-bottom: 55vh;
   }
   to {
     padding-bottom: 15vh;
   }
-}
+} */
 
 .contact > p {
   width: fit-content;
@@ -62,29 +65,40 @@ body {
 }
 
 form {
+  position: relative;
+  margin: 10px 0 20px;
+  height: 0;
+  overflow: hidden;
+  /* overflow-y: auto; */
+  transition: 700ms cubic-bezier(0.42, 0, 0.15, 0.85);
+  /* cubic-bezier(0.42, 0, 0.15, 0.85) */
   /* edges of form appear at edges of hidden container if width is set to 100% */
-  width: 99%;
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  z-index: 1;
-  transform: translateX(-50%);
+  /* width: 99%; */
+  /* position: absolute; */
+  /* top: 50px; */
+  /* left: 50%; */
+  /* z-index: 1; */
+  /* transform: translateX(-50%); */
 }
 
-.displayForm {
+.contact.active form {
+  height:415px;
+}
+
+/* .displayForm { */
   /* display: table; */
-  transform: translate(-50%, 110%);
-  animation: slideOutForm 700ms cubic-bezier(0.42, 0, 0.15, 0.85);
-}
+  /* transform: translate(-50%, 110%); */
+  /* animation: slideOutForm 700ms cubic-bezier(0.42, 0, 0.15, 0.85); */
+/* } */
 
-@keyframes slideOutForm {
+/* @keyframes slideOutForm {
   from {
     transform: translateX(-50%);
   }
   to {
     transform: translate(-50%, 110%)
   }
-}
+} */
 
 .hideForm {
   /* display: table; */
@@ -102,7 +116,8 @@ form {
 }
 
 button.headerLabel {
-  margin: 0px auto 10px;
+  margin: 0px auto 20px;
+  /* padding-bottom: 10px; */
   display: block;
   font-size: 1.5em;
   font-weight: bold;
@@ -110,10 +125,14 @@ button.headerLabel {
   background-color: transparent;
   z-index: 3;
   position: relative;
+  /* background-color: rgba(32, 182, 147, 0.315); */
   border-right: 3px solid #f1f1f1;
   border-left: 3px solid #f1f1f1;
-  /* border: 2px solid #f1f1f1; */
-  /* border-radius: 14px; */
+  border: 2px solid #f1f1f1;
+  /* border-radius: 0; */
+  /* border-radius: 8px; */
+  /* border-top-right-radius: 15px; */
+  /* border-bottom-right-radius: 15px; */
   /* padding: 5px 7px; */
 }
 
@@ -143,34 +162,49 @@ button.headerLabel::after {
 .contact-gradient-border {
   border-bottom: 3px solid #f1f1f1;
   width: 0;
+  border-radius: 1px;
   /* makes border spread across from the center point */
   /* margin: auto; */
 }
 
 .slideAcrossBorder {
-  width: 100%;
-  animation: slideAcross 700ms ease-in-out;
+  width: 00%;
+  /* animation: slideAcross 700ms ease-in-out; */
+  animation: slideAcross 1200ms ease-in-out;
+  align-self: flex-end;
 }
 
 .slideBackBorder {
-  animation: slideBack 680ms ease-in-out;
+  /* animation: slideBack 680ms ease-in-out; */
+  animation: slideBack 1200ms ease-in-out;
+  align-self: flex-start;
 }
 
 @keyframes slideAcross {
-  from {
+  0% {
     width: 0;
+    align-self: flex-start;
   }
-  to {
-    width: 100%;
+  50% {
+    width: 100%
+  }
+  100% {
+    width: 0%;
+    align-self: flex-end;
   }
 }
 
 @keyframes slideBack {
-  from {
-    width: 100%;
-  }
-  to {
+  0% {
     width: 0;
+    align-self: flex-end;
+  }
+  50% {
+    width: 100%
+  }
+  100% {
+    width: 0%;
+    align-self: flex-start;
   }
 }
 
@@ -881,7 +915,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px 0 50px;
+  margin: 0px 0 50px;
 }
 
 footer div {
