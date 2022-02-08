@@ -16,16 +16,17 @@ body {
 
 /* consider removing/replacing */
 .contact {
-  padding: 50vh 0 15vh;
-  position: relative;
-  overflow-y: hidden;
+  /* padding: 50vh 0 15vh; */
+  /* position: relative; */
+  /* overflow-y: hidden; */
   width: 80%;
   margin: auto;
 }
 
+
 .contact-container-enlarge {
-  padding-bottom: 55vh;
-  animation: contactContainerEnlarge 500ms ease-in-out
+  /* padding-bottom: 55vh; */
+  /* animation: contactContainerEnlarge 500ms ease-in-out */
 }
 
 @keyframes contactContainerEnlarge {
@@ -38,8 +39,8 @@ body {
 }
 
 .contact-container-shorten {
-  padding-bottom: 15vh;
-  animation: contactContainerShorten 500ms ease-in-out;
+  /* padding-bottom: 15vh; */
+  /* animation: contactContainerShorten 500ms ease-in-out; */
   /* unsure how to get reverse direction to apply */
   /* animation-direction: reverse; */
 }
@@ -62,13 +63,23 @@ body {
 }
 
 form {
+  position: relative;
+  margin: 20px 0;
+  height: 0;
+  overflow: hidden;
+  /* overflow-y: auto; */
+  transition: 500ms;
   /* edges of form appear at edges of hidden container if width is set to 100% */
-  width: 99%;
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  z-index: 1;
-  transform: translateX(-50%);
+  /* width: 99%; */
+  /* position: absolute; */
+  /* top: 50px; */
+  /* left: 50%; */
+  /* z-index: 1; */
+  /* transform: translateX(-50%); */
+}
+
+.contact.active form {
+  height:415px;
 }
 
 .displayForm {

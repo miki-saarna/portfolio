@@ -45,6 +45,17 @@ function ContactPage() {
         setDisplayForm(!displayForm);
     }
 
+    const displayer = (event) => {
+        event.preventDefault();
+        const btn = event.target.parentNode;
+        if (displayForm) {
+            btn.classList.remove('active');
+        } else {
+            btn.classList.add('active');
+        }
+        setDisplayForm(!displayForm);
+    }
+
     const changeHandler = ({ target }) => {
         const value = target.value;
         // const { value } = target;
@@ -69,8 +80,9 @@ function ContactPage() {
 
     return (
         <div className="contact" id="contact">
-            <div className='contact-gradient'></div>
-            <button className="headerLabel" onClick={displayFormHandler}>Contact me</button>
+            {/* <div className='contact-gradient'></div> */}
+            <button className="headerLabel" onClick={displayer}>Contact me</button>
+            {/* <button className="headerLabel" onClick={displayFormHandler}>Contact me</button> */}
             <div className='contact-gradient-border'></div>
             {/* remvoe form class? */}
             <form className='form' onSubmit={handleSubmit}>
