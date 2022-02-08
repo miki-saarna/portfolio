@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-scroll';
 import MenuData from "./MenuData";
 import githubLogo from "../images/github_logo.png"
 import linkedInLogo from "../images/linkedin_logo.png"
@@ -27,7 +27,10 @@ export const Menu = () => {
                             {MenuData.map((item, index) => {
                                 return (
                                     <li key={index} className="link" onClick={showMenuBarHandler}>
-                                        <Link to={item.path}>
+                                        {/* <Link to={item.path}>
+                                            {item.title}
+                                        </Link> */}
+                                        <Link to="contact" smooth duration={1000} onClick={showMenuBarHandler}>
                                             {item.title}
                                         </Link>
                                     </li>
