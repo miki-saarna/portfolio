@@ -19,10 +19,14 @@ export default function TextAnimation(variables) {
         // element.style.transition = `all .15s ease` 
         element.style.transform = `translateY(-${((windowHeight - revealPoint) - revealTop) * translateYSpeed}px) scale(${1 + (((windowHeight - revealPoint) - revealTop) * scaleSpeed)}, ${1 + (((windowHeight - revealPoint) - revealTop) * scaleSpeed)})`
     }
-    
+
+    // console.log(revealTop)
+
     // set equality to undefined so that it still works when offset equals 0
-    if (offset !== undefined) {
-        element.style.opacity = `${offset * revealOpacitySpeed}`
+    // if (offset !== undefined) {
+    if (offset !== undefined && revealTop < windowHeight - revealPoint) {
+        // adjust the offset variable according to screen resolution
+        element.style.opacity = `${(offset - 104) * revealOpacitySpeed}`
     } else {
         if (revealTop >= 100) {
             element.style.opacity = `${((windowHeight - revealPoint) - revealTop) * revealOpacitySpeed}`
