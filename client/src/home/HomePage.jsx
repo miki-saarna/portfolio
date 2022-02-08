@@ -106,7 +106,8 @@ const HomePage = () => {
                 <img className='satellite parallaxEllipse' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
             </div>
 
-            <div className='portrait-container'>
+            {/* consider moving to separate file */}
+            <div className='portrait-container' id='about'>
                 <img className='portrait' alt='some text' src={portrait} />
                 <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".0002" data-reveal-opacity-speed='0.1' data-hide-opacity-speed='0.006' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
                 <div className='overlay portrait-overlay' data-speed-y='0.1'></div>
@@ -114,7 +115,7 @@ const HomePage = () => {
             
             <ContactPage />
 
-            <div className='portfolio'>
+            <div className='portfolio' id='portfolio'>
                 <h2>Portfolio</h2>
                 <div>
                     <ProjectCards projectsList={projectsList} setCardSelected={setCardSelected} />

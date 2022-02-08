@@ -30,7 +30,7 @@ export const Menu = () => {
                                         {/* <Link to={item.path}>
                                             {item.title}
                                         </Link> */}
-                                        <Link to="contact" smooth duration={1000} onClick={showMenuBarHandler}>
+                                        <Link to={item.path} smooth duration={800} offset={item.path == 'about' ? -250 : 0} onClick={showMenuBarHandler}>
                                             {item.title}
                                         </Link>
                                     </li>
