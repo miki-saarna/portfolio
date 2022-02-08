@@ -17,41 +17,50 @@ function ContactPage() {
     // const [submitStatusCode, setSubmitStatusCode] = useState('');
 
     const displayFormHandler = (event) => {
-        event.preventDefault();
-        const formElement:any = document.querySelector('form');
+        // event.preventDefault();
+        // const formElement:any = document.querySelector('form');
         const contactGradientBorder:any = document.querySelector('.contact-gradient-border');
-        const contactContainer:any = document.querySelector('.contact')
+        // const contactContainer:any = document.querySelector('.contact')
         if (displayForm) {
-            formElement.classList.remove('displayForm')
-            formElement.classList.add('hideForm')
+            // formElement.classList.remove('displayForm')
+            // formElement.classList.add('hideForm')
             contactGradientBorder.classList.remove('slideAcrossBorder')
             contactGradientBorder.classList.add('slideBackBorder')
             contactGradientBorder.style.bottomBorder = `none`
             // contactContainer.style.paddingBottom = `15vh`
-            contactContainer.classList.add('contact-container-shorten')
-            contactContainer.classList.remove('contact-container-enlarge')
+            // contactContainer.classList.add('contact-container-shorten')
+            // contactContainer.classList.remove('contact-container-enlarge')
         } else {
-            formElement.classList.remove('hideForm')
-            formElement.classList.add('displayForm')
+            // formElement.classList.remove('hideForm')
+            // formElement.classList.add('displayForm')
             contactGradientBorder.classList.add('slideAcrossBorder')
             contactGradientBorder.classList.remove('slideBackBorder')
             contactGradientBorder.style.bottomBorder = `2px solid #f1f1f1`
             // contactContainer.style.paddingBottom = `55vh`
-            contactContainer.classList.add('contact-container-enlarge')
-            contactContainer.classList.remove('contact-container-shorten')
+            // contactContainer.classList.add('contact-container-enlarge')
+            // contactContainer.classList.remove('contact-container-shorten')
             
-            setSubmitStatus('');
+            // setSubmitStatus('');
         }
-        setDisplayForm(!displayForm);
+        // setDisplayForm(!displayForm);
     }
 
     const displayer = (event) => {
         event.preventDefault();
-        const btn = event.target.parentNode;
+        const contactContainer = event.target.parentNode;
+        const contactGradientBorder :any= document.querySelector('.contact-gradient-border');
         if (displayForm) {
-            btn.classList.remove('active');
+            contactContainer.classList.remove('active');
+            contactGradientBorder.classList.remove('slideAcrossBorder')
+            contactGradientBorder.classList.add('slideBackBorder')
+            // contactGradientBorder.style.bottomBorder = `none`
         } else {
-            btn.classList.add('active');
+            contactContainer.classList.add('active');
+            contactGradientBorder.classList.add('slideAcrossBorder')
+            contactGradientBorder.classList.remove('slideBackBorder')
+            // contactGradientBorder.style.bottomBorder = `2px solid #f1f1f1`
+            // prevent success messaging from appearing
+            // setSubmitStatus('');
         }
         setDisplayForm(!displayForm);
     }
