@@ -14,24 +14,32 @@ function ContactPage() {
     const [formData, setFormData] = useState(initialFormState)
     const [displayForm, setDisplayForm] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
-    const [submitStatusCode, setSubmitStatusCode] = useState('');
+    // const [submitStatusCode, setSubmitStatusCode] = useState('');
 
     const displayFormHandler = (event) => {
         event.preventDefault();
         const formElement:any = document.querySelector('form');
         const contactGradientBorder:any = document.querySelector('.contact-gradient-border');
+        const contactContainer:any = document.querySelector('.contact')
         if (displayForm) {
             formElement.classList.remove('displayForm')
             formElement.classList.add('hideForm')
             contactGradientBorder.classList.remove('slideAcrossBorder')
             contactGradientBorder.classList.add('slideBackBorder')
             contactGradientBorder.style.bottomBorder = `none`
+            // contactContainer.style.paddingBottom = `15vh`
+            contactContainer.classList.add('contact-container-shorten')
+            contactContainer.classList.remove('contact-container-enlarge')
         } else {
             formElement.classList.remove('hideForm')
             formElement.classList.add('displayForm')
             contactGradientBorder.classList.add('slideAcrossBorder')
             contactGradientBorder.classList.remove('slideBackBorder')
             contactGradientBorder.style.bottomBorder = `2px solid #f1f1f1`
+            // contactContainer.style.paddingBottom = `55vh`
+            contactContainer.classList.add('contact-container-enlarge')
+            contactContainer.classList.remove('contact-container-shorten')
+            
             setSubmitStatus('');
         }
         setDisplayForm(!displayForm);
@@ -52,7 +60,7 @@ function ContactPage() {
             .then(({ response }) => {
                 displayFormHandler(event)
                 setTimeout(() => {
-                    setSubmitStatusCode(`201`)
+                    // setSubmitStatusCode(`201`)
                     setSubmitStatus(response);
                 }, 1250)
             });

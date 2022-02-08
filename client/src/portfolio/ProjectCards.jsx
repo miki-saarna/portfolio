@@ -28,6 +28,12 @@ export default function ProjectCards ({projectsList, setCardSelected}) {
             const scrollY = window.scrollY // unsure of the difference with `window.pageYOffset`
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollY}px`
+
+            const parallaxPosition = document.querySelectorAll('.parallax-position');
+            parallaxPosition.forEach((element) => {
+                element.style.position = `static`;
+            })
+            // parallaxPosition.style.position = `static`;
         }
         
         return (

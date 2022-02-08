@@ -16,11 +16,41 @@ body {
 
 /* consider removing/replacing */
 .contact {
-  padding: 50vh 0 55vh;
+  padding: 50vh 0 15vh;
   position: relative;
   overflow-y: hidden;
   width: 80%;
   margin: auto;
+}
+
+.contact-container-enlarge {
+  padding-bottom: 55vh;
+  animation: contactContainerEnlarge 500ms ease-in-out
+}
+
+@keyframes contactContainerEnlarge {
+  from {
+    padding-bottom: 15vh;
+  }
+  to {
+    padding-bottom: 55vh;
+  }
+}
+
+.contact-container-shorten {
+  padding-bottom: 15vh;
+  animation: contactContainerShorten 500ms ease-in-out;
+  /* unsure how to get reverse direction to apply */
+  /* animation-direction: reverse; */
+}
+
+@keyframes contactContainerShorten {
+  from {
+    padding-bottom: 55vh;
+  }
+  to {
+    padding-bottom: 15vh;
+  }
 }
 
 .contact > p {
@@ -80,11 +110,25 @@ button.headerLabel {
   background-color: transparent;
   z-index: 3;
   position: relative;
-  /* border-right: 3px solid #4d1616; */
-  /* border-left: 3px solid #4d1616; */
-  /* border: 3px solid #2c2a2a */
-  /* border-radius: 10px; */
+  border-right: 3px solid #f1f1f1;
+  border-left: 3px solid #f1f1f1;
+  /* border: 2px solid #f1f1f1; */
+  /* border-radius: 14px; */
   /* padding: 5px 7px; */
+}
+
+button.headerLabel::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0e0";
+  color: #f1f1f1;
+  margin-left: 9px;
+  font-size: 18px;
 }
 
 .contact-gradient {
@@ -324,7 +368,7 @@ a {
 /* HomePage */
 
 .parallax-content {
-  height: 120vh;
+  height: 107vh;
 }
 
 .homepage-title, .possibilities {
@@ -341,8 +385,8 @@ a {
   margin-top: 325px;
 }
 
-.earth, .moon, .saturn, .rocket, .satellite {
-  position: absolute;
+.parallax-position {
+  position: absolute
 }
 
 .earth {
@@ -388,6 +432,7 @@ a {
   width: 100%;
   position: relative;
   overflow-y: hidden;
+  margin-bottom: 30vh;
 }
 
 .portrait {
@@ -422,7 +467,6 @@ a {
 .portfolio {
   display: flex;
   flex-direction: column;
-  margin-top: 225px;
 } 
 
 .portfolio h2 {
@@ -478,8 +522,14 @@ a {
 }
 
 .portfolio > p {
+  margin: 40px 0px;
   font-size: 19px;
   text-align: center;
+}
+
+.portfolio > p > a {
+  font-size: 19px;
+  color: #b7dfc7;
 }
 /* ================================= */
 

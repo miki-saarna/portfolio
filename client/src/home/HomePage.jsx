@@ -96,33 +96,34 @@ const HomePage = () => {
 
     return (
         <>
+            {/* consider moving to separate file */}
             <div className='parallax-content'>
                 <h3 className='homepage-title' data-translate-y-speed="0.1" data-reveal-opacity-speed='0.03' data-scale-speed=".01">Imagine</h3>
                 <h3 className='possibilities' data-translate-y-speed="0.1" data-scale-speed=".00235" data-reveal-opacity-speed='0.01' data-hide-opacity-speed='0.007' data-hide-opacity-point='100'> The Possibilities</h3>
-                <img className='earth' data-speed="0.7" src={earth} alt="" />
-                <img className='moon parallaxLinear' data-translate-x-speed="-0.3" data-translate-y-speed="-0.4" data-scale-speed="-.0007" src={moon} alt="" />
-                <img className='saturn parallaxLinear' data-translate-x-speed="-0.1" data-translate-y-speed="0.2" data-scale-speed="-.0005" src={saturn} alt="" />
-                <img className='rocket parallaxLinearRocket' data-translate-x-speed="0.3" data-translate-y-speed="-0.6" data-scale-speed=".003" src={rocket} alt="" />
-                <img className='satellite parallaxEllipse' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
+                <img className='earth parallax-position' data-speed="0.7" src={earth} alt="" />
+                <img className='moon parallaxLinear parallax-position' data-translate-x-speed="-0.3" data-translate-y-speed="-0.4" data-scale-speed="-.0007" src={moon} alt="" />
+                <img className='saturn parallaxLinear parallax-position' data-translate-x-speed="-0.1" data-translate-y-speed="0.2" data-scale-speed="-.0005" src={saturn} alt="" />
+                <img className='rocket parallaxLinearRocket parallax-position' data-translate-x-speed="0.3" data-translate-y-speed="-0.6" data-scale-speed=".003" src={rocket} alt="" />
+                <img className='satellite parallaxEllipse parallax-position' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
             </div>
 
             {/* consider moving to separate file */}
             <div className='portrait-container' id='about'>
                 <img className='portrait' alt='some text' src={portrait} />
-                <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".0002" data-reveal-opacity-speed='0.1' data-hide-opacity-speed='0.006' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
+                <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".0002" data-reveal-opacity-speed='0.03' data-hide-opacity-speed='0.006' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
                 <div className='overlay portrait-overlay' data-speed-y='0.1'></div>
             </div>
-            
-            <ContactPage />
 
             <div className='portfolio' id='portfolio'>
                 <h2>Portfolio</h2>
                 <div>
                     <ProjectCards projectsList={projectsList} setCardSelected={setCardSelected} />
                 </div>
-                <p>Check out my other projects at GitHub!</p>
+                <p>Check out my other projects at <a href='https://github.com/miki-saarna' target='_blank'>GitHub!</a></p>
             </div>
             {cardSelected ? <FocusedOnProject project={projectsList.find(project => project._id === cardSelected)} setCardSelected={setCardSelected} offset={offset} /> : null}
+
+            <ContactPage />
         </>
     )
 }

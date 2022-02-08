@@ -5,14 +5,14 @@ export const MenuData = [
         // path: "/about",
     },
     {
-        title: "Contact",
-        path: "contact",
-        // path: "/contact",
-    },
-    {
         title: "Portfolio",
         path: "portfolio",
         // path: "/portfolio",
+    },
+    {
+        title: "Contact",
+        path: "contact",
+        // path: "/contact",
     }
 ]
 
