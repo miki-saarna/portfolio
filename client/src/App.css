@@ -816,24 +816,44 @@ button {
 
 footer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 30px 0 50px;
 }
 
-footer > a:nth-of-type(1) > img {
+footer > div {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+footer > div > a:nth-of-type(1) > img {
   width: 26px;
 }
 
-footer > a:nth-of-type(2) > img {
+footer > div > a:nth-of-type(2) > img {
   width: 26px;
 }
 
-footer > a:nth-of-type(3) > img {
+footer > div > a:nth-of-type(3) > img {
   width: 26px;
 }
 
-footer > a:nth-of-type(2) {
-  margin: 0 30px;
+/* footer > div > a:nth-of-type(1) {
+  flex: 1;
+} */
+
+footer > div > a:nth-of-type(2) {
+  margin: 0 33px;
+}
+
+/* footer > div > a:nth-of-type(3) > img {
+  flex: 1;
+} */
+
+footer > div > h2 {
+
 }
 
 /* used for menubar infinitely orbiting satellite */

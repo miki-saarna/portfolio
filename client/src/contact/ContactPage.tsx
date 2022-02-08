@@ -66,7 +66,7 @@ function ContactPage() {
 
 
     return (
-        <div className="contact">
+        <div className="contact" id="contact">
             <div className='contact-gradient'></div>
             <button className="headerLabel" onClick={displayFormHandler}>Contact me</button>
             <div className='contact-gradient-border'></div>

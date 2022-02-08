@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-scroll';
 import MenuData from "./MenuData";
 import githubLogo from "../images/github_logo.png"
 import linkedInLogo from "../images/linkedin_logo.png"
@@ -27,7 +27,11 @@ export const Menu = () => {
                             {MenuData.map((item, index) => {
                                 return (
                                     <li key={index} className="link" onClick={showMenuBarHandler}>
-                                        <Link to={item.path}>
+                                        {/* use this for navigation to a different page */}
+                                        {/* <Link to={item.path}>
+                                            {item.title}
+                                        </Link> */}
+                                        <Link to={item.path} smooth duration={800} offset={item.path == 'about' ? -225 : 0} onClick={showMenuBarHandler}>
                                             {item.title}
                                         </Link>
                                     </li>
