@@ -4,9 +4,10 @@ import { retrieveProjects } from "../utils/api";
 import TextAnimation from "../utils/TextAnimation";
 import ParallaxLinear from "../utils/ParallaxLinear";
 import ParallaxEllipse from "../utils/ParallaxEllipse";
-import FadeInEffect from "../utils/FadeInEffect";
 import ParallaxLinearRocket from "../utils/ParallaxLinearRocket";
 import ContactPage from "../contact/ContactPage";
+import ProjectCards from "../portfolio/ProjectCards";
+import FocusedOnProject from "../portfolio/FocusedOnProject";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -17,8 +18,6 @@ import satellite from "../images/satellite.png";
 
 const HomePage = () => {
     
-    
-    const [projectsList, setProjectsList] = useState([]);
     // retreive projects
     useEffect(() => {
         retrieveProjects()
@@ -28,8 +27,11 @@ const HomePage = () => {
             })
     }, [])
 
+    const [projectsList, setProjectsList] = useState([]);
+    const [cardSelected, setCardSelected] = useState(null);
     const [offset, setOffset] = useState(0);
     const handleScroll = () => setOffset(window.pageYOffset);
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
@@ -88,34 +90,9 @@ const HomePage = () => {
 
         // const projectCards = document.querySelectorAll('.project-card');
         // FadeInEffect(projectCards)
-        
     
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
-
-    // useEffect(() => {
-        // const projectCards = document.querySelectorAll('.project-card');
-        // FadeInEffect(projectCards)
-    // }, [])
-
-    const projectCards = document.querySelectorAll('.project-card');
-    FadeInEffect(projectCards)
-
-    const projectsHTML = projectsList.map((project) => {
-        const {
-            _id,
-            image,
-            name,
-        } = project;
-        
-        return (
-            <div key={_id} className='project-card'>
-                <h3>{name}</h3>
-                <img src={image} />
-                <div className='overlay project-overlay'></div>
-            </div>
-        )
-    })
 
     return (
         <>
@@ -140,10 +117,11 @@ const HomePage = () => {
             <div className='portfolio'>
                 <h2>Portfolio</h2>
                 <div>
-                    {projectsHTML}
+                    <ProjectCards projectsList={projectsList} setCardSelected={setCardSelected} />
                 </div>
                 <p>Check out my other projects at GitHub!</p>
             </div>
+            {cardSelected ? <FocusedOnProject project={projectsList.find(project => project._id === cardSelected)} setCardSelected={setCardSelected} offset={offset} /> : null}
         </>
     )
 }

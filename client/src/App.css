@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: rgba(0,0,0,.87);
+  /* background-color: rgba(0,0,0,.87); */
   background-color: rgb(31, 28, 28);
   color: #f1f1f1;
 }
@@ -198,7 +198,6 @@ a {
 }
 
 /* ================================= */
-
 
 /* slide-in-and-out menu button */
 .menuBtn::before {
@@ -435,9 +434,11 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
-.portfolio > div > div {
+/* .portfolio > div > div { */
+  .portfolio > div > div {
   width: 90%;
   /* changed from 200px */
   height: 150px;
@@ -490,9 +491,7 @@ a {
     /* transition: all 2s ease; */
 }
 
-.project-card {
-  opacity: 0;
-}
+
 
 .nowReveal {
   /* animation: fading 1750ms; */
@@ -525,6 +524,7 @@ a {
   }
 } */
 
+
 .project-card {
   opacity: 0;
   transition: opacity 250ms ease-in;
@@ -541,6 +541,129 @@ a {
   }
   to {
     height: 150px
+  }
+}
+
+.clicked-project {
+  color: rgb(31, 28, 28);
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  height: 400px;
+  width: 85%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 225ms ease-in-out;
+}
+
+.clicked-project > button {
+  /* border: 2px solid red; */
+  background-color: transparent;
+  position: absolute;
+  top: .5%;
+  right: 3.5%;
+  border: none;
+  font-size: 34px;
+  z-index: 8;
+  padding: 0;
+  /* text-shadow: 3px 3px 4px rgba(5, 5, 5, 0.4), 1px -1px 4px rgba(5, 5, 5, 0.8); */
+  /* unclear why but this gets the text-shadow to not be a box shadow
+  `initial isn't the only value that works`  */
+  overflow-x: initial;
+}
+
+.clicked-project > button::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00d";
+  color: rgb(31, 28, 28);
+}
+
+.clicked-project > img {
+  flex: 5;
+  object-fit: cover;
+  display: block;
+}
+
+.clicked-project > div {
+  flex: 3;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.clicked-project > div > h4 {
+  flex: 1;
+}
+
+.clicked-project > div > p:first-of-type {
+  flex: 3;
+}
+.clicked-project > div > a {
+  flex: 2;
+  align-self: center;
+}
+
+.clicked-project > div > a {
+  flex: 1;
+  background-color: rgba(0,0,0,.87);
+  border-radius: 7px;
+  padding: 4px 5px 4px 6px;
+  width:fit-content;
+  font-size: 17px;
+  display: flex;
+  /* box-sizing: border-box; */
+  /* temporarily solution due to having trouble with getting border-box to apply */
+  border: 2px solid #f1f1f1;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.clicked-project > div > a:hover {
+  background-color: transparent;
+  border: 2px solid rgba(0,0,0,.87);
+  color: rgba(0,0,0,.87);
+}
+
+.clicked-project > div > a > p {
+  margin-right: 2px;
+}
+
+.clicked-project > div > a > img {
+  height: 20px;
+}
+
+.background-dim {
+  background-color: rgba(0,0,0,.87);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  opacity: 1;
+  animation: dim 100ms ease-in-out;
+}
+
+@keyframes dim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
