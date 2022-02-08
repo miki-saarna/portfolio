@@ -27,10 +27,11 @@ export const Menu = () => {
                             {MenuData.map((item, index) => {
                                 return (
                                     <li key={index} className="link" onClick={showMenuBarHandler}>
+                                        {/* use this for navigation to a different page */}
                                         {/* <Link to={item.path}>
                                             {item.title}
                                         </Link> */}
-                                        <Link to={item.path} smooth duration={800} offset={item.path == 'about' ? -250 : 0} onClick={showMenuBarHandler}>
+                                        <Link to={item.path} smooth duration={800} offset={item.path == 'about' ? -225 : 0} onClick={showMenuBarHandler}>
                                             {item.title}
                                         </Link>
                                     </li>
