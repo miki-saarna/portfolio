@@ -17,35 +17,6 @@ function ContactPage() {
     // const [submitStatusCode, setSubmitStatusCode] = useState('');
 
     const displayFormHandler = (event) => {
-        // event.preventDefault();
-        // const formElement:any = document.querySelector('form');
-        const contactGradientBorder:any = document.querySelector('.contact-gradient-border');
-        // const contactContainer:any = document.querySelector('.contact')
-        if (displayForm) {
-            // formElement.classList.remove('displayForm')
-            // formElement.classList.add('hideForm')
-            contactGradientBorder.classList.remove('slideAcrossBorder')
-            contactGradientBorder.classList.add('slideBackBorder')
-            contactGradientBorder.style.bottomBorder = `none`
-            // contactContainer.style.paddingBottom = `15vh`
-            // contactContainer.classList.add('contact-container-shorten')
-            // contactContainer.classList.remove('contact-container-enlarge')
-        } else {
-            // formElement.classList.remove('hideForm')
-            // formElement.classList.add('displayForm')
-            contactGradientBorder.classList.add('slideAcrossBorder')
-            contactGradientBorder.classList.remove('slideBackBorder')
-            contactGradientBorder.style.bottomBorder = `2px solid #f1f1f1`
-            // contactContainer.style.paddingBottom = `55vh`
-            // contactContainer.classList.add('contact-container-enlarge')
-            // contactContainer.classList.remove('contact-container-shorten')
-            
-            // setSubmitStatus('');
-        }
-        // setDisplayForm(!displayForm);
-    }
-
-    const displayer = (event) => {
         event.preventDefault();
         const contactContainer = event.target.parentNode;
         const contactGradientBorder :any= document.querySelector('.contact-gradient-border');
@@ -90,8 +61,7 @@ function ContactPage() {
     return (
         <div className="contact" id="contact">
             {/* <div className='contact-gradient'></div> */}
-            <button className="headerLabel" onClick={displayer}>Contact me</button>
-            {/* <button className="headerLabel" onClick={displayFormHandler}>Contact me</button> */}
+            <button className="headerLabel" onClick={displayFormHandler}>Contact me</button>
             <div className='contact-gradient-border'></div>
             {/* remvoe form class? */}
             <form className='form' onSubmit={handleSubmit}>
