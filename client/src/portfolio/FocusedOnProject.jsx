@@ -24,6 +24,7 @@ export default function FocusedOnProject ({project, setCardSelected, offset}) {
         backgroundDim.parentElement.removeChild(backgroundDim)
         document.body.style.position = 'static';
         window.scrollTo(0, pageYOffset)
+        document.body.style.top = '';
     }
 
     return (

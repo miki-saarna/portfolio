@@ -12,9 +12,15 @@ import satellite from "../images/satellite.png";
 
 export const Menu = () => {
 
-    const [menuBar, setMenuBar] = useState(false);
+    // document.body.style.position = 'fixed';
+    // document.body.style.position = 'static';
 
-    const showMenuBarHandler = () => setMenuBar(!menuBar);
+    const [menuBar, setMenuBar] = useState(false);
+    
+    const showMenuBarHandler = () => {
+        setMenuBar(!menuBar);
+        document.body.style.position = menuBar ? 'static' : 'fixed';
+    }
 
     return (
         <>
