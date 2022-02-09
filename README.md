@@ -25,7 +25,7 @@ Both the client and server are hosted on [Vercel](https://vercel.com/) with the 
 
 ## Description
 
-This is a portfolio meant to display my ability to create a full-stack website incorporating a beautiful and meticulously designed user experience with API calls that highlight some of my other projects.
+This is a portfolio meant to display my ability to create a full-stack website incorporating a beautiful and meticulously designed user experience with an API call that displays some of my other projects.
 
 Current features include:
 
@@ -43,11 +43,11 @@ Current sections include:
 
 ## Technologies
 
-This application's front-end is built on React, TypeScript and Vanilla CSS. An API handles all promises necessary to interact with the back-end API database. Complex mathematical equations were incorporated on multiple elements in place of utilizing a package such as [react-parallax](https://www.npmjs.com/package/react-parallax) as this package came with limitations from what I was trying to accomplish.
+This project's front-end is built on React, TypeScript and Vanilla CSS. An API handles all promises necessary to interact with the back-end API database. Complex mathematical equations were incorporated on multiple elements in place of utilizing a package such as [react-parallax](https://www.npmjs.com/package/react-parallax) as this package came with limitations from what I was trying to accomplish.
 
-> I am considering creating my own NPM package(s) from a couple of the features such as the Linear Parallax effect (saturn) and/or Ellipse Parallax Effect (satellite)
+> I am considering creating my own NPM package(s) from a couple of the features such as the Linear Parallax effect (effect displayed by the saturn element) and/or Ellipse Parallax Effect (effect displayed by the satellite element)
 
-The application's back-end is built on Express.js and MongoDB servers utilizing RESTful APIs. Implementation of the Nodemailer package allows easy and efficient capability for a form submission to send an email message to a given email address.
+The project's back-end is built on Express.js and MongoDB servers utilizing RESTful APIs. Implementation of the Nodemailer package allows easy and efficient capability for a form submission to send an email message to a given email address.
 
 The Express CORS package is implemented for specified domains to access the back-end API. The CORS package is commented out for installation simplicity, but is ready to be used by uncommenting a few lines of code (Detailed instructions within [Installation](#installation) section below)
 
@@ -80,7 +80,7 @@ The Express CORS package is implemented for specified domains to access the back
 Other:
 
 - If a Gmail account is inputted in step 4 above, visit [https://myaccount.google.com/u/3/lesssecureapps](https://myaccount.google.com/u/3/lesssecureapps) and enable "Allow less secure apps". This gives Nodemailer access to use this email address
-- Reconfigure lines 12 - 20 of the `./server/src/app.js` file to use the CORS package. Alter the value(s) of the `allowedDomains` array to include the location(s) where you plan to run the client of the application
+- Reconfigure lines 12 - 20 of the `./server/src/app.js` file to use the CORS package. Alter the value(s) of the `allowedDomains` array to include the location(s) where you plan to run the client of the project
 
 Please reach out for assitance if you are having trouble getting the server to properly run.
 
@@ -95,7 +95,7 @@ Please reach out for assitance if you are having trouble getting the server to p
 
 In addition to optimizing the current code base and updating some of the TypeScript type annotations, there are a number of updates planned for the near future for this website. These updates include:
 
-- Updating JavaScript files using parallax effect to more efficiently and smoothly adjust to screen size changes
+- Updating JavaScript files using the parallax effect to more efficiently and smoothly adjust to screen size changes
 - Adding a rocket element within the parallax banner section
 - Calculating mathematical isotopes into some of the complex functions, especially ones that implement changes to opacity based on vertical offset
 
