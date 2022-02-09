@@ -51,36 +51,67 @@ const HomePage = () => {
         }
         ParallaxEllipse(parallaxEllipse, variables, offset);
     
-        // let revealPoint = 10;
-        // if(window.innerWidth < 768) {
-        //   revealPoint = 400
-        // } 
-        // else if(window.innerWidth < 1024) {
-        //   revealPoint = 150
-        // } else if(window.innerWidth < 1200) {
-        //   revealPoint = 150
-        // } else {
-        //   revealPoint = 150
-        // }
         const discoverReveal = document.querySelector(".homepage-title");
+        // move to separate file
+        // switch to case statements?
+        let discoverRevealPoint = 560;
+        let offsetVariable = 0;
+        if (window.innerWidth < 375) {
+            discoverRevealPoint = 480;
+            offsetVariable = 24;  
+        } else if(window.innerWidth < 390) {
+            discoverRevealPoint = 420
+            offsetVariable = 37;  
+        } else if(window.innerWidth < 410) {
+            discoverRevealPoint = 580
+        }
+        else if(window.innerWidth < 450) {
+            discoverRevealPoint = 650
+        }
+        else if(window.innerWidth <= 600) {
+            discoverRevealPoint = 600
+        }
+        else if(window.innerWidth <= 768) {
+          discoverRevealPoint = 750
+        } else if(window.innerWidth <= 820) {
+          discoverRevealPoint = 920
+        } else if(window.innerWidth <= 912) {
+            discoverRevealPoint = 1125
+          }
+          else if(window.innerWidth <= 1000) {
+          discoverRevealPoint = 900
+        }
+        else if(window.innerWidth <= 1200) {
+            discoverRevealPoint = 1450
+          } 
+        else {
+          discoverRevealPoint = 150
+        }
+        
+
+
         TextAnimation({
             element: discoverReveal,
-            revealPoint: 560,
-            offset: offset
+            revealPoint: discoverRevealPoint,
+            offset: offset,
         })
+        // sometimes offset of 0 doesn't get passed into TextAnimation
+        if (offset === 0) {
+            discoverReveal.style.opacity = `0`
+        }
 
         const possibilitiesReveal = document.querySelector(".possibilities");
-        TextAnimation({
-            element: possibilitiesReveal,
-            revealPoint: 350
-        })
+        // TextAnimation({
+        //     element: possibilitiesReveal,
+        //     revealPoint: 350
+        // })
 
         // possible to replace querySelector with the elements? like h5
         const bioReveal = document.querySelector(".bio");
-        TextAnimation({
-            element: bioReveal, 
-            revealPoint: 300
-        })
+        // TextAnimation({
+        //     element: bioReveal, 
+        //     revealPoint: 300
+        // })
 
         // move this parallax effect into a separate helper file!!!
         const portrait = document.querySelector('.portrait');
