@@ -12,6 +12,7 @@ body {
   /* background-color: rgba(0,0,0,.87); */
   background-color: rgb(31, 28, 28);
   color: #f1f1f1;
+  width: 100%;
 }
 
 /* consider removing/replacing */
@@ -211,7 +212,7 @@ button.headerLabel::after {
 
 
 /* header */
-header {
+header div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -227,7 +228,7 @@ header h1::after {
   color:#d8e2dc;
 }
 
-header > h2 {
+header > div > h2 {
   font-size: 14px;
 }
 
@@ -403,6 +404,7 @@ a {
 
 .parallax-content {
   height: 107vh;
+  overflow: hidden;
 }
 
 .homepage-title, .possibilities {
@@ -416,7 +418,7 @@ a {
 }
 
 .possibilities {
-  margin-top: 275px;
+  margin-top: 345px;
   /* margin-top: 325px; */
 }
 
@@ -957,4 +959,382 @@ footer h2::after {
   z-index: 4;
 }
 
+@media only screen and (min-width: 768px) {
+  
+  .homepage-title {
+    margin-top: 275px;
+  }
+  
+  .possibilities {
+    margin-top: 550px;
+  }
+
+  .earth {
+    width: 34%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+  
+  .saturn {
+    width: 21%;
+    right: 12%;
+  }
+  
+  .satellite {
+    width: 12%;
+    left: 46%;
+  }
+
+.portrait-container {
+  height:340px;
+  width: 100%;
+  margin-bottom: 40vh;
+}
+
+.portrait {
+  height: 400px;
+}
+
+.portrait-container > h5 {
+  font-size: 22px;
+  margin: 0 120px 10px;
+}
+
+.portfolio > div > div {
+  height: 225px;
+  width: 75%;
+}
+.project-card {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.project-card.appear {
+  opacity: 1;
+  animation: shorten 1250ms
+}
+
+.clicked-project {
+  width: 60%;
+  height: 500px;
+}
+
+@keyframes shorten {
+  from {
+    height: 325px
+  }
+  to {
+    height: 225px
+  }
+}
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    height: 0;
+    width:0%;
+  }
+  to {
+    opacity: 1;
+    height: 500px;
+    width: 60%;
+  }
+}
+.contact {
+  width: 60%;
+}
+}
+
+@media only screen and (min-width: 821px) {
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px 0;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
+  .menuBtn, .exitMenuBtn {
+    display: none;
+  }
+
+  /* .openMenu { */
+  .closeMenu {
+    background-color: transparent;
+    position: relative;
+    left: 0;
+    /* top: 10px; */
+    /* left: 10px; */
+    width: fit-content;
+    height: fit-content;
+    transition: 325ms;
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: flex-start;
+  }
+
+  .scale-satellite {
+    display: none;
+  }
+
+  .pageGradient {
+    display: none;
+  }
+
+ul:first-of-type {
+  width: fit-content;
+  position: static;
+  flex-direction: row;
+  border-right: 2px solid #f3f3f3;
+}
+
+ul:first-of-type > li {
+  padding: 0px;
+  margin: 0 10px;
+}
+
+ul:last-of-type {
+  top: 0px;
+  display: flex;
+  /* position: static; */
+  position: relative;
+  justify-content: center;
+}
+
+ul:last-of-type > li {
+  /* the padding-top of 2px helps horizontally align both sets of ul elements */
+  padding: 2px 9px;
+}
+
+ul:last-of-type > li:last-of-type {
+  padding-right: 0;
+}
+
+a {
+  font-size: 22px;
+}
+
+.homepage-title {
+  margin-top: 400px;
+}
+
+.possibilities {
+  margin-top: 525px;
+}
+
+}
+
+@media only screen and (min-width: 1000px) {
+
+  .parallax-content {
+    height: 150vh;
+  }
+
+  .homepage-title {
+    margin-top: 150px;
+  }
+  
+  .possibilities {
+    margin-top: 450px;
+  }
+
+  .earth {
+    width: 24%;
+    top: 70%;
+  }
+  
+  .saturn {
+    width: 15%;
+    top: 50%;
+    right: 23%;
+  }
+  
+  .satellite {
+    width: 10%;
+    top: 87%;
+    left: 45%;
+  }
+
+  .portrait-container {
+    height:400px;
+    width: 70%;
+    margin: 0 auto 40vh;
+    border-radius: 15px;
+  }
+  
+  .portrait {
+    height: 450px;
+  }
+
+  .portfolio > div {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 40px 30px;
+  }
+
+  .portfolio > div > div {
+  height: 200px;
+  width: 30%;
+  margin-bottom: 0;
+}
+
+.project-card {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.project-card.appear {
+  opacity: 1;
+  animation: shorten 1250ms
+}
+
+.clicked-project {
+  width: 37%;
+  height: 350px;
+}
+
+@keyframes shorten {
+  from {
+    height: 275px
+  }
+  to {
+    height: 200px
+  }
+}
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    height: 0;
+    width:0%;
+  }
+  to {
+    opacity: 1;
+    height: 350px;
+    width: 37%;
+  }
+}
+
+
+
+.contact {
+  width: 45%;
+}
+
+}
+  @media only screen and (min-width: 1200px) {
+    .earth {
+      width: 22%;
+      top: 58%;
+    }
+    .saturn {
+      width: 13%;
+      top: 46%;
+      right: 27%;
+    }
+    .satellite {
+      width: 10%;
+      top: 74%;
+      left: 44%;
+    }
+    
+    .portfolio > div {
+      justify-content: space-around;
+    }
+  
+    .portfolio > div > div {
+    height: 260px;
+    width: 27%;
+  }
+
+  .portfolio > p {
+    margin: 60px 0 70px;
+  }
+  
+  .project-card {
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+  }
+  
+  
+  .clicked-project {
+    width: 28%;
+    height: 350px;
+  }
+  
+  @keyframes shorten {
+    from {
+      height: 300px
+    }
+    to {
+      height: 260px
+    }
+  }
+  @keyframes projectFadeIn {
+    from {
+      opacity: 0;
+      height: 0;
+      width:0%;
+    }
+    to {
+      opacity: 1;
+      height: 350px;
+      width: 28%;
+    }
+  }
+  .contact {
+    width: 35%;
+  }
+  }
+  @media only screen and (min-width: 1400px) {
+    .homepage-title {
+      margin-top: 200px;
+    }
+    
+    .possibilities {
+      margin-top: 525px;
+    }
+    .earth {
+      width: 20%;
+    }
+    .saturn {
+      width: 10%;
+      top: 49%;
+      right: 32%;
+    }
+    .satellite {
+      width: 10%;
+      top: 69%;
+      left: 46%;
+    }
+    .portfolio > div {
+      margin: 70px;
+    }
+  }
+  @media only screen and (min-width: 1600px) {
+    
+    .possibilities {
+      margin-top: 625px;
+    }
+    .earth {
+      width: 20%;
+    }
+    .saturn {
+      width: 10%;
+      top: 49%;
+      right: 32%;
+    }
+    .satellite {
+      width: 8%;
+      top: 69%;
+      left: 49%;
+    }
+    .portfolio > div {
+      margin: 70px;
+    }
+  }
 

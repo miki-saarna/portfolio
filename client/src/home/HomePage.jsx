@@ -45,9 +45,37 @@ const HomePage = () => {
         const parallaxEllipse = document.querySelector(".parallaxEllipse");
         // adjust radius x and y values and speed of motion
         const variables = {
-            radiusX: 95,
-            radiusY: 50,
+            radiusX: 105,
+            radiusY: 60,
             velocity: 0.02
+        }
+        if (window.innerWidth >= 768) {
+            variables['radiusX'] = 160;
+            variables['radiusY'] = 90;
+        }
+        if (window.innerWidth >= 820) {
+            variables['radiusX'] = 175;
+            variables['radiusY'] = 90;
+            variables['velocity'] = 0.017;
+        }
+        if (window.innerWidth >= 1000) {
+            variables['radiusX'] = 145;
+            variables['radiusY'] = 82;
+            variables['velocity'] = 0.022;
+        }
+        if (window.innerWidth >= 1200) {
+            variables['radiusX'] = 185;
+            variables['radiusY'] = 106;
+            variables['velocity'] = 0.02;
+        }
+        if (window.innerWidth >= 1400) {
+            variables['radiusX'] = 190;
+            variables['radiusY'] = 108;
+        }
+        if (window.innerWidth >= 1600) {
+            variables['radiusX'] = 200;
+            variables['radiusY'] = 100;
+            variables['velocity'] = 0.019;
         }
         ParallaxEllipse(parallaxEllipse, variables, offset);
     
@@ -55,13 +83,10 @@ const HomePage = () => {
         // move to separate file
         // switch to case statements?
         let discoverRevealPoint = 560;
-        let offsetVariable = 0;
         if (window.innerWidth < 375) {
             discoverRevealPoint = 480;
-            offsetVariable = 24;  
         } else if(window.innerWidth < 390) {
             discoverRevealPoint = 420
-            offsetVariable = 37;  
         } else if(window.innerWidth < 410) {
             discoverRevealPoint = 580
         }
@@ -71,21 +96,30 @@ const HomePage = () => {
         else if(window.innerWidth <= 600) {
             discoverRevealPoint = 600
         }
+        else if(window.innerWidth <= 700) {
+            discoverRevealPoint = 700
+        }
         else if(window.innerWidth <= 768) {
-          discoverRevealPoint = 750
+          discoverRevealPoint = 700
         } else if(window.innerWidth <= 820) {
-          discoverRevealPoint = 920
+          discoverRevealPoint = 850
         } else if(window.innerWidth <= 912) {
-            discoverRevealPoint = 1125
+            discoverRevealPoint = 230
           }
           else if(window.innerWidth <= 1000) {
-          discoverRevealPoint = 900
+          discoverRevealPoint = 325
         }
         else if(window.innerWidth <= 1200) {
-            discoverRevealPoint = 1450
+            discoverRevealPoint = 425
+          } 
+          else if(window.innerWidth <= 1400) {
+            discoverRevealPoint = 550
+          } 
+          else if(window.innerWidth <= 1600) {
+            discoverRevealPoint = 625
           } 
         else {
-          discoverRevealPoint = 150
+          discoverRevealPoint = 725
         }
         
 
@@ -101,17 +135,101 @@ const HomePage = () => {
         }
 
         const possibilitiesReveal = document.querySelector(".possibilities");
-        // TextAnimation({
-        //     element: possibilitiesReveal,
-        //     revealPoint: 350
-        // })
+        // move to separate file
+        // switch to case statements?
+        let possibilitiesRevealPoint = 300;
+        if (window.innerWidth < 375) {
+            possibilitiesRevealPoint = 300;
+        } else if(window.innerWidth < 390) {
+            possibilitiesRevealPoint = 325
+        } else if(window.innerWidth < 410) {
+            possibilitiesRevealPoint = 350
+        }
+        else if(window.innerWidth < 450) {
+            possibilitiesRevealPoint = 375
+        }
+        else if(window.innerWidth <= 600) {
+            possibilitiesRevealPoint = 300
+        }
+        else if(window.innerWidth <= 700) {
+            possibilitiesRevealPoint = 300
+        }
+        else if(window.innerWidth <= 768) {
+          possibilitiesRevealPoint = 350
+        } else if(window.innerWidth <= 820) {
+          possibilitiesRevealPoint = 500
+        } else if(window.innerWidth <= 912) {
+            possibilitiesRevealPoint = 230
+          }
+          else if(window.innerWidth <= 1000) {
+          possibilitiesRevealPoint = 100
+        }
+        else if(window.innerWidth <= 1200) {
+            possibilitiesRevealPoint = 150
+          } 
+          else if(window.innerWidth <= 1400) {
+            possibilitiesRevealPoint = 175
+          } 
+          else if(window.innerWidth <= 1600) {
+            possibilitiesRevealPoint = 200
+          } 
+        else {
+          possibilitiesRevealPoint = 725
+        }
+
+        
+        TextAnimation({
+            element: possibilitiesReveal,
+            revealPoint: possibilitiesRevealPoint
+        })
 
         // possible to replace querySelector with the elements? like h5
         const bioReveal = document.querySelector(".bio");
-        // TextAnimation({
-        //     element: bioReveal, 
-        //     revealPoint: 300
-        // })
+        // move to separate file
+        // switch to case statements?
+        let bioRevealPoint = 300;
+        if (window.innerWidth < 375) {
+            bioRevealPoint = 300;
+        } else if(window.innerWidth < 390) {
+            bioRevealPoint = 300
+        } else if(window.innerWidth < 410) {
+            bioRevealPoint = 300
+        }
+        else if(window.innerWidth < 450) {
+            bioRevealPoint = 300
+        }
+        else if(window.innerWidth <= 600) {
+            bioRevealPoint = 300
+        }
+        else if(window.innerWidth <= 700) {
+            bioRevealPoint = 300
+        }
+        else if(window.innerWidth <= 768) {
+          bioRevealPoint = 300
+        } else if(window.innerWidth <= 820) {
+          bioRevealPoint = 300
+        } else if(window.innerWidth <= 912) {
+            bioRevealPoint = 100
+          }
+          else if(window.innerWidth <= 1000) {
+          bioRevealPoint = 100
+        }
+        else if(window.innerWidth <= 1200) {
+            bioRevealPoint = 150
+          } 
+          else if(window.innerWidth <= 1400) {
+            bioRevealPoint = 175
+          } 
+          else if(window.innerWidth <= 1600) {
+            bioRevealPoint = 200
+          } 
+        else {
+          bioRevealPoint = 725
+        }
+        TextAnimation({
+            element: bioReveal, 
+            revealPoint: bioRevealPoint
+        })
 
         // move this parallax effect into a separate helper file!!!
         const portrait = document.querySelector('.portrait');

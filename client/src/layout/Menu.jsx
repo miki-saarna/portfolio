@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-scroll';
 import MenuData from "./MenuData";
 import githubLogo from "../images/github_logo.png"
@@ -11,16 +11,31 @@ import AnimatedEllipse from "../utils/AnimatedEllipse";
 import satellite from "../images/satellite.png";
 
 export const Menu = () => {
-
     // document.body.style.position = 'fixed';
     // document.body.style.position = 'static';
 
     const [menuBar, setMenuBar] = useState(false);
     
     const showMenuBarHandler = () => {
-        setMenuBar(!menuBar);
-        document.body.style.position = menuBar ? 'static' : 'fixed';
+        if (window.innerWidth <= 820) {
+            setMenuBar(!menuBar);
+            // consider just setting to empty string instead of `static`
+            document.body.style.position = menuBar ? 'static' : 'fixed';
+        }
     }
+
+    const menuItemsHTML = MenuData.map((item, index) => {
+        return (
+            <li key={index} className="link" onClick={showMenuBarHandler}>
+                {/* use this for navigation to a different page */}
+                {/* <Link to={item.path}>
+                    {item.title}
+                </Link> */}
+                <Link to={item.path} smooth duration={800} offset={item.path == 'about' ? -225 : 0} onClick={showMenuBarHandler}>
+                    {item.title}
+                </Link>
+            </li>
+            )})
 
     return (
         <>
@@ -30,19 +45,7 @@ export const Menu = () => {
                     <nav className={menuBar ? "openMenu" : "closeMenu"}>
                     {/* <nav className={menuBar ? "openMenu active" : "closeMenu"}> */}
                         <ul>
-                            {MenuData.map((item, index) => {
-                                return (
-                                    <li key={index} className="link" onClick={showMenuBarHandler}>
-                                        {/* use this for navigation to a different page */}
-                                        {/* <Link to={item.path}>
-                                            {item.title}
-                                        </Link> */}
-                                        <Link to={item.path} smooth duration={800} offset={item.path == 'about' ? -225 : 0} onClick={showMenuBarHandler}>
-                                            {item.title}
-                                        </Link>
-                                    </li>
-                                    )})
-                            }
+                            {menuItemsHTML}
                         </ul>
                         <ul>
                             <li><a href="https://github.com/miki-saarna" target="_blank" onClick={showMenuBarHandler}><img alt="" src={githubLogo} width={26} /></a></li>
@@ -53,8 +56,9 @@ export const Menu = () => {
                             <li><a href="https://twitter.com/MikitoSaarna" target="_blank" onClick={showMenuBarHandler}><img alt="" src={twitterLogoWhite} width={26} /></a></li> */}
                         </ul>
                         <img className='scale-satellite' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" />
+                        {/* {menuBar ? <img className='scale-satellite' data-translate-x-speed="0.1" data-translate-y-speed="0.1" data-scale-speed=".0013" src={satellite} alt="" /> : null} */}
                     </nav>
-                    <div className={menuBar ? "pageGradient" : null} onClick={menuBar ? showMenuBarHandler : null}></div>
+                    {menuBar ? <div className="pageGradient" onClick={showMenuBarHandler} /> : null}
                   </>
         </>
     )

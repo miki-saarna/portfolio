@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Menu from "./Menu";
 
 export const Header = () => {
 
@@ -7,8 +8,11 @@ export const Header = () => {
         <>
             <header>
                 {/* might be able to delete classes 'link' and 'title' */}
+                <div>
                 <Link className="link title" to="/"><h1>Miki</h1></Link>
                 <h2>Software Engineer</h2>
+                </div>
+                <Menu />
                 {/* <nav>
                     <ul>
                         <li><Link className="link" to="/about">About</Link></li>

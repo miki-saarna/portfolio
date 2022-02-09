@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   return (
     <>
-      <Menu />
+      {/* <Menu /> */}
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />}/>
