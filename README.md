@@ -9,7 +9,6 @@
 - [Technologies](#technologies)
 - [How To Use](#how-to-use)
 - [API Paths](#api-paths)
-- [Application Features](#application-features)
 - [Version 2.0 (future upgrade)](#version-20)
 - [License](#license)
 - [Author Info](#author-info)
@@ -130,4 +129,4 @@ SOFTWARE.
 - LinkedIn: [Mikito Saarna](https://www.linkedin.com/in/mikito-saarna/)
 - Website: [MikiSaarna.com](https://MikiSaarna.com)
 
-[Back To The Top](#account-balance-and-transactions-app-with-plaid-api)
+[Back To The Top](#personal-portfolio-website)
