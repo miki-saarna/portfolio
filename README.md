@@ -2,6 +2,8 @@
 
 > Note: This project is still at an early stage of production. Adjustments will continue to be made in the near-future to polish the website.
 
+> For the time being, it is recommend to view the portfolio website on mobile for the best experience.
+
 ### Table of Contents
 
 - [Live Application](#live-application)
