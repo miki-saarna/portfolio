@@ -23,7 +23,7 @@ Both the client and server are hosted on [Vercel](https://vercel.com/) with the 
 
 ## Description
 
-This is a portfolio meant to display my ability to create a full-stack website incorporating a beautiful and meticulously designed user experience with API calls that highlight some of my other projects.
+This is a portfolio meant to display my ability to create a full-stack website incorporating a beautiful and meticulously designed user experience with an API call that displays some of my other projects.
 
 Current features include:
 
