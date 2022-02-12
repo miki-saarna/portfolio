@@ -33,7 +33,8 @@ const HomePage = () => {
     const [projectsList, setProjectsList] = useState([]);
     const [cardSelected, setCardSelected] = useState(null);
     const [offset, setOffset] = useState(0);
-    const [offsetVariable, setOffsetVariable] = useState(null);
+    const [portraitVariable, setPortraitVariable] = useState(null);
+    const [portraitRevealBottom, setPortraitRevealBottom] = useState(null);
 
     const handleScroll = () => setOffset(window.pageYOffset);
 
@@ -82,7 +83,7 @@ const HomePage = () => {
         //     portrait.style.transform = `translateY(-${(offset - 251) / 24}px)`;
         // }
         // console.log(offset);
-        ParallaxPortrait(portrait, offset, offsetVariable, setOffsetVariable)
+        ParallaxPortrait(portrait, offset, portraitVariable, setPortraitVariable, portraitRevealBottom, setPortraitRevealBottom)
 
         const projectCards = document.querySelectorAll('.project-card');
         FadeInEffect(projectCards)
@@ -105,7 +106,7 @@ const HomePage = () => {
 
             {/* consider moving to separate file */}
             <div className='portrait-container' id='about'>
-                <img className='portrait' alt='some text' src={portrait} />
+                <img className='portrait' alt='some text' src={portrait} data-scale-speed='.05' />
                 <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".0002" data-reveal-opacity-speed='0.015' data-hide-opacity-speed='0.008' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
                 <div className='overlay portrait-overlay' data-speed-y='0.1'></div>
             </div>
