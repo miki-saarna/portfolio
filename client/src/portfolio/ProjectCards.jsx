@@ -35,7 +35,6 @@ export default function ProjectCards ({projectsList, setCardSelected}) {
             parallaxPosition.forEach((element) => {
                 element.style.position = `static`;
             })
-            // parallaxPosition.style.position = `static`;
         }
         
         return (

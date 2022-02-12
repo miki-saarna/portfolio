@@ -545,6 +545,8 @@ a {
 .portfolio h3 {
   color: white;
   z-index: 1;
+  text-align: center;
+  margin: 0 20px;
 }
 .portfolio img{
   /* play around with these settings to adjust image location */
