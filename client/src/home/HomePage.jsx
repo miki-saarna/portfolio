@@ -8,6 +8,7 @@ import ParallaxLinearRocket from "../utils/ParallaxLinearRocket";
 import ContactPage from "../contact/ContactPage";
 import ProjectCards from "../portfolio/ProjectCards";
 import FocusedOnProject from "../portfolio/FocusedOnProject";
+import TextAnimationData from "../utils/TextAnimationData";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -30,7 +31,9 @@ const HomePage = () => {
     const [projectsList, setProjectsList] = useState([]);
     const [cardSelected, setCardSelected] = useState(null);
     const [offset, setOffset] = useState(0);
+
     const handleScroll = () => setOffset(window.pageYOffset);
+
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -38,7 +41,7 @@ const HomePage = () => {
         const parallaxLinear = document.querySelectorAll(".parallaxLinear");
         ParallaxLinear(parallaxLinear, offset);
 
-        const parallaxLinearRocket = document.querySelector(".parallaxLinearRocket");
+        // const parallaxLinearRocket = document.querySelector(".parallaxLinearRocket");
         // tremendous difficulty getting the rocket to not affect other elements
         // ParallaxLinearRocket(parallaxLinearRocket, offset);
         // console.log(ParallaxEllipse)
@@ -49,187 +52,25 @@ const HomePage = () => {
             radiusY: 60,
             velocity: 0.02
         }
-        if (window.innerWidth >= 768) {
-            variables['radiusX'] = 160;
-            variables['radiusY'] = 90;
-        }
-        if (window.innerWidth >= 820) {
-            variables['radiusX'] = 175;
-            variables['radiusY'] = 90;
-            variables['velocity'] = 0.017;
-        }
-        if (window.innerWidth >= 1000) {
-            variables['radiusX'] = 145;
-            variables['radiusY'] = 82;
-            variables['velocity'] = 0.022;
-        }
-        if (window.innerWidth >= 1200) {
-            variables['radiusX'] = 185;
-            variables['radiusY'] = 106;
-            variables['velocity'] = 0.02;
-        }
-        if (window.innerWidth >= 1400) {
-            variables['radiusX'] = 190;
-            variables['radiusY'] = 108;
-        }
-        if (window.innerWidth >= 1600) {
-            variables['radiusX'] = 200;
-            variables['radiusY'] = 100;
-            variables['velocity'] = 0.019;
-        }
         ParallaxEllipse(parallaxEllipse, variables, offset);
     
-        const discoverReveal = document.querySelector(".homepage-title");
-        // move to separate file
-        // switch to case statements?
-        let discoverRevealPoint = 560;
-        if (window.innerWidth < 375) {
-            discoverRevealPoint = 480;
-        } else if(window.innerWidth < 390) {
-            discoverRevealPoint = 420
-        } else if(window.innerWidth < 410) {
-            discoverRevealPoint = 580
-        }
-        else if(window.innerWidth < 450) {
-            discoverRevealPoint = 650
-        }
-        else if(window.innerWidth <= 600) {
-            discoverRevealPoint = 600
-        }
-        else if(window.innerWidth <= 700) {
-            discoverRevealPoint = 700
-        }
-        else if(window.innerWidth <= 768) {
-          discoverRevealPoint = 700
-        } else if(window.innerWidth <= 820) {
-          discoverRevealPoint = 850
-        } else if(window.innerWidth <= 912) {
-            discoverRevealPoint = 230
-          }
-          else if(window.innerWidth <= 1000) {
-          discoverRevealPoint = 325
-        }
-        else if(window.innerWidth <= 1200) {
-            discoverRevealPoint = 425
-          } 
-          else if(window.innerWidth <= 1400) {
-            discoverRevealPoint = 550
-          } 
-          else if(window.innerWidth <= 1600) {
-            discoverRevealPoint = 625
-          } 
-        else {
-          discoverRevealPoint = 725
-        }
-        
+        // // // // /// // // // // // // // // // /// // // // // //
 
-
-        TextAnimation({
-            element: discoverReveal,
-            revealPoint: discoverRevealPoint,
-            offset: offset,
-        })
-        // sometimes offset of 0 doesn't get passed into TextAnimation
-        if (offset === 0) {
-            discoverReveal.style.opacity = `0`
+        // create CSS media queries for these
+        const parallaxContainer = document.querySelector('.parallax-content')
+        if (window.innerWidth < window.innerHeight && parallaxContainer) {
+            parallaxContainer.style.height = `100vh`;
+        } else if (parallaxContainer) {
+            parallaxContainer.style.height = `150vh`
         }
 
-        const possibilitiesReveal = document.querySelector(".possibilities");
-        // move to separate file
-        // switch to case statements?
-        let possibilitiesRevealPoint = 300;
-        if (window.innerWidth < 375) {
-            possibilitiesRevealPoint = 300;
-        } else if(window.innerWidth < 390) {
-            possibilitiesRevealPoint = 325
-        } else if(window.innerWidth < 410) {
-            possibilitiesRevealPoint = 350
-        }
-        else if(window.innerWidth < 450) {
-            possibilitiesRevealPoint = 375
-        }
-        else if(window.innerWidth <= 600) {
-            possibilitiesRevealPoint = 300
-        }
-        else if(window.innerWidth <= 700) {
-            possibilitiesRevealPoint = 300
-        }
-        else if(window.innerWidth <= 768) {
-          possibilitiesRevealPoint = 350
-        } else if(window.innerWidth <= 820) {
-          possibilitiesRevealPoint = 500
-        } else if(window.innerWidth <= 912) {
-            possibilitiesRevealPoint = 230
-          }
-          else if(window.innerWidth <= 1000) {
-          possibilitiesRevealPoint = 100
-        }
-        else if(window.innerWidth <= 1200) {
-            possibilitiesRevealPoint = 150
-          } 
-          else if(window.innerWidth <= 1400) {
-            possibilitiesRevealPoint = 175
-          } 
-          else if(window.innerWidth <= 1600) {
-            possibilitiesRevealPoint = 200
-          } 
-        else {
-          possibilitiesRevealPoint = 725
-        }
-
-        
-        TextAnimation({
-            element: possibilitiesReveal,
-            revealPoint: possibilitiesRevealPoint
+        // // // // /// // // // // // // // // // /// // // // // //
+        // creates all the text animations
+        TextAnimationData.forEach((element) => {
+            TextAnimation(element, offset);
         })
 
-        // possible to replace querySelector with the elements? like h5
-        const bioReveal = document.querySelector(".bio");
-        // move to separate file
-        // switch to case statements?
-        let bioRevealPoint = 300;
-        if (window.innerWidth < 375) {
-            bioRevealPoint = 300;
-        } else if(window.innerWidth < 390) {
-            bioRevealPoint = 300
-        } else if(window.innerWidth < 410) {
-            bioRevealPoint = 300
-        }
-        else if(window.innerWidth < 450) {
-            bioRevealPoint = 300
-        }
-        else if(window.innerWidth <= 600) {
-            bioRevealPoint = 300
-        }
-        else if(window.innerWidth <= 700) {
-            bioRevealPoint = 300
-        }
-        else if(window.innerWidth <= 768) {
-          bioRevealPoint = 300
-        } else if(window.innerWidth <= 820) {
-          bioRevealPoint = 300
-        } else if(window.innerWidth <= 912) {
-            bioRevealPoint = 100
-          }
-          else if(window.innerWidth <= 1000) {
-          bioRevealPoint = 100
-        }
-        else if(window.innerWidth <= 1200) {
-            bioRevealPoint = 150
-          } 
-          else if(window.innerWidth <= 1400) {
-            bioRevealPoint = 175
-          } 
-          else if(window.innerWidth <= 1600) {
-            bioRevealPoint = 200
-          } 
-        else {
-          bioRevealPoint = 725
-        }
-        TextAnimation({
-            element: bioReveal, 
-            revealPoint: bioRevealPoint
-        })
+        // // // // /// // // // // // // // // // /// // // // // //
 
         // move this parallax effect into a separate helper file!!!
         const portrait = document.querySelector('.portrait');
@@ -248,7 +89,7 @@ const HomePage = () => {
             {/* consider moving to separate file */}
             <div className='parallax-content'>
                 <h3 className='homepage-title' data-translate-y-speed="0.1" data-reveal-opacity-speed='0.03' data-scale-speed=".01">Imagine</h3>
-                <h3 className='possibilities' data-translate-y-speed="0.1" data-scale-speed=".00235" data-reveal-opacity-speed='0.01' data-hide-opacity-speed='0.007' data-hide-opacity-point='100'> The Possibilities</h3>
+                <h3 className='possibilities' data-translate-y-speed="0.1" data-scale-speed=".0035" data-reveal-opacity-speed='0.01' data-hide-opacity-speed='0.007' data-hide-opacity-point='100'> The Possibilities</h3>
                 <img className='earth parallax-position' data-speed="0.7" src={earth} alt="" />
                 <img className='moon parallaxLinear parallax-position' data-translate-x-speed="-0.3" data-translate-y-speed="-0.4" data-scale-speed="-.0007" src={moon} alt="" />
                 <img className='saturn parallaxLinear parallax-position' data-translate-x-speed="-0.1" data-translate-y-speed="0.2" data-scale-speed="-.0005" src={saturn} alt="" />
@@ -259,7 +100,7 @@ const HomePage = () => {
             {/* consider moving to separate file */}
             <div className='portrait-container' id='about'>
                 <img className='portrait' alt='some text' src={portrait} />
-                <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".0002" data-reveal-opacity-speed='0.03' data-hide-opacity-speed='0.006' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
+                <h5 className='bio' data-translate-y-speed="0.03" data-scale-speed=".0002" data-reveal-opacity-speed='0.015' data-hide-opacity-speed='0.008' data-hide-opacity-point='100'>I am passionate about creating intuitive, innovative and beautiful applications that make life fulfilling.</h5>
                 <div className='overlay portrait-overlay' data-speed-y='0.1'></div>
             </div>
 

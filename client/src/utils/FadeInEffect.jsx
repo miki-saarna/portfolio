@@ -18,7 +18,8 @@ export default function FadeInEffect(elements) {
             appearOnScroll.unobserve(element.target);
           }
         });
-  },appearOptions)
+  }, appearOptions)
+
   elements.forEach(element => {
       appearOnScroll.observe(element);
     });

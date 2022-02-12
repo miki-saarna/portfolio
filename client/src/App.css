@@ -403,23 +403,29 @@ a {
 /* HomePage */
 
 .parallax-content {
-  height: 107vh;
+  height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
 .homepage-title, .possibilities {
   text-align: center;
   font-size: 24px;
-  z-index: 6;
+  z-index: 1;
+  position: absolute;
 }
 
 .homepage-title {
-  margin-top: 200px;
+  top: 23%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* opacity: 0; */
 }
 
 .possibilities {
-  margin-top: 345px;
-  /* margin-top: 325px; */
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .parallax-position {
@@ -427,8 +433,8 @@ a {
 }
 
 .earth {
-  width: 45%;
-  top: 50%;
+  width: 175px;
+  top: 35%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -444,9 +450,9 @@ a {
 }
 
 .saturn {
-  width: 25%;
-  top: 40%;
-  right: 5%;
+  width: 98px;
+  top: 30%;
+  right: 9%;
   z-index: 1;
 }
 
@@ -458,8 +464,9 @@ a {
 }
 
 .satellite {
-  width: 15%;
-  top: 59%;
+  /* width: 15%; */
+  width: 59px;
+  top: 42%;
   left: 42%;
   z-index: 4;
 }
@@ -496,7 +503,8 @@ a {
   position: absolute;
   z-index: 1;
   bottom: 20px;
-  margin: 0 40px;
+  left: 50%;
+  width: 80%;
   text-align: center;
   font-size: 20px;
 }
@@ -959,32 +967,35 @@ footer h2::after {
   z-index: 4;
 }
 
+@media only screen and (min-width: 390px) {
+  .possibilities {
+    top: 60%;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   
-  .homepage-title {
-    margin-top: 275px;
-  }
-  
+
   .possibilities {
-    margin-top: 550px;
+    top: 56%;
   }
 
-  .earth {
+  /* .earth {
     width: 34%;
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-  }
+  } */
   
   .saturn {
-    width: 21%;
-    right: 12%;
+    top: 30%;
+    right: 27%;
   }
   
   .satellite {
-    width: 12%;
-    left: 46%;
+    top: 41%;
+    left: 48%;
   }
 
 .portrait-container {
@@ -999,7 +1010,7 @@ footer h2::after {
 
 .portrait-container > h5 {
   font-size: 22px;
-  margin: 0 120px 10px;
+  width: 60%;
 }
 
 .portfolio > div > div {
@@ -1046,7 +1057,7 @@ footer h2::after {
 }
 }
 
-@media only screen and (min-width: 821px) {
+@media only screen and (min-width: 820px) {
 
   header {
     display: flex;
@@ -1076,6 +1087,15 @@ footer h2::after {
     display: flex;
     /* justify-content: flex-end; */
     align-items: flex-start;
+  }
+
+  .possibilities {
+    top: 54%;
+  }
+
+  .saturn {
+    top: 27%;
+    right: 29%;
   }
 
   .scale-satellite {
@@ -1119,47 +1139,23 @@ a {
   font-size: 22px;
 }
 
-.homepage-title {
-  margin-top: 400px;
-}
 
-.possibilities {
-  margin-top: 525px;
-}
 
 }
 
 @media only screen and (min-width: 1000px) {
 
-  .parallax-content {
-    height: 150vh;
-  }
 
-  .homepage-title {
-    margin-top: 150px;
-  }
-  
   .possibilities {
-    margin-top: 450px;
+    top: 61%;
   }
 
-  .earth {
-    width: 24%;
-    top: 70%;
-  }
   
   .saturn {
-    width: 15%;
-    top: 50%;
-    right: 23%;
+    top: 23%;
+    right: 33%;
   }
   
-  .satellite {
-    width: 10%;
-    top: 87%;
-    left: 45%;
-  }
-
   .portrait-container {
     height:400px;
     width: 70%;
@@ -1227,21 +1223,15 @@ a {
 
 }
   @media only screen and (min-width: 1200px) {
-    .earth {
-      width: 22%;
+    .possibilities {
       top: 58%;
     }
+
     .saturn {
-      width: 13%;
-      top: 46%;
-      right: 27%;
+      top: 26%;
+      right: 36%;
     }
-    .satellite {
-      width: 10%;
-      top: 74%;
-      left: 44%;
-    }
-    
+  
     .portfolio > div {
       justify-content: space-around;
     }
@@ -1291,42 +1281,26 @@ a {
   }
   }
   @media only screen and (min-width: 1400px) {
-    .homepage-title {
-      margin-top: 200px;
-    }
     
     .possibilities {
-      margin-top: 525px;
+      top: 55%;
     }
-    .earth {
-      width: 20%;
-    }
-    .saturn {
-      width: 10%;
-      top: 49%;
-      right: 32%;
-    }
-    .satellite {
-      width: 10%;
-      top: 69%;
-      left: 46%;
-    }
+
+    
     .portfolio > div {
       margin: 70px;
     }
   }
   @media only screen and (min-width: 1600px) {
-    
     .possibilities {
-      margin-top: 625px;
+      top: 53%;
     }
-    .earth {
+    /* .earth {
       width: 20%;
-    }
+    } */
     .saturn {
-      width: 10%;
-      top: 49%;
-      right: 32%;
+      top: 26%;
+      right: 36%;
     }
     .satellite {
       width: 8%;
@@ -1337,4 +1311,3 @@ a {
       margin: 70px;
     }
   }
-

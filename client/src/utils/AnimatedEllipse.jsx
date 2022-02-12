@@ -18,4 +18,5 @@ let satelliteMovement = 0;
 
         requestAnimationFrame(AnimatedEllipse);
     }
+
     window.requestAnimationFrame(AnimatedEllipse);
