@@ -558,12 +558,12 @@ a {
 }
 
 .project-overlay {
-  background-color: rgba(1,1,1, 0.1);
+  background-color: rgba(1,1,1, 0.7);
   
 }
 
 .project-overlay:hover {
-  background-color: rgba(1,1,1, 0);
+  background-color: rgba(1,1,1, 0.4);
 }
 
 .portfolio > p {
@@ -708,6 +708,7 @@ a {
   padding: 6px 8px;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
 
 .clicked-project > div > h4 {

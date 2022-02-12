@@ -20,10 +20,12 @@ export default function ProjectCards ({projectsList, setCardSelected}) {
 
             // re-renders 4 times when background-dimmer is placed within `FocusedOnProject` file
             // maybe try rendering as a React component?
+
             // rename to background-overlay?
-            const backgroundDim = document.createElement('div');
-            backgroundDim.setAttribute('class', 'background-dim');
-            document.body.appendChild(backgroundDim);
+            // const backgroundDim = document.createElement('div');
+            // backgroundDim.setAttribute('class', 'background-dim');
+            // document.body.appendChild(backgroundDim);
+            
             // find current position
             const scrollY = window.scrollY // unsure of the difference with `window.pageYOffset`
             document.body.style.position = 'fixed';
