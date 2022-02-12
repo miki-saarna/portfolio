@@ -1,35 +1,29 @@
-import react, { useState } from 'react';
 
-export default function ParallaxPortrait(element, offset, offsetVariable, setOffsetVariable) {
 
-    const topOfElement = element.getBoundingClientRect()
-    // console.log(topOfElement)
-    const appearOptions = {
-        // if threshold is 1, the entire element needs to be within the screen to appear
-        threshold: 0,
-        // sets how far from the edges the element needs to be to appear
-        rootMargin: "0px 0px 0px 0px"
-      };
-      const appearOnScroll = new IntersectionObserver(function(
-        elements,
-        appearOnScroll
-    ){
-        elements.forEach(element => {
-            if (!element.isIntersecting) {
+export default function ParallaxPortrait(element, portraitVariable, setPortraitVariable, portraitRevealBottom, setPortraitRevealBottom, offset) {
 
-            } else {
-                if (!offsetVariable) {
-                    setOffsetVariable(offset);
-                } else {
-                    console.log(element)
-                    element.target.style.transform = `translateY(-${offset - offsetVariable / 24}px)`
-                }
-              appearOnScroll.unobserve(element.target);
-            }
-        });
-    }, appearOptions)
-        appearOnScroll.observe(element);
+    // default the values to null when window resize event occurs
+    window.onresize = function () {
+        setPortraitRevealBottom(null);
+        setPortraitVariable(null);
+    }
+
+    const revealTop = element.getBoundingClientRect().top;
+    const revealBottom = element.getBoundingClientRect().bottom;
+    const portraitHeight = element.getBoundingClientRect().height;
+    
+    const portraitContainerHeight = document.querySelector('.portrait-container').getBoundingClientRect().height;
+
+    const heightDifference = portraitHeight - portraitContainerHeight;
+    
+    if (!portraitRevealBottom) {
+        setPortraitRevealBottom(offset + revealBottom);
+    }
+
+    if (revealTop <= window.innerHeight && revealBottom >= 0) {
+        if (!portraitVariable) {
+            setPortraitVariable(offset);
+        }
+        element.style.transform = `translateY(-${(heightDifference / (portraitRevealBottom - portraitVariable)) * (offset - portraitVariable)}px)`;
+    }
 }
-
-// portrait.style.transform = `translateY(-${(offset - 251) / 24}px)`;
-//   element.style.transform = `translateY(-${})`
