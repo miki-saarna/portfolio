@@ -1,34 +1,23 @@
-// implement useEffect and useState to assign offsetVariable
-// import React, { useState, useEffect } from 'react';
-
-export default function TextAnimation(variables) {
-
-    // const [update, setUpdate] = useState(false)
-    // const [offy, setOffy] = useState(null);
-
-    
+export default function TextAnimation(variables, offset) {
 
     const {
-        element,
-        revealPoint,
-        offset,
+        class_name,
+        revealVariable,
+        hideVariable,
     } = variables;
 
-    // if (revealTop < windowHeight - revealPoint) {
-    //     setUpdate(true);
-    // }
-
-    // useEffect(() => {
-    //     if (update) {
-    //         setOffy(offset);
-    //     }
-    // }, [update])
-
-    // console.log(offsetVariable)
-
-    const windowHeight = window.innerHeight;
-    const revealTop = element.getBoundingClientRect().top;
-
+    let revealPoint;
+    let hidePoint;
+    if (window.innerWidth < window.innerHeight) {
+        revealPoint = window.innerHeight * revealVariable[0];
+        hidePoint = hideVariable ? window.innerHeight * hideVariable[0] : undefined;
+    } else {
+        revealPoint = window.innerHeight * revealVariable[1];
+        hidePoint = hideVariable ? window.innerHeight * hideVariable[1] : undefined;
+    }
+    
+    const element = document.querySelector(class_name);
+    
     const {
         translateYSpeed,
         scaleSpeed,
@@ -37,24 +26,19 @@ export default function TextAnimation(variables) {
         hideOpacityPoint,
     } = element.dataset
 
-
-    if(revealTop < windowHeight - revealPoint) {
-        element.style.transform = `translateY(-${(windowHeight - revealPoint - revealTop) * translateYSpeed}px) scale(${1 + (((windowHeight - revealPoint) - revealTop) * scaleSpeed)}, ${1 + (((windowHeight - revealPoint) - revealTop) * scaleSpeed)})`
+    if (offset < revealPoint) {
+        element.style.opacity = `0`
+    }
+    
+    // for all elements
+    if(offset >= revealPoint) {
+        element.style.opacity = `${(offset - revealPoint) * revealOpacitySpeed}`
+        element.style.transform = `translate(-50%, -${(offset - revealPoint) * translateYSpeed}px) scale(${1 + ((offset - revealPoint) * scaleSpeed)}, ${1 + ((offset - revealPoint) * scaleSpeed)})`
     }
 
-    // set equality to undefined so that it still works when offset equals 0
-    // if (offset !== undefined) {
-    if (offset !== undefined && revealTop < windowHeight - revealPoint) {
-        // adjust the offset variable according to screen resolution
-        // element.style.opacity = `${(offset - offsetVariable) * revealOpacitySpeed}`
-        element.style.opacity = `${(windowHeight - revealPoint - revealTop) * revealOpacitySpeed}`
-        // element.style.opacity = `${(offset - 104) * revealOpacitySpeed}`
-    } else {
-        if (revealTop >= 100) {
-            element.style.opacity = `${((windowHeight - revealPoint) - revealTop) * revealOpacitySpeed}`
-        } else if (revealTop < 100) {
-            element.style.opacity = `${1 - (hideOpacityPoint - revealTop) * hideOpacitySpeed}`
-        }
+    // if there is a hidePoint
+    if (hidePoint && offset > hidePoint) {
+        element.style.opacity = `${1 - (offset - hidePoint) * hideOpacitySpeed}`
     }
 
 
