@@ -476,7 +476,6 @@ a {
   width: 100%;
   position: relative;
   overflow-y: hidden;
-  margin-bottom: 30vh;
 }
 
 .portrait {
@@ -512,6 +511,7 @@ a {
 .portfolio {
   display: flex;
   flex-direction: column;
+  margin: 30vh auto 25vh;
 } 
 
 .portfolio h2 {
@@ -1005,7 +1005,6 @@ footer h2::after {
 .portrait-container {
   height:340px;
   width: 100%;
-  margin-bottom: 40vh;
 }
 
 .portrait {
@@ -1163,7 +1162,7 @@ a {
   .portrait-container {
     height:400px;
     width: 70%;
-    margin: 0 auto 40vh;
+    margin: 0 auto;
     border-radius: 15px;
   }
   

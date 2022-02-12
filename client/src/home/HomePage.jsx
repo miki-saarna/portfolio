@@ -9,6 +9,8 @@ import ContactPage from "../contact/ContactPage";
 import ProjectCards from "../portfolio/ProjectCards";
 import FocusedOnProject from "../portfolio/FocusedOnProject";
 import TextAnimationData from "../utils/TextAnimationData";
+import ParallaxPortrait from "../utils/ParallaxPortrait";
+import FadeInEffect from "../utils/FadeInEffect";
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -31,6 +33,7 @@ const HomePage = () => {
     const [projectsList, setProjectsList] = useState([]);
     const [cardSelected, setCardSelected] = useState(null);
     const [offset, setOffset] = useState(0);
+    const [offsetVariable, setOffsetVariable] = useState(null);
 
     const handleScroll = () => setOffset(window.pageYOffset);
 
@@ -73,13 +76,16 @@ const HomePage = () => {
         // // // // /// // // // // // // // // // /// // // // // //
 
         // move this parallax effect into a separate helper file!!!
+        // try implementing fade in file code
         const portrait = document.querySelector('.portrait');
-        if (offset >= 251){
-            portrait.style.transform = `translateY(-${(offset - 251) / 24}px)`;
-        }
+        // if (offset >= 251){
+        //     portrait.style.transform = `translateY(-${(offset - 251) / 24}px)`;
+        // }
+        // console.log(offset);
+        ParallaxPortrait(portrait, offset, offsetVariable, setOffsetVariable)
 
-        // const projectCards = document.querySelectorAll('.project-card');
-        // FadeInEffect(projectCards)
+        const projectCards = document.querySelectorAll('.project-card');
+        FadeInEffect(projectCards)
     
         return () => window.removeEventListener("scroll", handleScroll);
     }, [offset]);
