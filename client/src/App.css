@@ -273,7 +273,7 @@ a {
   color: #f1f1f1;
   font-size: 24px;
   font-weight: 700;
-
+  cursor: pointer;
 }
 
 /* ================================= */
@@ -464,10 +464,9 @@ a {
 }
 
 .satellite {
-  /* width: 15%; */
   width: 59px;
-  top: 42%;
-  left: 42%;
+  top: 44%;
+  left: 44%;
   z-index: 4;
 }
 
@@ -547,6 +546,7 @@ a {
   z-index: 1;
   text-align: center;
   margin: 0 20px;
+  cursor: pointer;
 }
 .portfolio img{
   /* play around with these settings to adjust image location */
@@ -561,7 +561,7 @@ a {
 
 .project-overlay {
   background-color: rgba(1,1,1, 0.7);
-  
+  cursor: pointer;
 }
 
 .project-overlay:hover {
@@ -854,6 +854,7 @@ button {
   padding: 5px 15px;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 /* ================================= */
@@ -1113,7 +1114,7 @@ ul:first-of-type {
   width: fit-content;
   position: static;
   flex-direction: row;
-  border-right: 2px solid #f3f3f3;
+  border-right: 2px solid #f8f8f8;
 }
 
 ul:first-of-type > li {
