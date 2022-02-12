@@ -18,7 +18,7 @@ const Footer = () => {
                 <a href="https://www.linkedin.com/in/mikito-saarna" target="_blank"><img alt="" src={linkedInLogo} /></a>
                 <a href="https://twitter.com/MikitoSaarna" target="_blank"><img alt="" src={twitterLogo} /></a>
             </div>
-            <h2 onClick={(() => scroll.scrollToTop())}>Miki</h2>
+            <a onClick={(() => scroll.scrollToTop())}><h2>Miki</h2></a>
             {/* <a href="https://github.com/miki-saarna" target="_blank"><img src={githubLogoWhite} /></a>
             <a href="https://www.linkedin.com/in/mikito-saarna" target="_blank"><img alt="" src={linkedInLogoWhite} /></a>
             <a href="https://twitter.com/MikitoSaarna" target="_blank"><img alt="" src={twitterLogoWhite} /></a> */}

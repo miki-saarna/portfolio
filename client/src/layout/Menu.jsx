@@ -18,7 +18,7 @@ export const Menu = () => {
     const [animationId, setAnimationId] = useState(null);
     
     const showMenuBarHandler = () => {
-        if (window.innerWidth <= 820) {
+        if (window.innerWidth < 820) {
             setMenuBar(!menuBar);
             // consider just setting to empty string instead of `static`
             document.body.style.position = menuBar ? 'static' : 'fixed';
