@@ -1,9 +1,12 @@
-import react, { useState } from 'react';
 
-export default function ParallaxPortrait(element, offset, portraitVariable, setPortraitVariable, portraitRevealBottom, setPortraitRevealBottom) {
-    const {
-        scaleSpeed
-    } = element.dataset;
+
+export default function ParallaxPortrait(element, portraitVariable, setPortraitVariable, portraitRevealBottom, setPortraitRevealBottom, offset) {
+
+    // default the values to null when window resize event occurs
+    window.onresize = function () {
+        setPortraitRevealBottom(null);
+        setPortraitVariable(null);
+    }
 
     const revealTop = element.getBoundingClientRect().top;
     const revealBottom = element.getBoundingClientRect().bottom;
@@ -12,9 +15,9 @@ export default function ParallaxPortrait(element, offset, portraitVariable, setP
     const portraitContainerHeight = document.querySelector('.portrait-container').getBoundingClientRect().height;
 
     const heightDifference = portraitHeight - portraitContainerHeight;
-
+    
     if (!portraitRevealBottom) {
-        setPortraitRevealBottom(revealBottom);
+        setPortraitRevealBottom(offset + revealBottom);
     }
 
     if (revealTop <= window.innerHeight && revealBottom >= 0) {
