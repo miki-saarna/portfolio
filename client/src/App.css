@@ -545,6 +545,8 @@ a {
 .portfolio h3 {
   color: white;
   z-index: 1;
+  text-align: center;
+  margin: 0 20px;
 }
 .portfolio img{
   /* play around with these settings to adjust image location */
@@ -558,12 +560,12 @@ a {
 }
 
 .project-overlay {
-  background-color: rgba(1,1,1, 0.1);
+  background-color: rgba(1,1,1, 0.7);
   
 }
 
 .project-overlay:hover {
-  background-color: rgba(1,1,1, 0);
+  background-color: rgba(1,1,1, 0.4);
 }
 
 .portfolio > p {
@@ -708,6 +710,7 @@ a {
   padding: 6px 8px;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
 
 .clicked-project > div > h4 {
@@ -720,6 +723,7 @@ a {
 .clicked-project > div > a {
   flex: 2;
   align-self: center;
+  white-space: nowrap;
 }
 
 .clicked-project > div > a {

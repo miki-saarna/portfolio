@@ -21,7 +21,10 @@ export default function FocusedOnProject ({project, setCardSelected, offset}) {
         event.preventDefault();
         setCardSelected(null);
         const backgroundDim = document.querySelector('.background-dim')
-        backgroundDim.parentElement.removeChild(backgroundDim)
+        backgroundDim.style.display = `none`;
+        // backgroundDim.parentElement.removeChild(backgroundDim)
+
+        
         document.body.style.position = 'static';
         window.scrollTo(0, pageYOffset)
         document.body.style.top = '';
@@ -38,15 +41,18 @@ export default function FocusedOnProject ({project, setCardSelected, offset}) {
     }
 
     return (
-        <div className='clicked-project'>
-            <button onClick={exitHandler}></button>
-            <img alt='' src={image} />
-            <div>
-                <h4>{name}</h4>
-                <p>{description}</p>
-                <p><b>Primary Languages</b>: {languages.join(', ')}</p>
-                <a href={github_link} target="_blank"><p>Project Link</p><img src={githubLogo} /></a>
+        <>
+            <div className='clicked-project'>
+                <button onClick={exitHandler}></button>
+                <img alt='' src={image} />
+                <div>
+                    <h4>{name}</h4>
+                    <p>{description}</p>
+                    <p><b>Primary Languages</b>: {languages.join(', ')}</p>
+                    <a href={github_link} target="_blank"><p>Project Link</p><img src={githubLogo} /></a>
+                </div>
             </div>
-        </div>
+            <div className='background-dim' onClick={exitHandler}></div>
+        </>
     )
 }
