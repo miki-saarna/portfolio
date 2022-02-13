@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mikito Saarna's Portfolio Website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
     "start:client": "npm --prefix ./client start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mikito Saarna",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.0.0"

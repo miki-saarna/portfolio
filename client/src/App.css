@@ -579,16 +579,6 @@ a {
 }
 
 
-
-.nowReveal {
-  /* animation: fading 1750ms; */
-}
-
-.reveal.active {
-    /* transform: translateY(0px); */
-    /* opacity: 1; */
-}
-
 .reveal2 {
   position: relative;
   /* transform: translateY(150px); */
@@ -596,20 +586,6 @@ a {
   /* transition: all 2s ease; */
   
 }
-
-.reveal2.active {
-  /* transform: translateY(0px); */
-  /* opacity: 1; */
-}
-
-/* @keyframes fading {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 100%;
-  }
-} */
 
 
 .project-card {
@@ -1304,9 +1280,6 @@ a {
     .possibilities {
       top: 53%;
     }
-    /* .earth {
-      width: 20%;
-    } */
     .saturn {
       top: 26%;
       right: 36%;
