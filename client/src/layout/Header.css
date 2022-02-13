@@ -1,0 +1,133 @@
+header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header h1 {
+    margin-top: 19px;
+    font-size: 40px;
+  }
+  
+  header h1::after {
+    content: '.';
+    color:#d8e2dc;
+  }
+  
+  header > div > h2 {
+    font-size: 14px;
+  }
+  
+  ul:first-of-type {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+    top: 68px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  ul:last-of-type {
+    top: 250px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+  }
+  
+  ul:last-of-type > li {
+    padding: 0 15px;
+  }
+  
+  
+  ul:first-of-type > li {
+    padding: 7px 10px;
+    margin: 0 80px 13px;
+    transition: all 140ms cubic-bezier(0.42, 0, 0.08, 1.44);
+  }
+  
+  ul:first-of-type > li:active {
+    transform: scale(1.06);
+  }
+  
+  a {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  @media only screen and (min-width: 820px) {
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 40px 0;
+    }
+  
+    header h1 {
+      margin: 0;
+    }
+  
+    .menuBtn, .exitMenuBtn {
+      display: none;
+    }
+  
+    /* .openMenu { */
+    .closeMenu {
+      background-color: transparent;
+      position: relative;
+      left: 0;
+      /* top: 10px; */
+      /* left: 10px; */
+      width: fit-content;
+      height: fit-content;
+      transition: 325ms;
+      display: flex;
+      /* justify-content: flex-end; */
+      align-items: flex-start;
+    }
+
+      /* ensure name is correct */
+  .menu-bar-satellite {
+    display: none;
+  }
+
+  .pageGradient {
+    display: none;
+  }
+
+
+ul:first-of-type {
+  width: fit-content;
+  position: static;
+  flex-direction: row;
+  border-right: 2px solid #f8f8f8;
+}
+
+ul:first-of-type > li {
+  padding: 0px;
+  margin: 0 10px;
+}
+
+ul:last-of-type {
+  top: 0px;
+  display: flex;
+  /* position: static; */
+  position: relative;
+  justify-content: center;
+}
+
+ul:last-of-type > li {
+  /* the padding-top of 2px helps horizontally align both sets of ul elements */
+  padding: 2px 9px;
+}
+
+ul:last-of-type > li:last-of-type {
+  padding-right: 0;
+}
+
+  }

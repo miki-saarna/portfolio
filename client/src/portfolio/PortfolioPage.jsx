@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { retrieveProjects } from "../utils/api";
 import FadeInEffect from "../utils/FadeInEffect";
+import './PortfolioPage.css';
 
 
 const PortfolioPage = () => {

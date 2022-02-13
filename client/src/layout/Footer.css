@@ -1,0 +1,45 @@
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 0 50px;
+  }
+  
+  footer div {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  
+  footer div a:nth-of-type(1) img {
+    width: 26px;
+  }
+  
+  footer div a:nth-of-type(2) img {
+    width: 26px;
+  }
+  
+  footer div a:nth-of-type(3) img {
+    width: 26px;
+  }
+  
+  footer div a:nth-of-type(2) {
+    margin: 0 33px;
+  }
+  
+  
+  footer h2::after {
+    content: '.';
+    color:#d8e2dc;
+  }
+
+  /* used for orbiting satellite within menu bar*/
+.menu-bar-satellite {
+    position: absolute;
+    width: 15%;
+    top: 53%;
+    left: 43%;
+    z-index: 4;
+  }

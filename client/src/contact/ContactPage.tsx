@@ -20,16 +20,16 @@ function ContactPage() {
     const displayFormHandler = (event) => {
         event.preventDefault();
         const contactContainer = event.target.parentNode;
-        const contactGradientBorder :any= document.querySelector('.contact-gradient-border');
+        const contactGradientBorder :any = document.querySelector('.slide-across-border');
         if (displayForm) {
             contactContainer.classList.remove('active');
-            contactGradientBorder.classList.remove('slideAcrossBorder')
-            contactGradientBorder.classList.add('slideBackBorder')
+            contactGradientBorder.classList.remove('slideAcross')
+            contactGradientBorder.classList.add('slideBack')
             // contactGradientBorder.style.bottomBorder = `none`
         } else {
             contactContainer.classList.add('active');
-            contactGradientBorder.classList.add('slideAcrossBorder')
-            contactGradientBorder.classList.remove('slideBackBorder')
+            contactGradientBorder.classList.add('slideAcross')
+            contactGradientBorder.classList.remove('slideBack')
             // contactGradientBorder.style.bottomBorder = `2px solid #f1f1f1`
             // prevent success messaging from appearing
             // setSubmitStatus('');
@@ -62,11 +62,10 @@ function ContactPage() {
     return (
         <div className="contact" id="contact">
             {/* <div className='contact-gradient'></div> */}
-            <button className="headerLabel" onClick={displayFormHandler}>Contact me</button>
-            <div className='contact-gradient-border'></div>
+            <button onClick={displayFormHandler}>Contact me</button>
+            <div className='slide-across-border'></div>
             {/* remvoe form class? */}
             <form className='form' onSubmit={handleSubmit}>
-            {/* <h2 className="headerLabel">Contact me</h2> */}
             
                 <label htmlFor='name'>
                     Name:
@@ -123,7 +122,7 @@ function ContactPage() {
                 </label>
 
                 <br />
-          <button type='submit'>Submit</button>
+                <button type='submit'>Submit</button>
             </form>
           {submitStatus ? <p>{submitStatus}</p> : null }
         </div>

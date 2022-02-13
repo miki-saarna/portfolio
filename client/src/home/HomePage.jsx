@@ -11,6 +11,10 @@ import FocusedOnProject from "../portfolio/FocusedOnProject";
 import TextAnimationData from "../utils/TextAnimationData";
 import Portrait from "../utils/Portrait";
 import FadeInEffect from "../utils/FadeInEffect";
+import './HomePage.css';
+import '../utils/Parallax.css';
+import '../about/PortraitContainer.css';
+import '../portfolio/PortfolioPage.css';
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
