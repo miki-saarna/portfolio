@@ -41,7 +41,6 @@ export default function ProjectCards ({projectsList, setCardSelected}) {
             <div key={_id} className='project-card' onClick={projectCardClickHandler}>
                 <h3>{name}</h3>
                 <img src={image} />
-                <div className='overlay project-overlay'></div>
             </div>
         )
     })

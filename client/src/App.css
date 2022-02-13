@@ -525,9 +525,8 @@ a {
   position: relative;
 }
 
-/* .portfolio > div > div { */
   .portfolio > div > div {
-  width: 90%;
+  width: 85%;
   /* changed from 200px */
   height: 150px;
   /* border: 2px solid white; */
@@ -557,15 +556,6 @@ a {
   object-position: center center;
   object-fit: contain;
   overflow-y: hidden;
-}
-
-.project-overlay {
-  background-color: rgba(1,1,1, 0.7);
-  cursor: pointer;
-}
-
-.project-overlay:hover {
-  background-color: rgba(1,1,1, 0.4);
 }
 
 .portfolio > p {
@@ -630,6 +620,19 @@ a {
 .project-card.appear {
   opacity: 1;
   animation: shorten 1250ms
+}
+
+.project-card::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(1,1,1, 0.7);
+  cursor: pointer;
+}
+
+.project-card:hover::after{
+  background-color: rgba(1,1,1, 0.4);
 }
 
 @keyframes shorten {
