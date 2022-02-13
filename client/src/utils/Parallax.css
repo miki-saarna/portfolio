@@ -1,0 +1,112 @@
+
+.parallax-content {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  
+.parallax-position {
+    position: absolute
+  }
+
+
+.earth {
+    width: 175px;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+  
+  .moon {
+    width: 25%;
+    top: 70%;
+    right: 10%;
+    z-index: 2;
+    /* delete dislay none below */
+    display: none;
+  }
+  
+  .saturn {
+    width: 98px;
+    top: 30%;
+    right: 9%;
+    z-index: 1;
+  }
+  
+  .rocket {
+    width: 25%;
+    top: 61%;
+    left: -25%;
+    z-index: 5;
+  }
+  
+  .satellite {
+    width: 59px;
+    top: 44%;
+    left: 44%;
+    z-index: 4;
+  }
+
+  @media only screen and (min-width: 768px) {
+  
+
+    /* .earth {
+      width: 34%;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    } */
+    
+    .saturn {
+      top: 30%;
+      right: 27%;
+    }
+    
+    .satellite {
+      top: 41%;
+      left: 48%;
+    }
+  
+  
+  }
+
+  @media only screen and (min-width: 820px) {
+    .saturn {
+      top: 27%;
+      right: 29%;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    .parallax-content {
+      height: 150vh;
+    }
+  
+    .saturn {
+      top: 23%;
+      right: 33%;
+    }
+  }
+
+
+  @media only screen and (min-width: 1200px) {
+    .saturn {
+      top: 26%;
+      right: 36%;
+    }
+  }
+
+  @media only screen and (min-width: 1600px) {
+    .saturn {
+      top: 26%;
+      right: 36%;
+    }
+    .satellite {
+      width: 8%;
+      top: 69%;
+      left: 49%;
+    }
+  }

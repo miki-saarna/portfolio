@@ -58,3 +58,76 @@ header div {
     font-weight: 700;
     cursor: pointer;
   }
+
+  @media only screen and (min-width: 820px) {
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 40px 0;
+    }
+  
+    header h1 {
+      margin: 0;
+    }
+  
+    .menuBtn, .exitMenuBtn {
+      display: none;
+    }
+  
+    /* .openMenu { */
+    .closeMenu {
+      background-color: transparent;
+      position: relative;
+      left: 0;
+      /* top: 10px; */
+      /* left: 10px; */
+      width: fit-content;
+      height: fit-content;
+      transition: 325ms;
+      display: flex;
+      /* justify-content: flex-end; */
+      align-items: flex-start;
+    }
+
+      /* ensure name is correct */
+  .menu-bar-satellite {
+    display: none;
+  }
+
+  .pageGradient {
+    display: none;
+  }
+
+
+ul:first-of-type {
+  width: fit-content;
+  position: static;
+  flex-direction: row;
+  border-right: 2px solid #f8f8f8;
+}
+
+ul:first-of-type > li {
+  padding: 0px;
+  margin: 0 10px;
+}
+
+ul:last-of-type {
+  top: 0px;
+  display: flex;
+  /* position: static; */
+  position: relative;
+  justify-content: center;
+}
+
+ul:last-of-type > li {
+  /* the padding-top of 2px helps horizontally align both sets of ul elements */
+  padding: 2px 9px;
+}
+
+ul:last-of-type > li:last-of-type {
+  padding-right: 0;
+}
+
+  }

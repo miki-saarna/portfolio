@@ -1,0 +1,68 @@
+
+
+  .homepage-title, .possibilities {
+    text-align: center;
+    font-size: 24px;
+    z-index: 1;
+    position: absolute;
+  }
+
+  .possibilities {
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .homepage-title {
+    top: 23%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media only screen and (min-width: 390px) {
+    .possibilities {
+      top: 60%;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+  
+
+    .possibilities {
+      top: 56%;
+    }
+
+}
+
+@media only screen and (min-width: 820px) {
+    .possibilities {
+        top: 54%;
+      }
+
+}
+
+@media only screen and (min-width: 1000px) {
+    .possibilities {
+        top: 61%;
+      }
+}
+
+@media only screen and (min-width: 1200px) {
+    .possibilities {
+      top: 58%;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    
+    .possibilities {
+      top: 55%;
+    }
+
+
+  }
+  @media only screen and (min-width: 1600px) {
+    .possibilities {
+      top: 53%;
+    }
+}

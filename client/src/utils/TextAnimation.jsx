@@ -1,3 +1,5 @@
+import './TextAnimation.css';
+
 export default function TextAnimation(variables, offset) {
 
     const {

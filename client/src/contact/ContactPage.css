@@ -105,3 +105,52 @@
         font-size: 17px;
         color: rgb(56, 211, 146);
       }
+
+      label {
+        /* display: block; */
+        font-family: monospace;
+        font-size: 16px;
+        font-weight: bold;
+        
+      
+      
+      }
+      input, textarea {
+        background-color: transparent;
+        color: #f1f1f1;
+        border: 1px solid #f1f1f1;
+        border-radius: 7px;
+        margin: 10px 0;
+        display: block;
+        padding: 5px;
+        width: 100%;
+      }
+      
+      textarea {
+        resize: none;
+      }
+      
+      /* when corresponding input/textarea is in focus/clicked on */
+      input:focus, textarea:focus {
+        border: 2px solid #f1f1f1;
+        outline: none;
+      }
+
+      @media only screen and (min-width: 768px) {
+        .contact {
+          width: 60%;
+        }
+      }
+
+      @media only screen and (min-width: 1000px) {
+
+        .contact {
+          width: 45%;
+        }
+      }
+
+      @media only screen and (min-width: 1200px) {
+        .contact {
+          width: 35%;
+        }
+      }

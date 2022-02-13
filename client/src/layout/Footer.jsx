@@ -6,6 +6,7 @@ import twitterLogo from "../images/twitter_logo.png";
 import githubLogoWhite from "../images/github-brands.svg"
 import linkedInLogoWhite from "../images/linkedin-brands.svg"
 import twitterLogoWhite from "../images/twitter-brands.svg"
+import './Footer.css';
 
 
 const Footer = () => {
