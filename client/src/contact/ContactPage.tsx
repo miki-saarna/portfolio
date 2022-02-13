@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { isCompositeComponent } from "react-dom/test-utils";
 import { sumbitContactForm } from "../utils/api";
+import './ContactPage.css';
 
 function ContactPage() {
     const initialFormState = {
