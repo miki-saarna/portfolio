@@ -1,16 +1,36 @@
-
 .contact {
     width: 80%;
     margin: 100px auto 30px;
     display: flex;
     flex-direction: column;
   }
+
+
+
+.contact > button {
+    margin: 0px auto 20px;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f1f1f1;
+    background-color: transparent;
+    z-index: 3;
+    position: relative;
+    border: 2px solid #f1f1f1;
+  }
   
-  .contact > p {
-    width: fit-content;
-    margin: 20px auto 0;
-    font-size: 17px;
-    color: rgb(56, 211, 146);
+  .contact > button::after {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0e0";
+    color: #f1f1f1;
+    margin-left: 9px;
+    font-size: 18px;
   }
   
   form {
@@ -20,7 +40,68 @@
     overflow: hidden;
     transition: 700ms cubic-bezier(0.42, 0, 0.15, 0.85);
   }
+
+  form > button {
+      background-color: #f3f3f3;
+  }
   
+  /* when `contact me` button is clicked */
   .contact.active form {
     height:415px;
   }
+
+  
+  .slide-across-border {
+    border-bottom: 3px solid #f1f1f1;
+    width: 0;
+    border-radius: 1px;
+    /* makes border spread across from the center point */
+    /* margin: auto; */
+  }
+  
+  .slideAcross {
+    animation: slideAcross 1200ms ease-in-out;
+    align-self: flex-end;
+  }
+  
+  @keyframes slideAcross {
+    0% {
+      width: 0;
+      align-self: flex-start;
+    }
+    50% {
+      width: 100%
+    }
+    100% {
+      width: 0%;
+      align-self: flex-end;
+    }
+  }
+
+  .slideBack {
+    animation: slideBack 1200ms ease-in-out;
+    align-self: flex-start;
+  }
+  
+  
+  @keyframes slideBack {
+    0% {
+      width: 0;
+      align-self: flex-end;
+    }
+    50% {
+      width: 100%
+    }
+    100% {
+      width: 0%;
+      align-self: flex-start;
+    }
+  }
+
+    /* submit status */
+    .contact > p {
+        width: fit-content;
+        margin: 20px auto 0;
+        font-size: 17px;
+        color: rgb(56, 211, 146);
+      }
