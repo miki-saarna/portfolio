@@ -9,6 +9,7 @@ import linkedInLogoWhite from "../images/linkedin-brands.svg"
 import twitterLogoWhite from "../images/twitter-brands.svg"
 import AnimatedEllipse from "../utils/AnimatedEllipse";
 import satellite from "../images/satellite.png";
+import './Menu.css';
 
 export const Menu = () => {
     // document.body.style.position = 'fixed';
