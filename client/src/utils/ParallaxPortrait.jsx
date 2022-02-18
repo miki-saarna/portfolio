@@ -4,7 +4,6 @@ export default function ParallaxPortrait(element, portraitVariable, setPortraitV
 
     // default the values to null when window resize event occurs
     window.onresize = function () {
-        console.log('hey')
         setPortraitRevealBottom(null);
         setPortraitVariable(null);
     }
