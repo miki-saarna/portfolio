@@ -48,7 +48,8 @@ function ContactPage() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        sumbitContactForm(formData)
+        const abortController = new AbortController();
+        sumbitContactForm(formData, abortController)
             .then(({ response }) => {
                 displayFormHandler(event)
                 setTimeout(() => {
@@ -57,6 +58,7 @@ function ContactPage() {
                 }, 1250)
             });
         setFormData(initialFormState);
+        return () => abortController.abort();
     }
 
     return (

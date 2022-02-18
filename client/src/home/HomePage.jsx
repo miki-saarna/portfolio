@@ -27,11 +27,13 @@ const HomePage = () => {
     
     // retreive projects
     useEffect(() => {
-        retrieveProjects()
+        const abortController = new AbortController();
+        retrieveProjects(abortController.signal)
             .then((response) => {
                 // only display up to 4 projects on the home page
                 setProjectsList(response.slice(0, 4));
             })
+        return () => abortController.abort();
     }, [])
 
     const [projectsList, setProjectsList] = useState([]);
