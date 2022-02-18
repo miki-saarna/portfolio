@@ -1,0 +1,15 @@
+.not-found {
+    height: 100vh;
+}
+
+.not-found h2, h3 {
+    text-align: center;
+}
+
+.not-found h2 {
+    margin-top: 10%;
+}
+
+.not-found h3 {
+    margin-top: 3%;
+}
