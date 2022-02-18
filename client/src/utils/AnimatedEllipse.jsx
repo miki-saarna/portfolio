@@ -7,7 +7,7 @@ let satelliteMovement = 0;
         
         satelliteMovement += velocity
 
-        const satellite = document.querySelector('.scale-satellite');
+        const satellite = document.querySelector('.menu-bar-satellite');
         
         satellite.style.transform = `translate(${-Math.cos(satelliteMovement) * radiusX}px, ${Math.sin(satelliteMovement) * radiusY + Math.cos(satelliteMovement) * radiusX}px) scale(${Math.sin(satelliteMovement) + 1.3}) rotate(0deg) `
             

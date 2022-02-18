@@ -29,3 +29,12 @@ button {
     font-size: 22px;
   }
 }
+
+@media only screen and (min-width: 1600px) {
+  body {
+    max-width: 1600px;
+    margin: auto;
+    border-right: 1px solid #222222;
+    border-left: 1px solid #222222;
+  }
+}
