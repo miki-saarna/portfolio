@@ -7,6 +7,7 @@ import HomePage from "./home/HomePage";
 import AboutPage from "./about/AboutPage";
 import ContactPage from "./contact/ContactPage";
 import PortfolioPage from "./portfolio/PortfolioPage";
+import NotFound from "./layout/NotFound";
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />}/>
+        <Route path="*" element={<NotFound />}/>
         {/* <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} /> */}
