@@ -1,5 +1,3 @@
-
-
 export default function ParallaxPortrait(element, portraitVariable, setPortraitVariable, portraitRevealBottom, setPortraitRevealBottom, offset) {
 
     // default the values to null when window resize event occurs

@@ -1,4 +1,4 @@
-import react, { ReactElement, useState, useEffect } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 import { Project } from '../utils/types';
 import githubLogo from "../images/github_logo.png"
 

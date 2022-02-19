@@ -1,5 +1,5 @@
 
-import React, { ReactElement, useState } from "react";
+import { ReactElement, useState } from "react";
 import { sumbitContactForm } from "../utils/api";
 import { Form, FormSubmissionResponse } from "../utils/types"
 import './ContactForm.css';
