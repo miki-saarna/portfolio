@@ -1,4 +1,6 @@
-export const MenuData = [
+import { MenuDataEntry } from "../utils/types";
+
+export const MenuData: MenuDataEntry[] = [
     {
         title: "About",
         path: "about",

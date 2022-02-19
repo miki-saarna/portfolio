@@ -1,4 +1,4 @@
-import { Project } from './types';
+import { Project, FormSubmissionResponse } from './types';
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 const headers = new Headers();
 headers.append('Content-type', 'application/json');
@@ -15,7 +15,7 @@ export const retrieveProjects = async (signal): Promise<Project[]> => {
     return response.json();
 }
 
-export const sumbitContactForm = async (form, signal) => {
+export const sumbitContactForm = async (form, signal): Promise<FormSubmissionResponse> => {
     const url:any = new URL(`${API_BASE_URL}/form`)
     const config = {
         method: 'POST',

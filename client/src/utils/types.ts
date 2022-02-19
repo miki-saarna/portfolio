@@ -37,6 +37,14 @@ export interface ParallaxEllipseDataset {
     velocity: number
 }
 
+export interface TextAnimationDataset {
+    translateYSpeed: number,
+    scaleSpeed: number,
+    revealOpacitySpeed: number,
+    hideOpacitySpeed?: number,
+    hideOpacityPoint?: number | void,
+}
+
 export interface Form {
     name: string,
     email: string,
@@ -46,4 +54,9 @@ export interface Form {
 
 export interface FormSubmissionResponse {
     response: string
+}
+
+export interface FadeInAppearOptions {
+    threshold: number
+    rootMargin?: string
 }

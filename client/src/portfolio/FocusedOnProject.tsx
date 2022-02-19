@@ -1,9 +1,9 @@
-import react, { useState, useEffect } from 'react';
+import react, { ReactElement, useState, useEffect } from 'react';
 import { Project } from '../utils/types';
 import githubLogo from "../images/github_logo.png"
 
 
-export default function FocusedOnProject ({project, setCardSelected, offset}) {
+export default function FocusedOnProject ({project, setCardSelected, offset}): ReactElement {
     const {
         github_link,
         image,

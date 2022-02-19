@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
 import './Header.css';
 
-export const Header = () => {
+export const Header = (): ReactElement => {
 
     return (
         <>
