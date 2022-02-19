@@ -15,7 +15,6 @@ export interface Project extends ProjectCard {
     languages: Array<string>,
 }
 
-
 export interface TextAnimationDataEntry {
     class_name: string,
     revealVariable: Array<number>
