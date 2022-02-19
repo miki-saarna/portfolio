@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { ReactElement, useState, useEffect } from "react";
 import { Link } from 'react-scroll';
 import MenuData from "./MenuData";
 import githubLogo from "../images/github_logo.png"
@@ -9,14 +9,15 @@ import linkedInLogoWhite from "../images/linkedin-brands.svg"
 import twitterLogoWhite from "../images/twitter-brands.svg"
 import AnimatedEllipse from "../utils/AnimatedEllipse";
 import satellite from "../images/satellite.png";
+import { MenuDataEntry } from "../utils/types";
 import './Menu.css';
 
-export const Menu = () => {
+export const Menu = (): ReactElement => {
     // document.body.style.position = 'fixed';
     // document.body.style.position = 'static';
 
-    const [menuBar, setMenuBar] = useState(false);
-    const [animationId, setAnimationId] = useState(null);
+    const [menuBar, setMenuBar] = useState<boolean>(false);
+    const [animationId, setAnimationId] = useState<number | null>(null);
     
     const showMenuBarHandler = () => {
         if (window.innerWidth < 820) {
@@ -26,19 +27,18 @@ export const Menu = () => {
         }
     }
 
-    const menuItemsHTML = MenuData.map((item, index) => {
+    const menuItemsHTML: React.ReactNode[] = MenuData.map(({ title, path }:MenuDataEntry, index) => {
         return (
             <li key={index} className="link" onClick={showMenuBarHandler}>
                 {/* use this for navigation to a different page */}
                 {/* <Link to={item.path}>
                     {item.title}
                 </Link> */}
-                <Link to={item.path} smooth duration={800} offset={item.path == 'about' ? -225 : 0} onClick={showMenuBarHandler}>
-                    {item.title}
+                <Link to={path} smooth duration={800} offset={path == 'about' ? -225 : 0} onClick={showMenuBarHandler}>
+                    {title}
                 </Link>
             </li>
             )})
-
     // useEffect(() => {
     //     if (menuBar) {
     //         setAnimationId(window.requestAnimationFrame(AnimatedEllipse));

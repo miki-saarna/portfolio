@@ -29,7 +29,7 @@ export default function ProjectCards ({projectsList, setCardSelected}) {
             // find current position
             const scrollY = window.scrollY // unsure of the difference with `window.pageYOffset`
             document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollY}px`
+            document.body.style.top = `-${scrollY}px`;
 
             const parallaxPosition = document.querySelectorAll('.parallax-position');
             parallaxPosition.forEach((element) => {
