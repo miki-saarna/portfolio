@@ -1,20 +1,18 @@
-import React, { ReactElement, useState, useEffect } from "react";
-import { debounce } from "lodash";
+import { ReactElement, useState, useEffect } from "react";
 import { retrieveProjects } from "../utils/api";
 import TextAnimation from "../utils/TextAnimation";
 import ParallaxLinear from "../utils/ParallaxLinear";
 import ParallaxEllipse from "../utils/ParallaxEllipse";
 import ParallaxLinearRocket from "../utils/ParallaxLinearRocket";
-import ContactPage from "../contact/ContactPage";
+import ContactForm from "../contact/ContactForm";
 import ProjectCards from "../portfolio/ProjectCards";
 import FocusedOnProject from "../portfolio/FocusedOnProject";
 import TextAnimationData from "../utils/TextAnimationData";
 import Portrait from "../utils/Portrait";
 import FadeInEffect from "../utils/FadeInEffect";
-import './HomePage.css';
 import '../utils/Parallax.css';
-import '../about/PortraitContainer.css';
-import '../portfolio/PortfolioPage.css';
+import '../utils/PortraitContainer.css';
+import '../portfolio/PortfolioContainer.css';
 
 import portrait from "../images/portfolio-portrait.jpg";
 import earth from "../images/earth.png";
@@ -55,6 +53,7 @@ const HomePage = (): ReactElement => {
         // tremendous difficulty getting the rocket to not affect other elements
         // ParallaxLinearRocket(parallaxLinearRocket, offset);
         // console.log(ParallaxEllipse)
+
         const parallaxEllipse = document.querySelector(".parallaxEllipse");
         // adjust radius x and y values and speed of motion
         const variables = {
@@ -63,24 +62,11 @@ const HomePage = (): ReactElement => {
             velocity: 0.02
         }
         ParallaxEllipse(parallaxEllipse, variables, offset);
-    
-        // // // // /// // // // // // // // // // /// // // // // //
 
-        // create CSS media queries for these
-        // const parallaxContainer = document.querySelector('.parallax-content')
-        // if (window.innerWidth < window.innerHeight && parallaxContainer) {
-        //     parallaxContainer.style.height = `100vh`;
-        // } else if (parallaxContainer) {
-        //     parallaxContainer.style.height = `150vh`
-        // }
-
-        // // // // /// // // // // // // // // // /// // // // // //
         // creates all the text animations
         TextAnimationData.forEach((element: TextAnimationDataEntry) => {
             TextAnimation(element, offset);
         })
-
-        // // // // /// // // // // // // // // // /// // // // // //
 
         const projectCards = document.querySelectorAll('.project-card');
         FadeInEffect(projectCards)
@@ -117,7 +103,7 @@ const HomePage = (): ReactElement => {
             </div>
             {cardSelected ? <FocusedOnProject project={projectsList.find(project => project['_id'] === cardSelected)} setCardSelected={setCardSelected} offset={offset} /> : null}
 
-            <ContactPage />
+            <ContactForm />
         </>
     )
 }

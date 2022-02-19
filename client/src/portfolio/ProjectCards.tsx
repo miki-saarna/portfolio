@@ -1,10 +1,10 @@
 import { ProjectCard } from '../utils/types';
-import react, { ReactElement, useState, useEffect } from 'react';
+import { ReactElement } from 'react';
 import FadeInEffect from "../utils/FadeInEffect";
     
 export default function ProjectCards ({projectsList, setCardSelected}): ReactElement {
 
-    // implements fade-in effect of the project cards
+    // implements fade-in effect on the project cards
     const projectCards = document.querySelectorAll('.project-card');
     FadeInEffect(projectCards)
 

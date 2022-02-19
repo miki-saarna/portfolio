@@ -14,13 +14,6 @@ export const Header = (): ReactElement => {
                 <h2>Software Engineer</h2>
                 </div>
                 <Menu />
-                {/* <nav>
-                    <ul>
-                        <li><Link className="link" to="/about">About</Link></li>
-                        <li><Link className="link" to="/contact">Contact</Link></li>
-                        <li><Link className="link" to="/portfolio">Portfolio</Link></li>
-                    </ul>
-                </nav> */}
             </header>
         </>
     )

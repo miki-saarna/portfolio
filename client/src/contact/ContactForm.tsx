@@ -1,11 +1,10 @@
 
-import React, { ReactElement, useState } from "react";
-import { isCompositeComponent } from "react-dom/test-utils";
+import { ReactElement, useState } from "react";
 import { sumbitContactForm } from "../utils/api";
 import { Form, FormSubmissionResponse } from "../utils/types"
-import './ContactPage.css';
+import './ContactForm.css';
 
-function ContactPage(): ReactElement {
+function ContactForm(): ReactElement {
     const initialFormState: Form = {
         name: '',
         email: '',
@@ -68,8 +67,7 @@ function ContactPage(): ReactElement {
             {/* <div className='contact-gradient'></div> */}
             <button onClick={displayFormHandler}>Contact me</button>
             <div className='slide-across-border'></div>
-            {/* remvoe form class? */}
-            <form className='form' onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
             
                 <label htmlFor='name'>
                     Name:
@@ -133,4 +131,4 @@ function ContactPage(): ReactElement {
     )
 }
 
-export default ContactPage;
+export default ContactForm;
