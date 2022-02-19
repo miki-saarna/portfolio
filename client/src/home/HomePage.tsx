@@ -45,7 +45,6 @@ const HomePage = (): ReactElement => {
 
     const handleScroll = () => setOffset(window.pageYOffset);
 
-
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 

@@ -1,3 +1,5 @@
+import { ParallaxDataset, ParallaxEllipseDataset } from './types';
+
 // designed to accept only 1 element
 export default function ParallaxEllipse(element, variables, offset) {
     const {
@@ -6,15 +8,15 @@ export default function ParallaxEllipse(element, variables, offset) {
             translateYSpeed,
             scaleSpeed
         } 
-    } = element
+    }: ParallaxDataset  = element
 
     const {
         radiusX,
         radiusY,
         velocity,
-    } = variables
+    }: ParallaxEllipseDataset = variables
     // calculates position relative to offset and velocity
-    const movement = offset * velocity
+    const movement: number = offset * velocity
 
     // creates an ellipse motion
     element.style.transform = `translate(${Math.cos(movement) * radiusX}px, ${Math.sin(movement) * radiusY + Math.cos(movement) * radiusX}px) scale(${Math.sin(movement) + (scaleSpeed * 1000)}) rotate(0deg) `

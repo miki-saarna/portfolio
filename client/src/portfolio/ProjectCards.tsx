@@ -1,7 +1,8 @@
-import react, { useState, useEffect } from 'react';
+import { ProjectCard } from '../utils/types';
+import react, { ReactElement, useState, useEffect } from 'react';
 import FadeInEffect from "../utils/FadeInEffect";
     
-export default function ProjectCards ({projectsList, setCardSelected}) {
+export default function ProjectCards ({projectsList, setCardSelected}): ReactElement {
 
     // implements fade-in effect of the project cards
     const projectCards = document.querySelectorAll('.project-card');
@@ -12,7 +13,7 @@ export default function ProjectCards ({projectsList, setCardSelected}) {
             _id,
             image,
             name,
-        } = project;
+        }: ProjectCard = project;
     
         const projectCardClickHandler = (event) => {
             event.preventDefault();
@@ -27,12 +28,13 @@ export default function ProjectCards ({projectsList, setCardSelected}) {
             // document.body.appendChild(backgroundDim);
             
             // find current position
-            const scrollY = window.scrollY // unsure of the difference with `window.pageYOffset`
+            const scrollY:number = window.scrollY // unsure of the difference with `window.pageYOffset`
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollY}px`;
 
             const parallaxPosition = document.querySelectorAll('.parallax-position');
-            parallaxPosition.forEach((element) => {
+            // fix any type annotation below
+            parallaxPosition.forEach((element: any) => {
                 element.style.position = `static`;
             })
         }
