@@ -1,26 +1,28 @@
 
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { isCompositeComponent } from "react-dom/test-utils";
 import { sumbitContactForm } from "../utils/api";
+import { Form, FormSubmissionResponse } from "../utils/types"
 import './ContactPage.css';
 
-function ContactPage() {
-    const initialFormState = {
+function ContactPage(): ReactElement {
+    const initialFormState: Form = {
         name: '',
         email: '',
         url: '',
         message: '',
     }
 
-    const [formData, setFormData] = useState(initialFormState)
-    const [displayForm, setDisplayForm] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState('');
+    const [formData, setFormData] = useState<Form>(initialFormState)
+    const [displayForm, setDisplayForm] = useState<boolean>(false);
+    const [submitStatus, setSubmitStatus] = useState<string>('');
     // const [submitStatusCode, setSubmitStatusCode] = useState('');
 
     const displayFormHandler = (event) => {
         event.preventDefault();
-        const contactContainer = event.target.parentNode;
-        const contactGradientBorder :any = document.querySelector('.slide-across-border');
+        const contactContainer: HTMLElement = event.target.parentNode;
+        // fix type annotation below
+        const contactGradientBorder:any = document.querySelector('.slide-across-border');
         if (displayForm) {
             contactContainer.classList.remove('active');
             contactGradientBorder.classList.remove('slideAcross')
@@ -38,7 +40,7 @@ function ContactPage() {
     }
 
     const changeHandler = ({ target }) => {
-        const value = target.value;
+        const value: HTMLElement = target.value;
         // const { value } = target;
         setFormData({
             ...formData,
@@ -49,8 +51,8 @@ function ContactPage() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const abortController = new AbortController();
-        sumbitContactForm(formData, abortController)
-            .then(({ response }) => {
+        sumbitContactForm(formData, abortController.signal)
+            .then(({ response }: FormSubmissionResponse) => {
                 displayFormHandler(event)
                 setTimeout(() => {
                     // setSubmitStatusCode(`201`)

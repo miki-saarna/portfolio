@@ -1,4 +1,6 @@
-const TextAnimationData = [
+import { TextAnimationDataEntry } from './types';
+
+const TextAnimationData: TextAnimationDataEntry[] = [
     {
         class_name: '.homepage-title',
         revealVariable: [0.08, 0.08]

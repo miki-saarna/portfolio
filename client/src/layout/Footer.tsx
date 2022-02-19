@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { animateScroll as scroll } from 'react-scroll';
 import githubLogo from "../images/github_logo.png"
 import linkedInLogo from "../images/linkedin_logo.png"
@@ -9,7 +9,7 @@ import twitterLogoWhite from "../images/twitter-brands.svg"
 import './Footer.css';
 
 
-const Footer = () => {
+const Footer = (): ReactElement => {
 
 
     return (
@@ -27,4 +27,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Footer;

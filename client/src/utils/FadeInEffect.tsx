@@ -1,5 +1,7 @@
+import { FadeInAppearOptions } from "./types";
+
 export default function FadeInEffect(elements) {
-  const appearOptions = {
+  const appearOptions: FadeInAppearOptions = {
       // if threshold is 1, the entire element needs to be within the screen to appear
       threshold: 0.25,
       // sets how far from the edges the element needs to be to appear

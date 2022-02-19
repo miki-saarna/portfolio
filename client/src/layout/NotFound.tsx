@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useParams } from 'react-router-dom';
 import './NotFound.css';
 
-export default function NotFound() {
+export default function NotFound(): ReactElement {
     const param = useParams();
 
     return (

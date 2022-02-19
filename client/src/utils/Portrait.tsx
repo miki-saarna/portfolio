@@ -1,11 +1,11 @@
-import react, { useState } from 'react';
+import react, { ReactElement, useState } from 'react';
 import portrait from "../images/portfolio-portrait.jpg";
 import ParallaxPortrait from "./ParallaxPortrait";
 
-export default function Portrait({ offset }) {
+export default function Portrait({ offset }): ReactElement {
 
-    const [portraitVariable, setPortraitVariable] = useState(null);
-    const [portraitRevealBottom, setPortraitRevealBottom] = useState(null);
+    const [portraitVariable, setPortraitVariable] = useState<number | null>(null);
+    const [portraitRevealBottom, setPortraitRevealBottom] = useState<number | null>(null);
 
     const element = document.querySelector('.portrait');
 

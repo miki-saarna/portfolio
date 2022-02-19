@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Menu from "./layout/Menu";
 import Header from "./layout/Header";
@@ -10,7 +10,7 @@ import PortfolioPage from "./portfolio/PortfolioPage";
 import NotFound from "./layout/NotFound";
 import './App.css';
 
-function App() {
+function App(): ReactElement {
   return (
     <>
       {/* <Menu /> */}

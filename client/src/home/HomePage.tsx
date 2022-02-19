@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { ReactElement, useState, useEffect } from "react";
 import { debounce } from "lodash";
 import { retrieveProjects } from "../utils/api";
 import TextAnimation from "../utils/TextAnimation";
@@ -23,25 +23,27 @@ import saturn from "../images/saturn.png";
 import rocket from "../images/rocket.png";
 import satellite from "../images/satellite.png";
 
-const HomePage = () => {
+import { Project, TextAnimationDataEntry } from "../utils/types";
+
+const HomePage = (): ReactElement => {
     
     // retreive projects
     useEffect(() => {
         const abortController = new AbortController();
         retrieveProjects(abortController.signal)
-            .then((response) => {
+            // is this excessive?
+            .then((response:Project[]) => {
                 // only display up to 4 projects on the home page
                 setProjectsList(response.slice(0, 4));
             })
         return () => abortController.abort();
     }, [])
 
-    const [projectsList, setProjectsList] = useState([]);
-    const [cardSelected, setCardSelected] = useState(null);
-    const [offset, setOffset] = useState(0);
+    const [projectsList, setProjectsList] = useState<Project[]>([]);
+    const [cardSelected, setCardSelected] = useState<string | null>(null);
+    const [offset, setOffset] = useState<number>(0);
 
     const handleScroll = () => setOffset(window.pageYOffset);
-
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -74,7 +76,7 @@ const HomePage = () => {
 
         // // // // /// // // // // // // // // // /// // // // // //
         // creates all the text animations
-        TextAnimationData.forEach((element) => {
+        TextAnimationData.forEach((element: TextAnimationDataEntry) => {
             TextAnimation(element, offset);
         })
 
@@ -113,7 +115,7 @@ const HomePage = () => {
                 </div>
                 <p>Check out my other projects at <a href='https://github.com/miki-saarna' target='_blank'>GitHub!</a></p>
             </div>
-            {cardSelected ? <FocusedOnProject project={projectsList.find(project => project._id === cardSelected)} setCardSelected={setCardSelected} offset={offset} /> : null}
+            {cardSelected ? <FocusedOnProject project={projectsList.find(project => project['_id'] === cardSelected)} setCardSelected={setCardSelected} offset={offset} /> : null}
 
             <ContactPage />
         </>

@@ -8,13 +8,15 @@ export default function ParallaxPortrait(element, portraitVariable, setPortraitV
         setPortraitVariable(null);
     }
 
-    const revealTop = element.getBoundingClientRect().top;
-    const revealBottom = element.getBoundingClientRect().bottom;
-    const portraitHeight = element.getBoundingClientRect().height;
+    const revealTop: number = element.getBoundingClientRect().top;
+    const revealBottom: number = element.getBoundingClientRect().bottom;
+    const portraitHeight: number = element.getBoundingClientRect().height;
     
-    const portraitContainerHeight = document.querySelector('.portrait-container').getBoundingClientRect().height;
+    // resolve any type annotation below
+    const portraitContainer: any = document.querySelector('.portrait-container')
+    const portraitContainerHeight: number = portraitContainer.getBoundingClientRect().height;
 
-    const heightDifference = portraitHeight - portraitContainerHeight;
+    const heightDifference: number = portraitHeight - portraitContainerHeight;
     
     if (!portraitRevealBottom) {
         setPortraitRevealBottom(offset + revealBottom);

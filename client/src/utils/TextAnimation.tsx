@@ -1,3 +1,4 @@
+import { TextAnimationDataEntry, TextAnimationDataset } from './types';
 import './TextAnimation.css';
 
 export default function TextAnimation(variables, offset) {
@@ -6,10 +7,10 @@ export default function TextAnimation(variables, offset) {
         class_name,
         revealVariable,
         hideVariable,
-    } = variables;
+    }: TextAnimationDataEntry = variables;
 
-    let revealPoint;
-    let hidePoint;
+    let revealPoint: number;
+    let hidePoint: number | void;
     if (window.innerWidth < window.innerHeight) {
         revealPoint = window.innerHeight * revealVariable[0];
         hidePoint = hideVariable ? window.innerHeight * hideVariable[0] : undefined;
@@ -18,7 +19,8 @@ export default function TextAnimation(variables, offset) {
         hidePoint = hideVariable ? window.innerHeight * hideVariable[1] : undefined;
     }
     
-    const element = document.querySelector(class_name);
+    // resolve any type annotation
+    const element: any = document.querySelector(class_name);
     
     const {
         translateYSpeed,
@@ -26,7 +28,7 @@ export default function TextAnimation(variables, offset) {
         revealOpacitySpeed,
         hideOpacitySpeed,
         hideOpacityPoint,
-    } = element.dataset
+    }: TextAnimationDataset = element.dataset
 
     if (offset < revealPoint) {
         element.style.opacity = `0`
@@ -39,7 +41,7 @@ export default function TextAnimation(variables, offset) {
     }
 
     // if there is a hidePoint
-    if (hidePoint && offset > hidePoint) {
+    if (hideOpacitySpeed && hidePoint && offset > hidePoint) {
         element.style.opacity = `${1 - (offset - hidePoint) * hideOpacitySpeed}`
     }
 
