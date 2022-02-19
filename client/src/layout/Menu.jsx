@@ -12,12 +12,12 @@ import satellite from "../images/satellite.png";
 import { MenuDataEntry } from "../utils/types";
 import './Menu.css';
 
-export const Menu = (): ReactElement => {
+export const Menu = () => {
     // document.body.style.position = 'fixed';
     // document.body.style.position = 'static';
 
-    const [menuBar, setMenuBar] = useState<boolean>(false);
-    const [animationId, setAnimationId] = useState<number | null>(null);
+    const [menuBar, setMenuBar] = useState(false);
+    const [animationId, setAnimationId] = useState(null);
     
     const showMenuBarHandler = () => {
         if (window.innerWidth < 820) {
@@ -27,7 +27,8 @@ export const Menu = (): ReactElement => {
         }
     }
 
-    const menuItemsHTML: React.ReactNode[] = MenuData.map(({ title, path }:MenuDataEntry, index) => {
+    const menuItemsHTML = MenuData.map(({ title, path }, index) => {
+    // const menuItemsHTML: React.ReactNode[] = MenuData.map(({ title, path }:MenuDataEntry, index) => {
         return (
             <li key={index} className="link" onClick={showMenuBarHandler}>
                 {/* use this for navigation to a different page */}
