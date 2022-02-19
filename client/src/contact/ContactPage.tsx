@@ -2,17 +2,18 @@
 import React, { useState } from "react";
 import { isCompositeComponent } from "react-dom/test-utils";
 import { sumbitContactForm } from "../utils/api";
+import { Form } from "../utils/types"
 import './ContactPage.css';
 
 function ContactPage() {
-    const initialFormState = {
+    const initialFormState: Form = {
         name: '',
         email: '',
         url: '',
         message: '',
     }
 
-    const [formData, setFormData] = useState(initialFormState)
+    const [formData, setFormData] = useState<Form>(initialFormState)
     const [displayForm, setDisplayForm] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
     // const [submitStatusCode, setSubmitStatusCode] = useState('');

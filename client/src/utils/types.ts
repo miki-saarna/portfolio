@@ -3,20 +3,18 @@ export interface MenuDataEntry {
     path: string
 }
 
-export interface Project {
-    description: string,
-    github_link: string,
-    image: string,
-    languages: Array<string>,
-    name: string,
-    _id: string
-}
-// convert above and below interfaces to use extend?
 export interface ProjectCard {
     _id: string,
     image: string,
     name: string,
 }
+
+export interface Project extends ProjectCard {
+    description: string,
+    github_link: string,
+    languages: Array<string>,
+}
+
 
 export interface TextAnimationDataEntry {
     class_name: string,
@@ -37,4 +35,11 @@ export interface ParallaxEllipseDataset {
     radiusX: number,
     radiusY: number,
     velocity: number
+}
+
+export interface Form {
+    name: string,
+    email: string,
+    url: string,
+    message: string,
 }
