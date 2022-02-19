@@ -43,3 +43,7 @@ export interface Form {
     url: string,
     message: string,
 }
+
+export interface FormSubmissionResponse {
+    response: string
+}
